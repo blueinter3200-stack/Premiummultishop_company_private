@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "repository": "jintonic1010/miracle_company_private",
+  "repository_url": "https://github.com/jintonic1010/miracle_company_private",
+  "generated_at": "2026-08-19",
+  "purpose": "LLM selective-read map for Miracle Company OS",
+  "recommended_read_order": [
+    "FILE_MAP.json",
+    "COMPANY_OS.md",
+    "PRODUCT_REQUIREMENTS.md",
+    "relevant departments/* or architecture/*",
+    "docs/requirement-changelog.md only when history matters"
+  ],
+  "files": [
+    {"path":"README.md","role":"repository entrypoint","authority":"navigation","read_when":["first orientation"]},
+    {"path":"COMPANY_OS.md","role":"company-wide operating model and architecture direction","authority":"canonical direction","read_when":["company structure","department relationship","ERP/n8n questions"]},
+    {"path":"PRODUCT_REQUIREMENTS.md","role":"active approved company-OS requirements","authority":"canonical requirements","read_when":["behavior or scope decision","implementation planning","idea/problem application"]},
+    {"path":"ADMIN_GUIDE.md","role":"administrator governance boundary","authority":"governance guide","read_when":["admin maintenance","idea/problem application"]},
+    {"path":"architecture/N8N_BACKBONE.md","role":"n8n company-wide backbone boundaries","authority":"architecture detail","read_when":["n8n","automation","cross-department workflow"]},
+    {"path":"architecture/API_IN_OUT_MATRIX.md","role":"target API directions and research checklist","authority":"working architecture","read_when":["Cafe24","Naver","Google","supplier API","ERP integration"]},
+    {"path":"departments/ERP_LOGISTICS.md","role":"ERP and logistics department scope","authority":"department detail","read_when":["inventory","orders","customers","logistics","ERPNext","InvenTree"]},
+    {"path":"departments/MARKET_RESEARCH.md","role":"market-research bidirectional data role","authority":"department detail","read_when":["market research","competitors","trends","product candidates"]},
+    {"path":"departments/MARKETING.md","role":"marketing bidirectional data role","authority":"department detail","read_when":["marketing","campaign","segments","ads","conversion"]},
+    {"path":"departments/CS.md","role":"customer-service bidirectional data role","authority":"department detail","read_when":["customer inquiry","complaint","return","CS"]},
+    {"path":"departments/TAX_LEGAL.md","role":"tax and legal data role","authority":"department detail","read_when":["tax","legal","evidence","contracts"]},
+    {"path":"docs/current-state.md","role":"current decisions and immediate next work","authority":"status","read_when":["what next","current progress"]},
+    {"path":"docs/requirement-changelog.md","role":"meaningful requirement history","authority":"history","read_when":["why a requirement changed","supersession history"]},
+    {"path":"docs/DATA_SECURITY.md","role":"GitHub vs runtime data boundary","authority":"security boundary","read_when":["customer data","DB","secrets","privacy"]},
+    {"path":"ideas/README.md","role":"non-authoritative saved idea area","authority":"reference only","read_when":["idea history"]},
+    {"path":"problems/README.md","role":"non-authoritative saved problem area","authority":"reference only","read_when":["problem history"]},
+    {"path":"projects/README.md","role":"project-specific material area","authority":"reference/navigation","read_when":["specific business project"]},
+    {"path":"data/db/README.md","role":"DB metadata/schema storage rule","authority":"data boundary","read_when":["database design","data storage"]},
+    {"path":"archive/README.md","role":"legacy import cleanup and history note","authority":"historical reference","read_when":["legacy import","cleanup history"]}
+  ],
+  "do_not_default_read": [
+    "old _markdown import dump in Git history",
+    "credentials or SSH materials",
+    "browser caches and binaries",
+    "Claude raw conversation logs",
+    "nested .git metadata",
+    "system installation logs"
+  ]
+}
