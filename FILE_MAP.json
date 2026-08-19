@@ -30,9 +30,11 @@
     {"path":"problems/README.md","role":"non-authoritative saved problem area","authority":"reference only","read_when":["problem history"]},
     {"path":"projects/README.md","role":"project-specific material area","authority":"reference/navigation","read_when":["specific business project"]},
     {"path":"data/db/README.md","role":"DB metadata/schema storage rule","authority":"data boundary","read_when":["database design","data storage"]},
-    {"path":"archive/README.md","role":"legacy import cleanup and history note","authority":"historical reference","read_when":["legacy import","cleanup history"]}
+    {"path":"archive/README.md","role":"legacy import cleanup and preservation note","authority":"historical reference","read_when":["legacy import","cleanup history"]},
+    {"path":"archive/business-vault/","role":"selected legacy business knowledge from prior BusinessVault import","authority":"legacy/reference only","read_when":["Premium MultiShop historical research","BELLOON historical research","past business decisions"]}
   ],
   "do_not_default_read": [
+    "archive/business-vault unless historical context is needed",
     "old _markdown import dump in Git history",
     "credentials or SSH materials",
     "browser caches and binaries",
