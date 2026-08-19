@@ -79,26 +79,47 @@ n8n은 회사 전체 연결과 자동화를 담당하지만 ERP 운영 데이터
 ### GOV-002 — current work
 진행·협의 중 업무와 요구사항 후보는 `working/CURRENT_WORK.md` 한 파일의 최신 상태로 관리한다. 부서별 자동 분류를 강제하지 않는다.
 
-### GOV-003 — shared work update
-대표님과 관리자 모두 진행 업무를 공유할 수 있다. 공유 시 현재 파일을 읽고 새 내용·변경·삭제·보류를 반영해 `CURRENT_WORK.md` 전체를 최신판으로 갱신한다.
+### GOV-003 — work review gate
+대표님과 관리자는 진행 업무를 자유롭게 대화할 수 있지만 `working/CURRENT_WORK.md`에 쓰기 전 `/업무검토`를 실행한다. 업무검토는 최신 `main`의 공식 회사 방향, 확정 요구사항, 현재 업무판과의 충돌·중복·모호함·보안 경계를 확인하는 읽기 전용 단계다.
 
-### GOV-004 — admin confirmation
+### GOV-004 — work review result
+업무검토 결과는 `PASS / 공유 가능`, `REVISION / 수정 필요`, `HOLD / 보류`로 구분한다. `PASS`는 진행업무판에 공유 가능하다는 뜻이며 회사 공식 요구사항 확정을 의미하지 않는다.
+
+### GOV-005 — shared work update
+`/업무공유`는 같은 대화에서 가장 최근 `/업무검토`가 PASS인 경우에만 실행한다. 검토 후 핵심 내용이 실질적으로 바뀌면 다시 검토한다. 공유 시 기존 `CURRENT_WORK.md`를 읽고 새 내용·변경·삭제·보류·완료를 반영해 파일 전체를 단일 최신판으로 갱신한다.
+
+### GOV-006 — admin confirmation
 `CURRENT_WORK.md`의 내용은 자동으로 공식 요구사항이 되지 않는다. 관리자가 `/업무확정`으로 확정한 항목만 공식 소스와 요구사항으로 승격한다.
 
-### GOV-005 — idea/problem save
+### GOV-007 — idea/problem save
 대표님과 관리자 모두 아이디어·문제를 저장할 수 있다. 저장 기록은 공식 요구사항이 아니다.
 
-### GOV-006 — reflection authority
+### GOV-008 — reflection authority
 아이디어·문제의 공식 반영과 업무 확정은 관리자만 수행한다.
 
-### GOV-007 — attachments
-아이디어/문제 저장 메시지에 관련 첨부파일이 있으면 가능한 경우 원본을 `materials/originals/`에 보존하고, 별도로 LLM용 Markdown 정제본을 `materials/normalized/`에 만든다. 기록 파일은 원본과 정제본 경로를 연결한다.
+### GOV-009 — attachments
+아이디어·문제 저장 또는 업무공유 메시지에 관련 첨부파일이 있으면 가능한 경우 원본을 `materials/originals/`에 보존하고 별도로 LLM용 Markdown 정제본을 `materials/normalized/`에 만든다. 기록 또는 CURRENT_WORK는 필요한 경우 정제본 경로를 연결한다.
 
-### GOV-008 — selective read
+업무 첨부 경로는 다음을 사용한다.
+
+```text
+materials/originals/<author-role>/work/YYYY-MM-DD/<original-file>
+materials/normalized/<author-role>/work/YYYY-MM-DD/<original-file>.md
+```
+
+### GOV-010 — selective read
 평소 LLM은 공식 소스와 `CURRENT_WORK.md`만 읽는다. 미반영 아이디어·문제, 정제자료는 관련 요청일 때만 읽고, 원본은 명시적인 원본 확인 또는 정제본 오류가 있을 때만 읽는다.
 
-### GOV-009 — status distinction
+### GOV-011 — status distinction
 공식 기준과 진행·협의 중 내용이 다르면 답변에서 반드시 `현재 확정 기준`과 `현재 협의/진행 중`을 구분한다.
 
-### GOV-010 — change history
+### GOV-012 — current official context during review
+업무검토는 과거 대화 기억에 의존하지 않고 최신 `main`의 `COMPANY_OS.md`, `PRODUCT_REQUIREMENTS.md`, `CURRENT_WORK.md`와 직접 관련된 공식 부서 문서를 기준으로 수행한다. 이미 관리자에 의해 반영된 아이디어·문제는 공식 소스에 반영된 결과를 기준으로 본다. 미반영 기록 전체를 자동으로 읽지 않는다.
+
+### GOV-013 — change existing official requirement
+기존 공식 기준의 변경안도 바로 공식 문서를 수정하지 않는다. 먼저 업무 대화 → `/업무검토` → PASS → `/업무공유`로 CURRENT_WORK에 변경 협의안으로 올리고, 이후 관리자 `/업무확정`으로 공식 기준을 교체한다.
+
+### GOV-014 — change history
 확정 요구사항의 추가·교체·삭제·중요한 의미 변경은 `docs/requirement-changelog.md`에 기록한다.
+
+세부 업무검토·업무공유 규칙은 `llm-source/WORK_GOVERNANCE.md`를 따른다.
