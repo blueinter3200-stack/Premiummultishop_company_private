@@ -1,51 +1,37 @@
 # Miracle Company Private
 
-대표님과 Jin이 함께 관리할 회사 내부 AI·사업 자산 저장소입니다.
+미라클 회사 대표님과 관리자가 함께 사용하는 **회사 OS 기준·진행업무·아이디어·문제·자료 저장소**입니다.
 
-## Current Safety Status
+- Canonical repository: `https://github.com/jintonic1010/miracle_company_private`
+- Clone: `gh repo clone jintonic1010/miracle_company_private`
+- Canonical branch: `main`
+- Visibility: private
 
-> **현재 이 저장소는 GitHub에서 `public`으로 확인되었습니다.**
-> 비공개(`private`) 전환이 확인되기 전에는 대표님 Claude 프로젝트 자료, 사업 아이디어, 대화 기록, 고객정보, 내부 문서 등 비공개 자료를 업로드하지 마세요.
+## 핵심 원칙
 
-## Intended Use
+1. `llm-source/` = 현재 확정된 회사 기준. 평소 LLM이 우선 읽습니다.
+2. `working/CURRENT_WORK.md` = 현재 진행·협의 중인 회사 업무의 최신판. 평소 LLM이 함께 읽습니다.
+3. `records/` = 아직 공식 반영되지 않은 아이디어·문제 기록. 명시적으로 필요할 때만 읽습니다.
+4. `materials/normalized/` = 첨부자료를 LLM이 읽기 좋게 정제한 Markdown. 관련 요청이 있을 때만 읽습니다.
+5. `materials/originals/` = 첨부 원본 보존. 기본 읽기 금지입니다.
+6. `archive/` = 과거/레거시 자료. 기본 읽기 금지입니다.
+7. 실제 고객 개인정보, 운영 DB, API 키, 비밀번호, 토큰, SSH 개인키는 이 저장소에 넣지 않습니다.
 
-비공개 전환 후 다음 자료를 프로젝트별로 분리해 관리할 예정입니다.
+## 작성자
 
-- 대표님 Claude 프로젝트별 지침, 메모리, 컨텍스트 및 생성 문서
-- 프로젝트별 원본 자료와 정제된 AI 소스
-- 특정 프로젝트에 속하지 않는 사업 아이디어
-- 대표님과 Jin만 공유해야 하는 내부 기획 자산
+회사 기록 작성자는 두 역할로 구분합니다.
 
-## Planned Structure
+- 대표님: `representative`
+- 관리자: `admin`
 
-```text
-projects/
-  <project-name>/
-    raw/
-    normalized/
-    analysis/
-    history/
+역할은 대화 내용으로 추론하지 않고 ChatGPT 프로젝트에 넣는 역할 소스로 고정합니다.
 
-business-ideas/
-```
+## 기본 LLM 읽기 순서
 
-실제 폴더 구조는 원본 자료 전수 확보 후 재분석하여 확정합니다.
+1. `FILE_MAP.json`
+2. `llm-source/COMPANY_OS.md`
+3. `llm-source/PRODUCT_REQUIREMENTS.md`
+4. `working/CURRENT_WORK.md`
+5. 질문과 직접 관련된 부서 문서만 선택적으로 읽기
 
-## Access Boundary
-
-- 대표님: 접근 가능
-- Jin: 접근 가능
-- 일반 개발자: 접근하지 않음
-- 실제 개발 프로젝트는 이 저장소와 분리된 별도 회사 프로젝트 저장소에서 관리
-
-## Data Protection
-
-다음 자료는 저장소가 비공개이더라도 별도 검토 없이 올리지 않습니다.
-
-- 고객 실명, 전화번호, 주소 등 원본 개인정보
-- API 키, 비밀번호, 인증 토큰 및 `.env`
-- 운영 DB, 캐시, 인덱스 및 기타 런타임 민감 데이터
-
----
-
-**다음 조치:** GitHub 저장소 가시성을 `private`으로 전환한 뒤 실제 대표님 AI 자산 반입을 시작합니다.
+저장된 아이디어·문제, 정제자료, 원본, 아카이브는 기본적으로 읽지 않습니다.

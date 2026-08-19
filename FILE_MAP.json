@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "repository": "jintonic1010/miracle_company_private",
+  "repository_url": "https://github.com/jintonic1010/miracle_company_private",
+  "branch": "main",
+  "purpose": "Miracle Company LLM selective-read map",
+  "default_read": [
+    "llm-source/COMPANY_OS.md",
+    "llm-source/PRODUCT_REQUIREMENTS.md",
+    "working/CURRENT_WORK.md"
+  ],
+  "selective_read": [
+    "llm-source/departments/ERP_LOGISTICS.md",
+    "llm-source/departments/MARKET_RESEARCH.md",
+    "llm-source/departments/MARKETING.md",
+    "llm-source/departments/CS.md",
+    "llm-source/departments/TAX_LEGAL.md",
+    "working/HISTORY.md",
+    "records/ideas/**",
+    "records/problems/**",
+    "materials/normalized/**",
+    "docs/requirement-changelog.md"
+  ],
+  "do_not_read_by_default": [
+    "materials/originals/**",
+    "archive/**",
+    "data/db/**"
+  ],
+  "authority": {
+    "llm-source/COMPANY_OS.md": "official company direction",
+    "llm-source/PRODUCT_REQUIREMENTS.md": "official confirmed requirements",
+    "working/CURRENT_WORK.md": "current progress and discussion; not automatically official",
+    "records/ideas/**": "saved proposal; non-authoritative until admin reflection",
+    "records/problems/**": "saved problem; non-authoritative until admin reflection"
+  },
+  "answer_rule": "If current work conflicts with official source, state both separately as 현재 확정 기준 and 현재 협의/진행 중. Never promote a saved idea/problem or working item to official status without admin confirmation."
+}
