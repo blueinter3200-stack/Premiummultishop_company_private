@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "repository": "jintonic1010/miracle_company_private",
   "repository_url": "https://github.com/jintonic1010/miracle_company_private",
   "branch": "main",
@@ -9,7 +9,15 @@
     "llm-source/PRODUCT_REQUIREMENTS.md",
     "working/CURRENT_WORK.md"
   ],
+  "read_for_work_review": [
+    "llm-source/COMPANY_OS.md",
+    "llm-source/PRODUCT_REQUIREMENTS.md",
+    "llm-source/WORK_GOVERNANCE.md",
+    "working/CURRENT_WORK.md",
+    "directly relevant llm-source/departments/* only"
+  ],
   "selective_read": [
+    "llm-source/WORK_GOVERNANCE.md",
     "llm-source/departments/ERP_LOGISTICS.md",
     "llm-source/departments/MARKET_RESEARCH.md",
     "llm-source/departments/MARKETING.md",
@@ -19,7 +27,8 @@
     "records/ideas/**",
     "records/problems/**",
     "materials/normalized/**",
-    "docs/requirement-changelog.md"
+    "docs/requirement-changelog.md",
+    "admin/REFLECTION_POLICY.md"
   ],
   "do_not_read_by_default": [
     "materials/originals/**",
@@ -29,9 +38,20 @@
   "authority": {
     "llm-source/COMPANY_OS.md": "official company direction",
     "llm-source/PRODUCT_REQUIREMENTS.md": "official confirmed requirements",
+    "llm-source/WORK_GOVERNANCE.md": "official workflow rule for work review/share/confirmation",
     "working/CURRENT_WORK.md": "current progress and discussion; not automatically official",
     "records/ideas/**": "saved proposal; non-authoritative until admin reflection",
-    "records/problems/**": "saved problem; non-authoritative until admin reflection"
+    "records/problems/**": "saved problem; non-authoritative until admin reflection",
+    "materials/normalized/**": "LLM-readable supporting material; not automatically official",
+    "materials/originals/**": "original evidence/archive; never default context"
   },
-  "answer_rule": "If current work conflicts with official source, state both separately as 현재 확정 기준 and 현재 협의/진행 중. Never promote a saved idea/problem or working item to official status without admin confirmation."
+  "work_gate": {
+    "review_trigger": "/업무검토",
+    "share_trigger": "/업무공유",
+    "required_review_result": "PASS / 공유 가능",
+    "official_confirmation_trigger": "/업무확정",
+    "official_confirmation_role": "admin"
+  },
+  "answer_rule": "If current work conflicts with official source, state both separately as 현재 확정 기준 and 현재 협의/진행 중. Never promote a saved idea/problem or working item to official status without admin confirmation.",
+  "raw_read_rule": "Do not repeatedly read all ideas, problems, normalized materials, originals, archive, or DB folders. Read them only when the current request directly requires them."
 }
