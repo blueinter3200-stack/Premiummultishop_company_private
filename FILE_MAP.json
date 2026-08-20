@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "repository": "jintonic1010/miracle_company_private",
   "repository_url": "https://github.com/jintonic1010/miracle_company_private",
   "branch": "main",
@@ -7,14 +7,19 @@
   "default_read": [
     "llm-source/COMPANY_OS.md",
     "llm-source/PRODUCT_REQUIREMENTS.md",
+    "llm-source/PROJECT_REPOSITORIES.md",
     "working/CURRENT_WORK.md"
   ],
   "read_for_work_review": [
     "llm-source/COMPANY_OS.md",
     "llm-source/PRODUCT_REQUIREMENTS.md",
+    "llm-source/PROJECT_REPOSITORIES.md",
     "llm-source/WORK_GOVERNANCE.md",
     "working/CURRENT_WORK.md",
-    "directly relevant llm-source/departments/* only"
+    "records/PENDING_INDEX.md",
+    "directly relevant llm-source/departments/* only",
+    "only idea/problem records selected as relevant from records/PENDING_INDEX.md",
+    "only normalized materials linked by those relevant records when needed"
   ],
   "selective_read": [
     "llm-source/WORK_GOVERNANCE.md",
@@ -24,6 +29,7 @@
     "llm-source/departments/CS.md",
     "llm-source/departments/TAX_LEGAL.md",
     "working/HISTORY.md",
+    "records/PENDING_INDEX.md",
     "records/ideas/**",
     "records/problems/**",
     "materials/normalized/**",
@@ -38,8 +44,10 @@
   "authority": {
     "llm-source/COMPANY_OS.md": "official company direction",
     "llm-source/PRODUCT_REQUIREMENTS.md": "official confirmed requirements",
+    "llm-source/PROJECT_REPOSITORIES.md": "verified locator for company-related GitHub repositories; not implementation status by itself",
     "llm-source/WORK_GOVERNANCE.md": "official workflow rule for work review/share/confirmation",
     "working/CURRENT_WORK.md": "current progress and discussion; not automatically official",
+    "records/PENDING_INDEX.md": "lightweight index of unreflected ideas/problems; used to choose relevant records",
     "records/ideas/**": "saved proposal; non-authoritative until admin reflection",
     "records/problems/**": "saved problem; non-authoritative until admin reflection",
     "materials/normalized/**": "LLM-readable supporting material; not automatically official",
@@ -52,6 +60,8 @@
     "official_confirmation_trigger": "/업무확정",
     "official_confirmation_role": "admin"
   },
+  "pending_rule": "During /업무검토, read records/PENDING_INDEX.md first, then open only directly relevant unreflected idea/problem records. Do not scan all records.",
+  "project_repository_rule": "Use llm-source/PROJECT_REPOSITORIES.md to locate project repositories. When a question depends on actual implementation status or recent code, inspect that repository's latest main instead of inferring from the registry.",
   "answer_rule": "If current work conflicts with official source, state both separately as 현재 확정 기준 and 현재 협의/진행 중. Never promote a saved idea/problem or working item to official status without admin confirmation.",
-  "raw_read_rule": "Do not repeatedly read all ideas, problems, normalized materials, originals, archive, or DB folders. Read them only when the current request directly requires them."
+  "raw_read_rule": "Do not repeatedly read all ideas, problems, normalized materials, originals, archive, or DB folders. Read them only when selected as relevant or when the current request directly requires them."
 }
