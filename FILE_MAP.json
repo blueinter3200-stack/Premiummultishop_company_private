@@ -1,5 +1,5 @@
 {
-  "schema_version": 4,
+  "schema_version": 5,
   "repository": "jintonic1010/miracle_company_private",
   "repository_url": "https://github.com/jintonic1010/miracle_company_private",
   "branch": "main",
@@ -21,8 +21,32 @@
     "only idea/problem records selected as relevant from records/PENDING_INDEX.md",
     "only normalized materials linked by those relevant records when needed"
   ],
+  "read_for_reflection_preview": [
+    "llm-source/REFLECTION_PREVIEW.md",
+    "the selected idea/problem record only",
+    "llm-source/COMPANY_OS.md",
+    "llm-source/PRODUCT_REQUIREMENTS.md",
+    "llm-source/PROJECT_REPOSITORIES.md",
+    "working/CURRENT_WORK.md",
+    "directly relevant llm-source/departments/* only",
+    "only normalized materials linked by the selected record when needed",
+    "target project repository latest main only when actual implementation status materially affects the preview"
+  ],
+  "read_for_representative_review": [
+    "admin/REPRESENTATIVE_REVIEW.md",
+    "roles/REPRESENTATIVE.md",
+    "records/PENDING_INDEX.md",
+    "working/CURRENT_WORK.md",
+    "working/HISTORY.md",
+    "records/ideas/representative/*",
+    "records/problems/representative/*",
+    "only normalized representative materials linked by reviewed records when needed",
+    "only directly relevant official sources when needed",
+    "target project repository latest main only when a concrete implementation claim requires verification"
+  ],
   "selective_read": [
     "llm-source/WORK_GOVERNANCE.md",
+    "llm-source/REFLECTION_PREVIEW.md",
     "llm-source/departments/ERP_LOGISTICS.md",
     "llm-source/departments/MARKET_RESEARCH.md",
     "llm-source/departments/MARKETING.md",
@@ -34,7 +58,8 @@
     "records/problems/**",
     "materials/normalized/**",
     "docs/requirement-changelog.md",
-    "admin/REFLECTION_POLICY.md"
+    "admin/REFLECTION_POLICY.md",
+    "admin/REPRESENTATIVE_REVIEW.md"
   ],
   "do_not_read_by_default": [
     "materials/originals/**",
@@ -46,22 +71,35 @@
     "llm-source/PRODUCT_REQUIREMENTS.md": "official confirmed requirements",
     "llm-source/PROJECT_REPOSITORIES.md": "verified locator for company-related GitHub repositories; not implementation status by itself",
     "llm-source/WORK_GOVERNANCE.md": "official workflow rule for work review/share/confirmation",
+    "llm-source/REFLECTION_PREVIEW.md": "official read-only rule for previewing the impact of reflecting a saved idea/problem; never grants reflection authority",
     "working/CURRENT_WORK.md": "current progress and discussion; not automatically official",
+    "working/HISTORY.md": "short history of CURRENT_WORK updates; useful for author/share trace but not complete real-world activity history",
     "records/PENDING_INDEX.md": "lightweight index of unreflected ideas/problems; used to choose relevant records",
     "records/ideas/**": "saved proposal; non-authoritative until admin reflection",
     "records/problems/**": "saved problem; non-authoritative until admin reflection",
     "materials/normalized/**": "LLM-readable supporting material; not automatically official",
-    "materials/originals/**": "original evidence/archive; never default context"
+    "materials/originals/**": "original evidence/archive; never default context",
+    "admin/REPRESENTATIVE_REVIEW.md": "administrator-only read-only audit rule for representative records and work-sharing hygiene",
+    "admin/REFLECTION_POLICY.md": "administrator-only reflection/confirmation authority and role boundary"
   },
   "work_gate": {
     "review_trigger": "/업무검토",
     "share_trigger": "/업무공유",
     "required_review_result": "PASS / 공유 가능",
+    "reflection_preview_trigger": "/반영미리보기",
+    "reflection_preview_roles": [
+      "representative",
+      "admin"
+    ],
+    "representative_review_trigger": "/대표업무점검",
+    "representative_review_role": "admin",
     "official_confirmation_trigger": "/업무확정",
     "official_confirmation_role": "admin"
   },
   "pending_rule": "During /업무검토, read records/PENDING_INDEX.md first, then open only directly relevant unreflected idea/problem records. Do not scan all records.",
+  "reflection_preview_rule": "During /반영미리보기, select one relevant saved record, compare it with current official sources, and report expected changes without writing anything or granting official status.",
+  "representative_review_rule": "During admin-only /대표업무점검, audit representative record folders, pending-index consistency, work-share history, current-work linkage, and dated follow-up items. Do not infer unsaved activity and do not auto-fix findings.",
   "project_repository_rule": "Use llm-source/PROJECT_REPOSITORIES.md to locate project repositories. When a question depends on actual implementation status or recent code, inspect that repository's latest main instead of inferring from the registry.",
   "answer_rule": "If current work conflicts with official source, state both separately as 현재 확정 기준 and 현재 협의/진행 중. Never promote a saved idea/problem or working item to official status without admin confirmation.",
-  "raw_read_rule": "Do not repeatedly read all ideas, problems, normalized materials, originals, archive, or DB folders. Read them only when selected as relevant or when the current request directly requires them."
+  "raw_read_rule": "Do not repeatedly read all ideas, problems, normalized materials, originals, archive, or DB folders. Read them only when selected as relevant or when an authorized administrator review explicitly scopes representative records."
 }
