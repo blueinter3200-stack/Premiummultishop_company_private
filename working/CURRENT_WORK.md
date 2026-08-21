@@ -1,7 +1,7 @@
 # Current Work
 
 - Repository: `https://github.com/jintonic1010/miracle_company_private`
-- Updated: 2026-08-19
+- Updated: 2026-08-21
 - Authority: current progress/discussion, not automatically official requirements
 
 이 파일은 회사에서 **현재 실제로 진행·협의 중인 업무 전체의 최신판**이다. 부서별 자동 분류를 강제하지 않는다.
@@ -21,9 +21,15 @@
 - Cafe24, Naver SmartStore, Google 관련 API, 해외 공급처 API의 정확한 IN/OUT 및 이벤트 범위 조사 필요.
 - ERP 개발자와 n8n/API 개발자가 사용할 공통 식별자 및 데이터 계약 정의 필요.
 
-### 마케팅 AI 이미지 생성 프리랜서 채용 / Virtual Try-On Pipeline 구축
-- 마케팅팀에서 **AI Image Generation / ComfyUI / Virtual Try-On 전문 역할**을 초기 프리랜서 형태로 구성하는 진행안.
-- 목적은 완성 이미지 몇 장을 외주 납품받는 것이 아니라, 회사가 반복 실행할 수 있는 **로컬 AI 이미지 생성 환경 + 재사용 가능한 ComfyUI Workflow + 운영/인수인계 자료**를 확보하는 것.
+### 마케팅 AI 이미지 생성 · ComfyUI 로컬 AI 개발자 채용 / Virtual Try-On Pipeline 구축
+- 마케팅팀에서 **AI 이미지 제작 + ComfyUI 로컬 AI 파이프라인 구축 + 필요한 기능 개발**을 함께 수행할 수 있는 역할을 초기 프리랜서/프로젝트 형태로 구성하는 진행안.
+- 2026-08-21 인사팀에 해당 역할의 구인 요청을 전달 완료.
+- 목적은 완성 이미지 몇 장을 외주 납품받는 것이 아니라, 상품과 사진을 입력하면 반복적으로 고품질 마케팅 이미지를 만들 수 있는 **로컬 AI 이미지 생성 환경 + 재사용 가능한 ComfyUI Workflow + 운영/인수인계 자료**를 확보하는 것.
+- 주요 업무 범위는 상품·모델 사진 기반 마케팅 이미지 제작, 실제 판매 의류를 활용한 Virtual Try-On, 상세페이지·광고·SNS용 이미지 제작, ComfyUI 로컬 환경 구축, 생성·수정·합성·업스케일 Workflow 구성, 반복 작업 자동화로 본다.
+- 개발 역량 범위에는 ComfyUI Custom Node 제작/수정, Python 활용, API 연동, 간단한 자동화 프로그램 제작을 포함하며, Claude/ChatGPT/Codex 등 AI 도구를 활용해 필요한 기능을 직접 만들어 해결할 수 있는 실무 대응력을 본다. 전문 백엔드 개발자 수준 자체를 요구하는 것은 아니다.
+- 핵심 인재상은 **AI 마케팅 이미지를 실제 사용 수준으로 만들 수 있는 사람 + ComfyUI 로컬 환경을 직접 구축·운영할 수 있는 사람 + 필요한 기능을 직접 개발할 수 있는 사람**의 결합이다.
+- 특정 모델 하나의 사용 경험보다 새로운 이미지·영상 모델이 나오면 직접 테스트하고 회사 Workflow에 적용·최적화할 수 있는 역량을 중요하게 본다.
+- 채용 안내에서 FLUX.2, Z-Image, Qwen-Image / Qwen-Image Edit, Krea 2, Wan 2.2 I2V 등을 예시로 제시했으며, 이는 **확정 기술스택이 아니라 최신 오픈웨이트 이미지·영상 모델 대응 역량을 설명하기 위한 예시**다.
 - 기본 처리 흐름은 `고객/모델 이미지 + 실제 상품 이미지 + 선택적 Reference/광고문구 → Virtual Try-On → Identity/Garment Fidelity 보정 → 광고 Creative → Variation 생성`으로 본다.
 - 가상피팅 결과는 얼굴·전체 인물 특징을 최대한 유지하고, 실제 상품의 색상·패턴·로고·형태·실루엣 왜곡을 최소화하는 것을 핵심 품질 기준으로 본다.
 - 상의뿐 아니라 하의·아우터 등으로 확장 가능한 구조를 검토하며, 특정 상품 하나에 Workflow를 Hard Coding하지 않는 방향.
@@ -34,8 +40,10 @@
 - 최종 인수 대상은 이미지 결과물뿐 아니라 ComfyUI Workflow/JSON, 사용 Model/LoRA/VAE 목록, Custom Node/Dependency 목록, Prompt 구조, 주요 Parameter/Seed 등 재현 정보, 설치·실행·입력 교체·수정·오류 확인·반복 제작 방법 문서를 포함하는 방향.
 - 완료 기준은 프리랜서가 빠진 뒤에도 회사 PC에서 Workflow를 불러오고 `person_image`, `garment_image` 등을 회사가 직접 교체해 기본 반복 생성을 수행할 수 있는 상태로 본다.
 - 향후 확장 구조는 `ERP/상품 데이터 소스 → n8n 또는 Generation Queue → ComfyUI API/이미지 생성 엔진 → Generated Assets → Marketing System` 방향으로 검토한다. ERP는 상품 운영 데이터 기준 원장, n8n은 연결/자동화, ComfyUI는 이미지 생성 엔진 역할을 유지한다.
-- 본계약 전 소규모 PoC를 활용할 수 있다. 예시 입력은 모델/고객 사진 1장 + 의류 상품 사진 1~2장 + 광고 목적/문구이며, Virtual Try-On 결과, 광고 Creative, Style Variation, Workflow 구조/모델/주요 생성 방식 설명을 평가한다.
-- 지원자 우선 선별은 ComfyUI Workflow 직접 설계 능력, Virtual Try-On/의류 합성 실결과, Local AI 환경 구축 능력, Identity/Garment Fidelity, 광고 Creative 완성도, Workflow 전체 인수인계 가능 여부 순으로 본다.
+- 지원 단계에서는 경력·학력·자격증보다 실제 수행 능력을 중시하며, **복잡한 사전 과제나 Workflow 제출을 요구하지 않고 면접에서 경험과 작업 방식을 확인**하는 방식으로 인사팀에 요청했다.
+- 면접 이후 실제 계약 판단에 필요할 경우 소규모 PoC를 별도로 활용할 수 있다는 기존 협의안은 유지한다. 예시 입력은 모델/고객 사진 1장 + 의류 상품 사진 1~2장 + 광고 목적/문구이며, Virtual Try-On 결과, 광고 Creative, Style Variation, Workflow 구조/모델/주요 생성 방식 설명 등을 평가 후보로 본다.
+- 지원자 판단 시 ComfyUI Workflow 직접 설계 능력, Virtual Try-On/의류 합성 실결과, Local AI 환경 구축 능력, Identity/Garment Fidelity, 광고 Creative 완성도, Workflow 전체 인수인계 가능 여부 등을 중점적으로 본다.
+- 프로젝트의 구체 범위, 진행 방식, 기간, 비용 및 수정 범위 등 세부 조건은 미팅 후 상호 협의한다.
 - 실제 고객 사진·개인정보·운영 DB·인증정보는 GitHub 업무 기록에 저장하지 않는다.
 
 ### 마케팅 운영 / 퍼포먼스 인력
@@ -56,7 +64,8 @@
 ## 협의 중 요구사항 후보
 
 - ERP/API 구현 상세 범위와 우선순위.
-- AI 이미지 생성 프리랜서의 실제 채용 조건, 계약 범위, 비용, 작업 기간 및 수정 범위.
+- AI 이미지 생성 · ComfyUI 로컬 AI 개발자의 실제 계약 범위, 비용, 작업 기간 및 수정 범위.
+- 면접 이후 실제 계약 판단 단계에서 소규모 PoC를 실시할지 여부와 평가 방식.
 - Virtual Try-On PoC에서 사용할 구체 모델/Workflow 조합과 품질 합격 기준의 수치화 여부.
 - AI 이미지 Pipeline의 ComfyUI API/Batch/Queue/n8n 연동 상세 범위와 구현 시점.
 - 퍼포먼스/CRM 마케팅 담당 인력의 구체적 직무·경력·인원 구성 및 채용 순서.
@@ -66,7 +75,7 @@
 
 - ERPNext vs InvenTree
 - 각 외부 API의 실제 읽기/쓰기/Webhook 범위
-- AI 이미지 생성 프리랜서의 최종 계약 대상 및 PoC 결과
+- AI 이미지 생성 · ComfyUI 로컬 AI 개발자의 최종 계약 대상 및 필요 시 PoC 결과
 - Virtual Try-On/광고 이미지 제작에 사용할 최종 Model/Workflow 구성
 - 퍼포먼스/CRM 마케팅 담당 인력의 구체적 직무·채용 기준
 
