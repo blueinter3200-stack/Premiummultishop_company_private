@@ -39,6 +39,9 @@
 - 업무 설명 시 약어·전문용어 쉬운 풀이 원칙 | representative | 2026-08-31 | keywords: 업무설명, 전문용어, 영문약어, 이니셜, 쉬운풀이 | path: `records/ideas/representative/2026-08-31-explain-acronyms-and-technical-terms.md`
   - summary: 모든 업무 내용을 안내할 때 영문 약어·이니셜·전문용어를 단독으로 쓰지 않고 한국어 뜻과 쉬운 설명을 함께 제공해 대표님의 이해와 의사결정을 돕는 아이디어.
 
+- PMS Meta 광고 Creative Factory — 승자 소재 반복 생산 구조 | representative | 2026-08-31 | keywords: Meta 광고, Creative Factory, PMS, 콘텐츠 실험, AI 자동화, 기여이익, 광고소재 | path: `records/ideas/representative/2026-08-31-pms-meta-creative-factory.md`
+  - summary: Premium MultiShop의 Meta 광고 운영을 세팅 중심에서 고객문제·콘텐츠 가설·단일변수 테스트 중심으로 전환하고, SKU → 고객문제 → 광고소재 → 테스트 → 승자 → 복제 → 확대를 AI와 데이터로 반복하는 광고 Creative Factory 아이디어. ROAS만이 아니라 광고 후 기여이익과 순이익까지 연결해 승자 소재를 판정한다.
+
 ## Problems
 
 현재 미반영 문제 없음.
