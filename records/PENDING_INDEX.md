@@ -42,6 +42,9 @@
 - PMS Meta 광고 Creative Factory — 승자 소재 반복 생산 구조 | representative | 2026-08-31 | keywords: Meta 광고, Creative Factory, PMS, 콘텐츠 실험, AI 자동화, 기여이익, 광고소재 | path: `records/ideas/representative/2026-08-31-pms-meta-creative-factory.md`
   - summary: Premium MultiShop의 Meta 광고 운영을 세팅 중심에서 고객문제·콘텐츠 가설·단일변수 테스트 중심으로 전환하고, SKU → 고객문제 → 광고소재 → 테스트 → 승자 → 복제 → 확대를 AI와 데이터로 반복하는 광고 Creative Factory 아이디어. ROAS만이 아니라 광고 후 기여이익과 순이익까지 연결해 승자 소재를 판정한다.
 
+- 프리미엄멀티샵 Revenue OS v7.0 — Codex 상시 작업 규칙 | representative | 2026-09-05 | keywords: Codex, AGENTS.md, Revenue OS, 하드스탑, 승인 매트릭스, 데이터 원칙, 실행 에이전트 | path: `records/ideas/representative/2026-09-05-codex-revenue-os-v7-agents-rules.md`
+  - summary: Codex CLI를 프리미엄멀티샵 대표의 실행 에이전트로 운영하기 위해 데이터 신뢰성, 수익성 하드스탑, 승인 매트릭스, 재현 가능한 계산, 노트·보고 규칙과 명령 체계를 `AGENTS.md` 상시 규칙으로 고정하는 아이디어.
+
 ## Problems
 
 현재 미반영 문제 없음.
