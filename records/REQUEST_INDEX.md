@@ -23,6 +23,8 @@
 
 | 요청 ID | 요청자 | 종류 | 상태 | 연결 업무 | 경로 |
 |---|---|---|---|---|---|
-| R-20260906-003 | ACT-001 / Jin | policy_change | in_progress | W-20260906-005 | records/requests/ACT-001/R-20260906-003.json |
+| R-20260906-003 | ACT-001 / Jin | policy_change | fulfilled | W-20260906-005 | records/requests/ACT-001/R-20260906-003.json |
 
 검토 선행·관리자 업무/품의 결정·상태함·선택적 새 결정 알림·구명령 제거와 세 프로젝트 소스 제공. 현재 결정 상태는 `records/DECISION_INDEX.json`에서 별도로 조회한다.
+
+GOV-20260906-05 저장·패키지 검증: `docs/releases/GOV-20260906-05.json`. 실제 프로젝트 설정 교체는 별도다.

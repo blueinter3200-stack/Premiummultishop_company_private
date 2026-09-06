@@ -2,7 +2,7 @@
   "schema_version": 3,
   "object_type": "request",
   "request_id": "R-20260906-003",
-  "revision": 1,
+  "revision": 2,
   "content_revision": 1,
   "requester_actor_id": "ACT-001",
   "recorded_by_actor_id": "ACT-001",
@@ -19,7 +19,7 @@
     "기존 원문·과거 결재·업무·materials 보존",
     "실시간 푸시·외부 게시·지출·계정 권한 변경 제외"
   ],
-  "request_status": "in_progress",
+  "request_status": "fulfilled",
   "submission_status": "submitted",
   "primary_scope": "work_start",
   "requested_scopes": [
@@ -68,5 +68,7 @@
       "main·파일 재조회",
       "정본 바이트 일치 배포 ZIP과 지침 제공"
     ]
-  }
+  },
+  "completion_receipt": "docs/releases/GOV-20260906-05.json",
+  "completion_scope": "저장소 규격·도구·지침 반영 및 검증된 교체용 패키지 생성. 실제 프로젝트 설정 설치·푸시는 제외."
 }

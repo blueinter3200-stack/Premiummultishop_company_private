@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "object_type": "repository_execution_receipt",
+  "release_id": "GOV-20260906-05",
+  "repository": "jintonic1010/miracle_company_private",
+  "branch": "main",
+  "verified_at": "2026-09-06",
+  "basis_commit": "93055685f424fa2af06e438af51552d67eaff208",
+  "release_commit": "a70594a1fa7b41859490afc4ce1c68884f1ac51d",
+  "release_tree": "8f2db19eeb270862ee4e294d4e15ded510b1eadd",
+  "result": "succeeded",
+  "request_id": "R-20260906-003",
+  "work_id": "W-20260906-005",
+  "decision_ref": "approvals/D-20260906-005.json",
+  "verification": {
+    "main_ref_read_back": true,
+    "fast_forward": true,
+    "changed_files": 56,
+    "deleted_files": 0,
+    "all_56_staged_blobs_verified": true,
+    "method": "Recomputed complete Git tree from local staged bytes and remote unchanged entries; root SHA exactly matched remote tree. Re-read main and project instruction files after main update.",
+    "decision_flow_tests": {
+      "passed": 31,
+      "failed": 0,
+      "type": "local unit and fixture integration; no production decision events generated"
+    },
+    "source_structure": {
+      "commands": 16,
+      "aliases": 0,
+      "actor_command_counts": {
+        "ACT-001": 16,
+        "ACT-002": 7,
+        "ACT-003": 9
+      },
+      "result": "passed"
+    },
+    "unchanged_RC_tests": "not rerun; unchanged RC implementation and histories preserved",
+    "preserved": [
+      "existing idea/problem originals",
+      "materials",
+      "previous approvals",
+      "existing request/RC originals",
+      "unrelated work states"
+    ],
+    "key_files_read_back": [
+      "chatgpt/admin/PROJECT_INSTRUCTIONS.md",
+      "chatgpt/representative/PROJECT_INSTRUCTIONS.md",
+      "chatgpt/assistant/PROJECT_INSTRUCTIONS.md",
+      "llm-source/workflows/INBOX_WORKFLOW.md"
+    ]
+  },
+  "package": {
+    "filename": "miracle_chatgpt_sources_GOV-20260906-05.zip",
+    "sha256": "0baf475d36129144d8583fed9e283c242d71d316bfe2c461a9b5f181bf26100a",
+    "source_commit": "a70594a1fa7b41859490afc4ce1c68884f1ac51d",
+    "source_instruction_copies": 13,
+    "unique_source_paths": 9,
+    "source_files_per_project": {
+      "ACT-001": 3,
+      "ACT-002": 3,
+      "ACT-003": 4
+    },
+    "zip_integrity": "passed",
+    "all_bytes_match_remote_git_blobs": true
+  },
+  "not_performed": [
+    "actual ChatGPT project settings replacement",
+    "live three-project LLM behavior test",
+    "independent identity authentication and access-control deployment",
+    "real-time push, email or n8n delivery",
+    "external publishing, spending or operational database changes"
+  ],
+  "receipt_note": "This receipt records an already verified release; it does not predict its own commit. Notification events are created on future real decisions, not retrospectively for historical decisions."
+}

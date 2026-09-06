@@ -1,21 +1,21 @@
 {
   "schema_version": 3,
   "id": "W-20260906-005",
-  "revision": 1,
+  "revision": 2,
   "title": "업무 검토·결정·상태함·선택적 알림 및 프로젝트 소스 통합 개편",
   "requested_by_actor_id": "ACT-001",
   "assigned_to_actor_id": "ACT-001",
   "created_at": "2026-09-06",
   "updated_at": "2026-09-06",
   "information_as_of": "2026-09-06",
-  "work_status": "in_progress",
+  "work_status": "done",
   "evidence_status": "passed",
   "approval_status": "approved",
-  "persistence_status": "pending_commit",
+  "persistence_status": "verified",
   "execution_status": "not_requested",
   "priority": null,
   "due_at": null,
-  "next_action": "실제 main 반영과 전체 변경 blob·프로젝트 패키지 재조회 검증",
+  "next_action": "저장소 반영·패키지 검증 완료. 실제 세 프로젝트 지침·소스 교체와 실사용 점검은 별도.",
   "source_refs": [
     "records/requests/ACT-001/R-20260906-003.source.md"
   ],
@@ -24,7 +24,10 @@
   ],
   "request_change_refs": [],
   "directive_refs": [],
-  "evidence_refs": [],
+  "evidence_refs": [
+    "docs/releases/GOV-20260906-05.json",
+    "docs/releases/GOV-20260906-05-manifest.json"
+  ],
   "artifact_refs": [],
   "submission_refs": [],
   "decision_refs": [
@@ -47,5 +50,10 @@
     "work_start",
     "policy_change"
   ],
-  "progress_events": []
+  "progress_events": [],
+  "persistence_receipt": "docs/releases/GOV-20260906-05.json",
+  "completion_evidence": {
+    "release_commit": "a70594a1fa7b41859490afc4ce1c68884f1ac51d",
+    "package_sha256": "0baf475d36129144d8583fed9e283c242d71d316bfe2c461a9b5f181bf26100a"
+  }
 }
