@@ -1,0 +1,11 @@
+{
+  "schema_version":1,"object_type":"repository_execution_receipt","release_id":"GOV-20260906-01","decision_ref":"approvals/D-20260906-001.json","work_id":"W-20260906-001","verified_at":"2026-09-06",
+  "repository":"jintonic1010/miracle_company_private","branch":"main","base_commit":"1db3d4839488d8313f9e5cadd1db0365ce77be16","release_commit":"ff1b09f5045453c832f74507ca6667359aa99456","release_tree":"e55827f64da7ce590c9a5e700b79f39dd5ae2d8b",
+  "operation":"create_tree + create_commit + update_ref(force=false)","result":"succeeded",
+  "verification":{"ref_update_success":true,"compare_status":"ahead","ahead_by":1,"behind_by":0,"changed_files_in_release_commit":70,"deleted_files":0,"original_idea_records_changed":0,"original_supporting_material_contents_changed":0,"project_instruction_files_read_back":3,"catalog_read_back":true,"deployment_work_read_back":true},
+  "project_instruction_blob_shas":{"admin":"fa820cca40a55c6e4d55f8455ee3929e1452bafa","representative":"754720fb7c67ccab7d3469f46d13ad1fa9a88f62","assistant":"36406ff4fb44956713d8dd9aff0532a4feabf3e8"},
+  "counts":{"normalized_ideas":6,"normalized_material_metadata":2,"restored_pending_entries":2,"legacy_work_items":5,"new_rollout_work_items":1},
+  "preserved_current_work_blob":"d5464690fb61a7d388b7b71dd3d2b84d6e5e0724",
+  "not_performed":["independent validation of old market/legal/price claims","missing DOCX/PNG reconstruction","editing actual ChatGPT project settings","full implementation repository code audit","technical identity/permission gate deployment","Higgsfield integration or video production","external publication or expenditure"],
+  "followup_record_note":"이 영수증과 원장 저장 확인 상태는 성공한 release_commit을 재조회한 뒤 별도 후속 커밋으로 보존한다. 영수증 자기 자신의 커밋을 미리 안다고 주장하지 않는다."
+}

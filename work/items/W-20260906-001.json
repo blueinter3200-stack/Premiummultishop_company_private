@@ -1,10 +1,11 @@
 {
-  "schema_version":1,"id":"W-20260906-001","revision":1,"title":"세 역할 LLM 운영체계·전처리·품의 규격 배포","requested_by":"admin","assigned_to":"admin","created_at":"2026-09-06","updated_at":"2026-09-06","information_as_of":"2026-09-06",
-  "work_status":"in_progress","evidence_status":"partial","approval_status":"approved","persistence_status":"pending_commit","execution_status":"not_requested","priority":"high","due_at":null,
-  "next_action":"main 반영·파일 확인 후 세 프로젝트 지침 설치와 실제 역할별 읽기·상신·승인 동작을 검수한다.",
+  "schema_version":1,"id":"W-20260906-001","revision":2,"title":"세 역할 LLM 운영체계·전처리·품의 규격 배포","requested_by":"admin","assigned_to":"admin","created_at":"2026-09-06","updated_at":"2026-09-06","information_as_of":"2026-09-06",
+  "work_status":"in_progress","evidence_status":"partial","approval_status":"approved","persistence_status":"verified","persistence_receipt":"docs/releases/GOV-20260906-01.json","execution_status":"not_requested","priority":"high","due_at":null,
+  "next_action":"저장소 규격은 main에 반영·재조회 확인됨. 세 프로젝트 지침을 설치하고 실제 역할별 읽기·상신·승인 동작을 검수한다.","next_action_kind":"remaining_rollout",
   "source_refs":[{"path":"assistant/20-directives/from-jin/W-20260906-001-governance-release.md","section":"마지막 지시 원문"}],
-  "directive_refs":["assistant/20-directives/from-jin/W-20260906-001-governance-release.md"],"evidence_refs":["docs/audits/2026-09-06-repository-review.md","materials/normalized/CATALOG.json"],
+  "directive_refs":["assistant/20-directives/from-jin/W-20260906-001-governance-release.md"],"evidence_refs":["docs/audits/2026-09-06-repository-review.md","materials/normalized/CATALOG.json","docs/releases/GOV-20260906-01.json"],
   "artifact_refs":["chatgpt/INSTALLATION.md","chatgpt/admin/PROJECT_INSTRUCTIONS.md","chatgpt/representative/PROJECT_INSTRUCTIONS.md","chatgpt/assistant/PROJECT_INSTRUCTIONS.md"],"submission_refs":[],"decision_refs":["approvals/D-20260906-001.json"],
+  "milestones":{"repository_release":"verified","project_settings":"not_verified","external_tool_integration":"not_verified"},
   "unknowns":["실제 세 ChatGPT 프로젝트 설정 적용 여부","역할별 기술적 계정 권한·승인 인증","Higgsfield/Drive 등 실제 도구 연결과 인수 테스트","자동 알림 구현"],
   "completion_criteria":["저장소 규격·원장·정제자료 main 반영 검증","프로젝트별 지침 설치 후 실제 읽기·보고·결재 테스트"],
   "approval_scope_note":"승인은 이번 회사 운영 문서·전처리·main 반영 범위. 대외 게시·비용·운영 DB·도구 연결 완료를 승인 또는 수행한 것이 아님."

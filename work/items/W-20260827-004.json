@@ -1,7 +1,7 @@
 {
-  "schema_version":1,"id":"W-20260827-004","revision":1,"title":"AI 이미지·ComfyUI 로컬 개발자 채용 및 VTON 파이프라인","requested_by":null,"assigned_to":null,"created_at":"2026-08-27","updated_at":"2026-09-06","information_as_of":"2026-08-27",
-  "work_status":"in_progress","reported_status":"진행·협의 중","verification_status":"legacy_report_not_reverified","evidence_status":"pending","approval_status":"not_requested","persistence_status":"pending_commit","execution_status":"not_requested","priority":null,"due_at":null,
-  "next_action":"인력·계약·PoC 진행 사실을 확인하고 재현 가능한 Workflow·설치·운영 인수 기준으로 검토한다.",
+  "schema_version":1,"id":"W-20260827-004","revision":2,"title":"AI 이미지·ComfyUI 로컬 개발자 채용 및 VTON 파이프라인","requested_by":null,"assigned_to":null,"created_at":"2026-09-06","work_started_at":null,"updated_at":"2026-09-06","information_as_of":"2026-08-27",
+  "work_status":"in_progress","reported_status":"진행·협의 중","verification_status":"legacy_report_not_reverified","evidence_status":"pending","approval_status":"not_requested","persistence_status":"verified","persistence_receipt":"docs/releases/GOV-20260906-01.json","execution_status":"not_requested","priority":null,"due_at":null,
+  "next_action":"인력·계약·PoC 진행 사실을 확인하고 재현 가능한 Workflow·설치·운영 인수 기준으로 검토한다.","next_action_kind":"recommended_from_source",
   "source_refs":[{"path":"archive/migrations/2026-09-06/CURRENT_WORK.before.md","blob_sha":"d5464690fb61a7d388b7b71dd3d2b84d6e5e0724","section":"마케팅 AI 이미지 생성 · ComfyUI 로컬 AI 개발자 채용 / Virtual Try-On Pipeline 구축; 협의 중 요구사항 후보; 결정 대기"}],
   "directive_refs":[],"evidence_refs":[],"artifact_refs":[],"submission_refs":[],"decision_refs":[],
   "summary":"이미지 납품만이 아니라 회사가 반복 운영할 로컬 AI 환경·재사용 ComfyUI Workflow·필요 기능 개발·운영/인수인계를 확보하는 진행안.",
@@ -9,5 +9,5 @@
   "requirements_from_working_proposal":["실제 상품·모델 사진 VTON과 상품 색상·패턴·로고·형태 보존","Workflow 설계·수정, Custom Node/Python/API 및 로컬 CUDA/VRAM 문제 대응","지원 단계 복잡한 사전 과제 없이 면접; 이후 필요 시 소규모 PoC","Workflow/JSON·모델/LoRA/VAE·의존성·프롬프트·설정/seed·설치·오류 대응 인수","회사에서 person_image/garment_image를 교체해 반복 생성","퍼포먼스 광고 집행 역할과 분리","실제 고객 사진·개인정보·인증정보는 GitHub 금지"],
   "unknowns":["계약 대상·비용·기간·수정 범위","PoC 여부·결과","최종 모델·Workflow·품질 수치","ComfyUI API/Queue/n8n 실제 구현 시점"],
   "completion_criteria":["담당자 없이 회사 환경에서 입력 교체·반복 생성·오류 대응 가능 여부 검수"],
-  "migration_note":"예시 모델명과 전체 기술·평가 세부는 보존본에 유지하며 확정 스택으로 승격하지 않음."
+  "migration_note":"예시 모델명과 전체 기술·평가 세부는 보존본에 유지하며 확정 스택으로 승격하지 않음. 원장 생성일과 정보 기준일을 분리. 다음 행동은 제안이다."
 }
