@@ -4,6 +4,8 @@
 
 | 요청 ID | 요청자 | 종류 | 상태 | 연결 업무 | 경로 |
 |---|---|---|---|---|---|
-| R-20260906-001 | ACT-001 / Jin | policy_change | in_progress | W-20260906-003 | records/requests/ACT-001/R-20260906-001.json |
+| R-20260906-001 | ACT-001 / Jin | policy_change | fulfilled | W-20260906-003 | records/requests/ACT-001/R-20260906-001.json |
 
 요약: 로컬 트리거·추천, 요청 보존, 쉬운 명령명, 상세 워크플로와 세 프로젝트 소스 개정.
+
+저장 검증: `docs/releases/GOV-20260906-03.json`. 실제 프로젝트 지침 교체는 별도다.

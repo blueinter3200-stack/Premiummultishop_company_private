@@ -1,0 +1,31 @@
+{
+  "schema_version":1,
+  "object_type":"repository_execution_receipt",
+  "release_id":"GOV-20260906-03",
+  "repository":"jintonic1010/miracle_company_private",
+  "branch":"main",
+  "verified_at":"2026-09-06",
+  "basis_commit":"f37ab3e70b910672ce2a4a2f3ec628b96d4f90c3",
+  "release_commit":"1459bd928fd0b433b1c7dc4eb0384bb698fc50bd",
+  "release_tree":"04b5ac42c599f69f20a6c2d7fabbe16977537036",
+  "result":"succeeded",
+  "work_id":"W-20260906-003",
+  "request_id":"R-20260906-001",
+  "decision_ref":"approvals/D-20260906-003.json",
+  "verification":{
+    "main_ref_read_back":true,"fast_forward":true,"compare_status":"ahead","ahead_by":1,"changed_files_in_release":39,"deleted_files":0,
+    "existing_idea_originals_changed":false,"existing_materials_changed":false,"historical_decisions_changed":false,
+    "local_static_validation":"passed: JSON, manifest, 15 commands, role boundaries, aliases and workflow paths",
+    "remote_source_blob_verification":"package source and instruction bytes matched returned GitHub blob SHAs",
+    "key_files_read_back":["chatgpt/PROJECT_COMMON.md","llm-source/ACTOR_REGISTRY.json","llm-source/workflows/REQUEST_CAPTURE.md","work/items/W-20260906-003.json","records/requests/ACT-001/R-20260906-001.json"],
+    "workflow_count":8,"command_count":15,"role_count":3
+  },
+  "package":{
+    "filename":"miracle_chatgpt_sources_GOV-20260906-03.zip",
+    "sha256":"0ed275a7336ad741ba15a966f75fe260a5b0d690b05170234cf3b1a99d34c4d5",
+    "source_files_per_project":{"ACT-001":3,"ACT-002":3,"ACT-003":4},
+    "instruction_files":3,"packaged_source_instruction_copies":13,"unique_source_instruction_paths":9,"archive_integrity_checked":true
+  },
+  "not_performed":["actual ChatGPT project settings replacement","live three-project trigger execution tests","technical principal/permission enforcement","automatic alerts","Higgsfield/Drive execution","external publishing or expenditure","full implementation repository audit"],
+  "receipt_note":"Successful release was read back before this follow-up receipt. This receipt does not predict its own commit SHA. Existing decision remains immutable; this receipt links back to it."
+}
