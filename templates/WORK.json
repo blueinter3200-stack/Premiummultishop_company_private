@@ -1,10 +1,10 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "id": null,
   "revision": 1,
   "title": null,
-  "requested_by": null,
-  "assigned_to": null,
+  "requested_by_actor_id": null,
+  "assigned_to_actor_id": null,
   "created_at": null,
   "updated_at": null,
   "information_as_of": null,
@@ -22,6 +22,8 @@
   "artifact_refs": [],
   "submission_refs": [],
   "decision_refs": [],
+  "related_idea_ids": [],
+  "related_problem_ids": [],
   "unknowns": [],
   "completion_criteria": []
 }

@@ -4,9 +4,9 @@
 - Branch: `main`
 - Updated: 2026-09-06
 - Authority: official confirmed requirements
-- Release: `GOV-20260906-01`
+- Release: `GOV-20260906-02`
 
-현재 확정된 요구사항이다. 아이디어 저장·업무 공유·자료 정제만으로 변경되지 않는다. 2026-09-06 이전판은 `archive/migrations/2026-09-06/PRODUCT_REQUIREMENTS.before.md`에 보존한다.
+현재 확정된 요구사항이다. 아이디어 저장·업무 공유·자료 정제만으로 변경되지 않는다.
 
 ## Company Core
 
@@ -57,9 +57,9 @@ n8n은 연결·자동화를 담당하고 ERP 운영 원장을 대체하지 않�
 ## Knowledge / LLM Governance
 
 ### GOV-001 — three roles
-작성·협업 역할은 representative, admin, assistant다. 프로젝트에 고정된 자기 역할 하나만 사용한다. 품의 최종 결재자는 admin(Jin)이다. 일반 직원 프로젝트와 혼동하지 않는다.
+협업 역할은 representative, admin, assistant다. 프로젝트에 고정된 자기 역할 하나만 사용한다. 품의 최종 결재자는 admin/Jin이다.
 ### GOV-002 — single work source
-개별 `work/items/<work_id>.json`을 업무 상태 원장으로 사용한다. CURRENT_WORK와 assistant/30-working은 파생 조회판이다. 동일 상태를 독립적으로 이중 작성하지 않는다.
+개별 `work/items/<work_id>.json`을 업무 상태 원장으로 사용한다. CURRENT_WORK와 assistant/30-working은 파생 조회판이다.
 ### GOV-003 — review gate
 공유·상신 전 최신 공식 기준·현재 업무·관련 미반영 기록을 실제로 검토한다. `/업무검토`는 읽기 전용이다.
 ### GOV-004 — pending selection
@@ -67,19 +67,19 @@ n8n은 연결·자동화를 담당하고 ERP 운영 원장을 대체하지 않�
 ### GOV-005 — atomic index maintenance
 기록과 pending index를 같은 변경 단위로 갱신한다. 부분 실패를 전체 성공으로 보고하지 않는다.
 ### GOV-006 — review result
-PASS/REVISION/HOLD를 구분한다. PASS는 공유·상신 적합성 검토이지 회사 확정이나 관리자 결재가 아니다.
+PASS/REVISION/HOLD를 구분한다. PASS는 내용 검토 통과이지 자동 `/업무공유` 승인이나 회사 확정·관리자 결재가 아니다.
 ### GOV-007 — shared update
-`/업무공유`는 유효한 검토 후 원장을 갱신하고 조회판을 재생성한다. 본질적 변경·근거 변경·main 충돌 시 재검토한다. 원문·이력을 보존한다.
+`/업무공유`는 실제 실행 중이거나 실행하기로 명확히 요청된 업무에만 사용한다. 유효한 검토 후 원장을 갱신하고 조회판을 재생성한다.
 ### GOV-008 — policy confirmation
-`/업무확정`은 관리자 전용 회사 기준 변경이다. 일반 결과물 수락은 별도 결재로 기록하며 자동으로 공식 요구사항을 바꾸지 않는다.
+`/업무확정`은 관리자 전용 회사 기준 변경이다. 일반 결과물 수락은 별도 결재로 기록한다.
 ### GOV-009 — saved input
-세 역할은 허용 범위에서 아이디어·문제를 저장할 수 있다. 대표님 요청은 입력이며 지출·게시·공식화 승인으로 확대하지 않는다.
+등록된 세 actor는 허용 범위에서 아이디어·문제를 저장할 수 있다. 대표님 요청은 지출·게시·공식화 승인으로 확대하지 않는다.
 ### GOV-010 — reflection authority
 공식 반영·역할 변경·승인 규칙 변경은 관리자만 수행한다. 부사수는 품의를 상신하되 자체 확정하지 않는다.
 ### GOV-011 — source preservation
-실제 확보한 비민감 원본과 정제본을 분리한다. 기존 materials 경로는 보존하며 새 자료는 source_id로 연결한다. 원본 미확보는 missing, 링크만 확인한 것은 reference_only로 표시한다.
+실제 확보한 비민감 원본과 정제본을 분리한다. 원본 미확보는 missing, 링크만 확인한 것은 reference_only로 표시한다.
 ### GOV-012 — selective reads
-공식 기준·현재 업무를 우선 읽고 필요한 지시·플레이북·정제본·원본만 확장 조회한다. 사용자가 저장소 감사·전처리를 명시한 경우 그 범위의 전수 점검을 할 수 있다.
+공식 기준·현재 업무를 우선 읽고 필요한 지시·플레이북·정제본·원본만 확장 조회한다.
 ### GOV-013 — distinguish authority
 현재 확정 기준, 협의/진행, 미반영 제안, 미검증 주장을 분리한다.
 ### GOV-014 — current main
@@ -87,20 +87,30 @@ PASS/REVISION/HOLD를 구분한다. PASS는 공유·상신 적합성 검토이�
 ### GOV-015 — implementation registry
 PROJECT_REPOSITORIES는 위치 정보다. 실제 코드·개발·최근 변경은 대상 저장소에서 확인한다.
 ### GOV-016 — explicit admin change
-공식 변경은 검토 → 변경안 기록 → 관리자 명시 승인 → 저장·재조회 순서다. 관리자가 현재 메시지에서 범위가 명확한 검토·최종 반영을 함께 명시하면 한 작업에서 순서대로 수행할 수 있다. 슬래시 입력 부재만으로 명백한 관리자 반영 요청을 거부하지 않는다. 일반 대화에서 자동 저장·확정하지 않는다.
+관리자가 범위가 명확한 검토·최종 반영을 현재 메시지에서 함께 명시하면 한 작업에서 순서대로 수행할 수 있다. 일반 대화에서 자동 저장·확정하지 않는다.
 ### GOV-017 — history
 요구사항의 추가·교체·삭제·중요한 의미 변경은 changelog와 해당 결재 기록에 남긴다.
 ### GOV-018 — normalization
-원본 의미·단위·조건·시점·수치를 보존한다. 전처리, 조사, 해석, 제안을 분리하고 원본 버전·위치·변환 이력을 남긴다.
+원본 의미·단위·조건·시점·수치를 보존한다. 전처리, 조사, 해석, 제안을 분리한다.
 ### GOV-019 — evidence
-핵심 주장과 실제 열어 확인한 근거를 연결한다. 영상 미시청을 시청으로, 조회수를 인과관계로, 내부 일부 판매를 전체 시장 순위로 표현하지 않는다.
+핵심 주장과 실제 열어 확인한 근거를 연결한다. 영상 미시청을 시청으로, 조회수를 인과관계로 표현하지 않는다.
 ### GOV-020 — scoped decisions
-결재는 업무·품의·결과물 버전과 조사/제작/결과수락/게시/지출/정책변경 범위에 연결한다. 수정·취소·조건은 새 기록으로 남긴다.
+결재는 업무·품의·결과물 버전과 조사/제작/결과수락/게시/지출/정책변경 범위에 연결한다.
 ### GOV-021 — approval provenance
-부사수의 '승인받았다'는 전달은 승인 주장일 뿐이다. 실제 관리자 결재 원문과 대상 버전을 확인하기 전 승인 상태로 바꾸지 않는다.
+부사수의 '승인받았다'는 전달은 승인 주장일 뿐이다. 실제 관리자 결재 원문과 대상 버전을 확인한다.
 ### GOV-022 — execution truth
-승인, GitHub 저장, 제작, 공개, 통합 도구 연결을 각각 검증한다. 실패·불확실 결과를 완료로 쓰지 않는다.
+승인, GitHub 저장, 제작, 공개, 통합 도구 연결을 각각 검증한다.
 ### GOV-023 — main and status
 main에는 초안·미반영 기록도 공존할 수 있다. main에 있다는 사실만으로 회사 공식 정책 또는 게시 승인으로 보지 않는다.
 ### GOV-024 — implementation boundary
-문서 지침은 기술적 접근제어가 아니다. 계정별 권한·승인 인증·자동 실행·알림은 별도 구현·검증하며 미구현을 구현됐다고 보고하지 않는다.
+문서 지침은 기술적 접근제어가 아니다. 계정별 권한·승인 인증·자동 실행·알림은 별도 구현·검증한다.
+### GOV-025 — stable actor identity
+사람/행위자는 `llm-source/ACTOR_REGISTRY.json`의 `ACT-NNN`으로 식별한다. actor_id는 재사용하지 않고 역할 변경과 분리한다. 사람 교체 시 새 actor_id를 발급한다.
+### GOV-026 — per-actor record ownership
+새 아이디어·문제와 관련 자료는 `actor_id` 경로에 저장하고 record_id와 actor_id를 함께 남긴다. 기존 role 기반 기록은 이동하지 않고 actor registry와 normalized metadata로 소유자를 연결한다.
+### GOV-027 — review routing
+`/업무검토`는 대상을 `idea / problem / work / mixed / policy_change`로 분류하고 다음 저장 동작을 추천한다. 순수 아이디어는 `/아이디어저장`, 순수 문제는 `/문제저장`, 실제 실행 범위가 있는 업무만 `/업무공유`한다.
+### GOV-028 — assistant idea/problem records
+부사수도 자기 actor_id로 아이디어와 문제를 저장할 수 있다. 저장만으로 현재 업무·공식 정책·승인이 바뀌지 않는다. 현재 업무 중 발견한 문제는 `related_work_id`로 연결하고 실제 영향이 있을 때만 work 상태를 별도로 변경한다.
+### GOV-029 — idea and research work separation
+아이디어 자체와 아이디어를 조사·검증하는 업무는 서로 다른 객체다. 대표님이 아이디어와 함께 조사·기획을 명시하면 아이디어 기록과 조사 work_id를 연결할 수 있으나 조사 완료가 아이디어 채택을 의미하지 않는다.
