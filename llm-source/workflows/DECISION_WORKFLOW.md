@@ -1,31 +1,26 @@
-# 업무결정·품의서결정 — GOV-20260906-05
+# 업무결정·업무계획안결의 — GOV-20260907-01
 
-## 호출
-ACT-001 전용이다. `/업무결정 <승인|수정요청|보류|반려> <R-ID/버전> 이유·조건`, `/품의서결정 <승인|수정요청|보류|반려> <SUB-ID/rN> 이유·조건`으로 사용한다. 결정값 기본값은 없다. `수정 요청` 띄어쓰기만 정규화한다. 구명령·별칭은 실행하지 않는다. 명확한 자연어와 현재 문맥의 단일 대상은 같은 검토를 적용한다.
+## 명령과 대상
+ACT-001 전용이다. /업무결정 <승인|수정요청|보류|반려> <R-ID/내용버전> [이유·범위·담당], /업무계획안결의 <동일 결과값> <SUB-ID/rN> [이유·범위·담당]를 사용한다. 결과 기본값은 없다. 결정값 “수정 요청” 띄어쓰기만 정규화하며 구명령/별칭은 실행하지 않는다.
+현재 문맥의 대상/버전이 하나로 확정되면 불필요한 재질문 없이 실제 최신본을 확인한다. 비승인 이유가 없으면 이유만 확인하며 그럴듯한 이유를 만들지 않는다. 근거가 이미 있으면 재질문하지 않는다.
 
-## 먼저 확인
-COMMON_IO, 최신 등록·ROLE·결재 기준·정확한 R/SUB/근거와 review_snapshot, 관련 최신 D를 읽는다. 제출 내용 hash와 결정 대상 버전이 일치해야 한다. 승인/수정요청/보류/반려 모두 대상 버전을 특정한다. 비승인 실제 이유가 없으면 이유만 확인하고 추측하지 않는다. 현재 구체적 이유가 있으면 재질문하지 않는다.
-정식 submitted 대상만 결정한다. 업무요청 승인에는 명확한 실행 범위·산출물·완료 기준이 있어야 한다. 담당/기한이 미정이면 null이지만 담당 미정의 업무를 부사수가 임의로 실행하지 않는다. 관리자가 배정할 수 있다.
+## 준비
+COMMON_IO, 최신 ROLE/등록·APPROVAL_GOVERNANCE·정확한 R/SUB/본문/근거/검토와 현재 D를 읽는다. submitted인 대상만 결정한다. 계획이 연결한 R의 내용 버전/hash와 본문 SHA-256이 실제 일치해야 한다. review_snapshot은 최신 관련 기준/결정과 대조한다.
+계획 제출 전 W가 없어도 R에 연결되어 있으면 결정할 수 있다. 대표님 구두 요청의 출처는 보고된 것으로 표시하고 직접 대표 승인으로 바꾸지 않는다. 업무 채택에는 실제 목적·범위·완료 기준이 필요하며 담당/기한 미정은 null이다.
 
-## D 이벤트
-새 결정은 templates/DECISION.json v3를 따른다. target_type=request/submission, target_id, target_revision(content 기준), target_hash, target_ref, scope_key(결재 범위), previous_decision_id, decision, reason 및 실제 source, requested/granted_scopes, approver_actor_id=ACT-001, conditions, decided_at, source_event_id, effect를 가진다.
-같은 source_event_id 재시도는 기존 D를 그대로 사용하며 다른 payload면 충돌이다. 같은 대상·버전·범위·결정·이유·조건·범위의 단순 재확인은 새 D/N을 만들지 않는다. 명백한 새로운 이유·조건/결정만 새 사건이다. 알 수 없는 시각·이유는 실제로 확인한 것처럼 채우지 않는다.
-현재 상태는 동일 target/content revision/scope_key의 연결 체인에서 계산한다. 새 D는 최신 선행 D를 가리킨다. main의 동시 결정으로 체인이 바뀌면 재검토하며 시간순 정렬 하나로 이기게 하지 않는다. 분기·경로 불일치는 CONFLICT다.
+## 결재 범위와 업무 연결
+업무요청은 primary_scope=work_adoption, 일반 채택은 work_adoption/planning을 허용한다. W를 등록할 수 있으나 부사수의 본 실행은 별도 계획실행 결의 전 불가다. 관리자 본인의 명시 직접 수행은 실제 범위·self_direct를 기록하고 불필요한 자기 계획 결재를 강요하지 않는다.
+계획안은 primary_scope=plan_execution이며 정확한 계획 버전/담당/배정과 research/production 등 실제 활동 범위를 승인한다. 이미 채택된 R의 W를 재사용한다. 신규·아직 결정 없는 구두 요청의 계획에 work_adoption·담당·plan_execution을 함께 명시하면 한 동작에서 W·ASG·계획승인을 연결한다. 기존 held/rejected 요청은 업무결정으로 먼저 해소하고 계획 결의로 무음 우회하지 않는다.
+담당 부사수·관리자 직접·미정을 구분한다. ACT-003 배정은 WORK_ASSIGNMENT_WORKFLOW의 ASG와 최초 알림을 만든다. 승인된 W에 나중 배정은 같은 W의 새 ASG다. plan_execution 결의는 execution_assignee_actor_id와 assignment_ref를 고정한다. 아직 작성되지 않은 계획까지 “계획 잘하고 해”로 사전 승인하지 않는다.
+비승인에는 granted_scopes=[]이며 W/ASG를 새로 만들지 않는다. 새 r2의 반려가 기존 승인된 r1이나 다른 scope를 자동 철회하지 않는다. 게시·지출·운영 변경·정책 변경은 정확한 별도 범위/후속 실행 요청이 필요하다.
 
-## 전이
-pending→approved/revision_required/held/rejected. held→approved/revision_required/rejected 또는 새 이유/조건의 held. 수정본은 같은 SUB/R의 새 내용 버전으로 제출하고 새 pending 결정이다.
-반려된 같은 버전의 재개는 관리자 명시적 reopen_reason/근거가 필요하다. 새 버전 재요청이면 과거 반려와 현재 차이를 검토한다. 반려는 자료 삭제·영구 금지가 아니다.
-approved→중단/축소/반려는 명시적 기존 승인 변경·철회와 revokes_decision_ids를 기록한다. scope_key가 다른 결정(예: 게시)으로 기존 조사 승인을 덮어쓰지 않는다. 과거 D나 최초 원문은 수정·이동하지 않는다.
-비승인은 granted_scopes=[]이다. 업무 전체 착수 scope_key=work_start 결정이 held/rejected/revision_required라면 그 범위는 실행 불가다. 결과물 불수락을 전체 업무 취소로 자동 확대하지 않는다.
+## 불변 D·전이
+D-ID에는 target_type/request 또는 submission, target_id/revision/hash/ref, scope_key, previous_decision_id, decision, 실제 이유/원문/locator, requested/granted_scopes, 조건, 시점, source_event_id, 원래 R의 authorization_target을 보존한다. 실제 사용자 발언 시점 미확인은 추정하지 않는다.
+같은 source_event_id 재시도·동일 대상/버전/범위/결과/이유/조건 재확인은 새 사건을 만들지 않는다. 다른 payload로 같은 event 키를 쓰면 충돌이다. 정확한 선행 D와 target/content/scope로 체인을 계산하며 날짜순 하나로 충돌을 덮지 않는다.
+pending→각 결정, held→approved/revision_required/rejected 또는 의미 있는 held 변경은 새 D다. 반려 후 같은 버전 재개에는 명시적 reopen_reason/근거, 새 버전은 과거 이유·현재 차이 검토가 필요하다. 기존 approved의 중단/축소/반려는 실제 철회/재결재·이유·revokes_decision_ids를 남긴다.
+기존 work_start 체인은 역사적 원문으로 보존한다. 새 business adoption과 plan_execution은 서로 다른 범위이며 새 결의가 옛 기록을 일괄 변환하지 않는다. 같은 R로 W를 두 개 만들거나 아직 발생하지 않은 수행을 in_progress/done으로 표시하지 않는다.
 
-## W 생성·연결
-신규 W는 승인 granted_scopes에 work_start가 있을 때만 만든다. 요청 R 또는 품의의 request_ref로 기존 W를 먼저 찾는다. 같은 R/승인에 이미 W가 있으면 재사용하고 D를 연결한다. 신규 id는 충돌을 확인한 W-YYYYMMDD-NNN이다.
-W에 confirmation_decision_ref, request_refs, submitted_by/assigned_to, authorized_scopes, 완료 조건을 남긴다. 실제 수행이 없으면 queued이지 in_progress/done이 아니다. 생성과 착수 승인이지 외부 실행 완료가 아니다. 품의 승인에 work_start가 없으면 W 생성 없이 해당 버전·범위만 결정한다.
-보류/반려에 W를 만들지 않는다. 기존 W 영향은 해당 승인 범위에만 적용하며 필요하면 blocked/revision_required·재결재 필요를 기록한다. 게시·지출·운영 변경은 별도 승인과 실행 요청이다.
-
-## 작성자 통지·저장
-수신자는 요청자, 품의서 작성자, 직접 영향을 받는 현재 담당자의 합집합이며 ACT-001 자기 결정 수신은 기본 제외한다. 파일을 대신 기록한 사람이 아니라 실제 요청자/작성자를 확인한다.
-D+R/W의 허용 연결+records/DECISION_INDEX.json+상태함+수신자별 N 이벤트+INBOX를 동일 커밋으로 저장한다. 최초 pending 결정과 보류→승인/반려 등 의미 변화마다 새 이벤트를 만들고 과거 사건을 방송용으로 소급 생성하지 않는다. 실패는 부분 저장으로 보고하며 재시도는 같은 event/ID로 복구한다.
-INBOX_WORKFLOW대로 새 변화만 안내한다. 영수증은 표시·확인 기록이지 결재 변경이 아니다. 실제 저장 후 D/R/W/인덱스/N/INBOX를 재조회하고 완료를 보고한다.
-
-동일 R의 간이 요청과 상세 품의가 work_start를 결정할 때는 authorization_target(R-ID/내용 버전/hash)로 업무 시작 결정 체인을 공유한다. target은 실제 R/SUB 버전으로 남긴다. 상세 품의에서 승인한 동일 요청을 별도 미승인으로 남기거나 두 업무로 만들지 않는다. 품의가 참조하는 요청 내용이 바뀌었거나 본문 해시가 다르면 재검토한다.
+## 통지·저장·실행
+초기 대표 업무요청 결정은 요청자에게, 부사수 신규 배정은 승인된 작업지시 요약으로 전달한다. 대표 원문을 부사수에게 자동 공개하지 않는다. 부사수가 직접 대리 기록한 요청 또는 자기 계획의 결정은 실제 작성/요청 관계에 따라 알린다. 이미 배정된 업무의 후속 보류/승인은 직접 영향 있는 담당자도 알린다.
+D/W/필요 ASG/연결/결정 인덱스/상태함/N/INBOX를 같은 커밋으로 저장하고 모든 변경 파일을 재조회한다. 기록·알림 일부 실패를 전체 성공이라고 하지 않는다. 동일 ID로 복구하며 옛 결정을 소급 방송하지 않는다.
+관리자 결정 저장은 채팅방 푸시/실제 표시/사용자 확인/본 작업/외부 공개 성공이 아니다. 계획 본 수행 직전 최신 업무채택·현재 배정·계획 결의·내용 hash·허용 활동을 다시 확인한다.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pure planners for GOV-05. No network, writes, autonomous NLP, authentication or push.
+"""Pure planners for work decisions and execution plans. No network, writes, autonomous NLP, authentication or push.
 A trusted caller must read current main, assess intent/evidence, commit the entire plan
 with optimistic concurrency, then re-read every returned path. Flags are not identity proof.
 """
@@ -10,12 +10,13 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import work_plans as wp
 from typing import Any
 
 ADMIN = 'ACT-001'
 OUTCOMES = {'승인':'approved','수정요청':'revision_required','보류':'held','반려':'rejected'}
-SCOPES = {'work_start','research','production','deliverable','publication','expenditure','policy_change'}
-RETIRED = {'/업무확정','/품의서승인','/업무공유','/업무접수','/대표업무점검','/대표업무검토','/품의상신','/품의승인'}
+SCOPES = {'work_start','research','production','deliverable','publication','expenditure','policy_change','work_adoption','planning','plan_execution'}
+RETIRED = {'/업무확정','/품의서승인','/업무공유','/업무접수','/대표업무점검','/대표업무검토','/품의상신','/품의승인','/품의서작성','/품의서결정','/품의서결의'}
 READ_ONLY = {'/아이디어출력','/문제출력','/업무검토','/업무점검','/반영미리보기'}
 
 def need(ok: Any, message: str) -> None:
@@ -88,7 +89,7 @@ def make_decision(obj: dict, event: dict, decisions: list[dict]) -> dict:
     need(event.get('actor_id')==ADMIN,'Administrator only')
     need(obj.get('submission_status')=='submitted','Only reviewed submitted objects can be decided')
     kind,oid,rev=subject(obj)
-    expected='/업무결정' if kind=='request' else '/품의서결정'
+    expected='/업무결정' if kind=='request' else '/업무계획안결의'
     need(event.get('command')==expected,'Wrong command for decision target')
     val=str(event.get('outcome','')).replace(' ','')
     need(val in OUTCOMES,'Explicit valid outcome required; no default approval')
@@ -115,18 +116,26 @@ def make_decision(obj: dict, event: dict, decisions: list[dict]) -> dict:
         v=details.get('publication',{});need(all(v.get(k) for k in ('account','artifact_version','schedule')),'Explicit publication details required')
     if outcome=='approved':
         need(bool(scopes) and set(scopes)<=set(obj.get('requested_scopes',[])),'Approval must stay within requested scope')
-        if kind=='request': need('work_start' in scopes,'Work-request approval requires explicit work_start')
+        if kind=='request':
+            need(bool(set(scopes)&{'work_adoption','work_start'}),'Work adoption must be explicit')
+            if event.get('execution_mode')!='self_direct':
+                need(set(scopes)<={'work_adoption','work_start','planning'},'Request approval is not plan execution approval')
+        if 'plan_execution' in scopes: need(kind=='submission','Execution plan required')
     ctx=event.get('request_context') or {'request_id':obj.get('request_id'),'content_revision':revision(obj),'content_hash':digest(proposal(obj))}
     need(ctx.get('request_id'),'Request authorization context required')
     key=('request',ctx['request_id'],ctx['content_revision'],scope) if scope=='work_start' else (kind,oid,rev,scope)
     prior=latest(decisions,key)
+    if kind=='submission' and outcome=='approved' and 'work_adoption' in scopes:
+        for adoption_scope in ('work_adoption','work_start'):
+            parent=latest(decisions,('request',ctx['request_id'],ctx['content_revision'],adoption_scope))
+            need(not parent or parent['decision']=='approved','Existing held/rejected request needs an explicit 업무결정 first')
     fp=digest({k:v for k,v in event.items() if k not in {'base_commit','review'}})
     for d in decisions:
         if d.get('source_event_id')==event['source_event_id']:
             need(d.get('event_fingerprint')==fp,'Reused event key with changed payload')
             return {'status':'already_recorded','decision':d}
     need((prior or {}).get('decision_id')==event.get('previous_decision_id'),'Stale predecessor')
-    semantic={'decision':outcome,'reason':reason,'granted_scopes':scopes,'conditions':event.get('conditions',[]),'scope_details':details}
+    semantic={'decision':outcome,'reason':reason,'granted_scopes':scopes,'conditions':event.get('conditions',[]),'scope_details':details,'assignment':event.get('assignment'),'execution_mode':event.get('execution_mode')}
     if prior and (prior['target_type'],prior['target_id'],prior['target_revision'],prior['target_hash'])==(kind,oid,rev,digest(proposal(obj))) and all(prior.get(k)==v for k,v in semantic.items()):
         return {'status':'unchanged','decision':prior}
     if prior and prior['decision']=='rejected': need(event.get('reopen_reason'),'Explicit reopening evidence/reason required')
@@ -149,40 +158,15 @@ def make_decision(obj: dict, event: dict, decisions: list[dict]) -> dict:
     return {'status':'planned','decision':d}
 
 def work_effect(d: dict, request: dict, event: dict, existing: list[tuple[str,dict]]) -> tuple[str,dict]|None:
-    rp=d['request_ref'];found=[(p,w) for p,w in existing if rp in w.get('request_refs',[])]
-    need(len(found)<=1,'Ambiguous duplicate work for request')
-    starts=d['decision']=='approved' and 'work_start' in d['granted_scopes']
-    if not starts and not (found and d['scope_key']=='work_start' and d['revokes_decision_ids']):return None
-    if found:
-        path,w=found[0];w=copy.deepcopy(w);w['revision']+=1
-        if starts and w['work_status'] in {'done','cancelled'}:
-            need(event.get('reopen_work') and event.get('reopen_reason'),'Completed work requires explicit reopening')
-        if starts and w['work_status'] in {'blocked','revision_required','cancelled','done'}:w['work_status']='queued'
-    else:
-        wid=event.get('work_id');need(valid_id(wid,'W'),'New work needs a collision-checked W-ID')
-        need(all(w.get('id')!=wid for _,w in existing),'W-ID collision')
-        path=f'work/items/{wid}.json'
-        w=dict(schema_version=3,id=wid,revision=1,title=request.get('title') or proposal(request).get('title'),
-               requested_by_actor_id=request['requester_actor_id'],assigned_to_actor_id=event.get('assigned_to_actor_id'),
-               created_at=event['decided_at'],work_status='queued',evidence_status='pending',approval_status='approved',
-               persistence_status='pending_commit',execution_status='not_requested',priority=event.get('priority'),due_at=event.get('due_at'),
-               next_action='승인 범위와 담당을 확인한 뒤 착수',source_refs=[],request_refs=[rp],request_change_refs=[],directive_refs=[],
-               evidence_refs=[],artifact_refs=[],submission_refs=[],decision_refs=[],related_idea_ids=[],related_problem_ids=[],
-               unknowns=[],completion_criteria=proposal(request).get('completion_criteria',[]))
-    need(w.get('title') and w.get('completion_criteria'),'Work title and completion criteria required')
-    w['updated_at']=w['information_as_of']=event['decided_at']
-    ref=f"approvals/{d['decision_id']}.json";w['effective_decision_ref']=ref
-    if starts:
-        w['confirmation_decision_ref']=ref;w['authorized_scopes']=d['granted_scopes'];w['approval_status']='approved'
-    else:
-        w['approval_status']='pending' if d['decision']=='held' else d['decision']
-        if w['work_status'] not in {'done','cancelled'}:w['work_status']='blocked'
-    w['decision_refs']=list(dict.fromkeys(w.get('decision_refs',[])+[ref]));d['work_id']=w['id']
-    return path,w
+    return wp.work_effect(d,request,event,existing)
 
 
 def make_notifications(d: dict, target: dict, requester: str, assignee: str|None) -> list[tuple[str,dict]]:
-    recipients={requester,target.get('submitted_by_actor_id'),assignee}-{None,ADMIN}
+    # Representative requests are not sent straight to the assistant. Assignment
+    # events carry only the approved brief; proxy reporters may see their own record.
+    recipients={requester,target.get('submitted_by_actor_id')} - {None,ADMIN}
+    if assignee and ('submission_id' in target or not d.get('assignment')): recipients.add(assignee)
+    recipients.discard(ADMIN)
     result=[]
     for aid in sorted(recipients):
         nid=f"N-{d['decision_id']}-{aid}"; path=f'records/notifications/{aid}/{nid}.json'
@@ -193,15 +177,16 @@ def make_notifications(d: dict, target: dict, requester: str, assignee: str|None
           decided_at=d['decided_at'],authority='derived_notification_not_approval')))
     return result
 
-def inbox(actor: str, notifications: list[dict], receipts: list[dict], decisions: list[dict], page_size: int=20) -> dict:
+def inbox(actor: str, notifications: list[dict], receipts: list[dict], decisions: list[dict], page_size: int=20, assignments: list[dict]|None=None) -> dict:
     need(page_size>0,'Invalid page size')
     delivered={r['notification_id'] for r in receipts if r.get('recipient_actor_id')==actor and r.get('delivered_at')}
-    selected=[]
+    selected=wp.assignment_notifications(actor,notifications,receipts,assignments or [])
     for n in notifications:
+        if n.get('event_type') in {'assignment','assignment_released'}: continue
         if n.get('recipient_actor_id')!=actor or n['notification_id'] in delivered: continue
         tip=latest(decisions,chain_key(n))
         if tip and tip['decision_id']==n['decision_id']: selected.append(n)
-    selected.sort(key=lambda n:(n['decided_at'],n['decision_id']),reverse=True)
+    selected.sort(key=lambda n:(n['decided_at'],n.get('decision_id',n['notification_id'])),reverse=True)
     out=dict(schema_version=1,actor_id=actor,authority='derived_view',unread_count=len(selected),items=selected[:page_size],
              more_count=max(0,len(selected)-page_size),next_page=2 if len(selected)>page_size else None)
     out['inbox_revision']=digest(out);return out
@@ -216,16 +201,23 @@ def render(root: Path, overlay: dict[str,str], actors: list[dict]) -> dict[str,s
     notes=[n for _,n in group('records/notifications','N-*.json')]
     receipts=[n for _,n in group('records/notification-receipts','N-*.json')]
     targets=group('records/requests','R-*.json')+group('records/submissions','SUB-*.json')
+    assignments=[a for _,a in group('work/assignments','ASG-*.json')]
+    all_works=group('work/items','W-*.json')
     summary=[];all_targets={}
     for p,t in targets:
         kind,oid,rev=subject(t);old=all_targets.get((kind,oid))
         if old is None or rev>old[1]: all_targets[(kind,oid)]=(p,rev,t)
     for (kind,oid),(p,rev,t) in all_targets.items():
-        if t.get('submission_status')!='submitted':continue
+        adopted=[w for _,w in all_works if p in w.get('request_refs',[]) and w.get('adoption_decision_ref')]
+        if t.get('submission_status')!='submitted' and not adopted:continue
         scope=t.get('primary_scope','work_start');tip=latest(ds,(kind,oid,rev,scope))
         if kind=='submission' and scope=='work_start':
             matches=[d for d in ds if (d['target_type'],d['target_id'],d['target_revision'],d['scope_key'])==(kind,oid,rev,scope)]
             tip=latest(ds,chain_key(matches[-1])) if matches else None
+        if kind=='request' and not tip and len(adopted)==1:
+            ref=adopted[0]['adoption_decision_ref']
+            linked=next((d for d in ds if f"approvals/{d['decision_id']}.json"==ref),None)
+            if linked:tip=latest(ds,chain_key(linked))
         summary.append(dict(target_type=kind,target_id=oid,target_revision=rev,path=p,scope_key=scope,
            author_actor_id=t.get('submitted_by_actor_id') or t.get('requester_actor_id'),
            requester_actor_id=t.get('requester_actor_id'),title=t.get('title') or proposal(t).get('title'),
@@ -240,9 +232,9 @@ def render(root: Path, overlay: dict[str,str], actors: list[dict]) -> dict[str,s
         aid=a['actor_id'];view=[x for x in summary if aid==ADMIN or aid in {x.get('author_actor_id'),x.get('requester_actor_id')}]
         files[f'records/decision-views/{aid}.json']=dump(dict(schema_version=1,actor_id=aid,authority='derived_view',items=view))
         current_notes=[n for n in notes if (n['target_type'],n['target_id']) not in all_targets or n['target_revision']==all_targets[(n['target_type'],n['target_id'])][1]]
-        current=inbox(aid,current_notes,receipts,ds)
+        current=inbox(aid,current_notes,receipts,ds,assignments=assignments)
         # Page overflow is addressable, never dropped silently.
-        full=inbox(aid,current_notes,receipts,ds,page_size=max(1,len(notes)+1))['items']
+        full=inbox(aid,current_notes,receipts,ds,page_size=max(1,len(notes)+1),assignments=assignments)['items']
         pages=[full[i:i+20] for i in range(0,len(full),20)]
         if len(pages)>1:
             current['next_page']=f'records/inbox/pages/{aid}/2.json'
@@ -266,6 +258,7 @@ def render(root: Path, overlay: dict[str,str], actors: list[dict]) -> dict[str,s
     dp='assistant/30-working/DECISION_NEEDED.md'
     prior=safe(root,dp).read_text(encoding='utf-8').split(marker)[0] if safe(root,dp).exists() else '# Decision Needed\n'
     files[dp]=prior.rstrip()+'\n\n'+marker+'\n'+''.join(f"- {x['target_id']} r{x['target_revision']} / {x['status']} / {x['path']}\n" for x in pending)
+    files.update(wp.assignment_views(root,overlay,actors))
     return files
 
 def plan(root: Path, event: dict) -> dict:
@@ -292,7 +285,7 @@ def plan(root: Path, event: dict) -> dict:
             d=result['decision']
             for aid in d.get('recipient_actor_ids',[]):
                 need(safe(root,f"records/notifications/{aid}/N-{d['decision_id']}-{aid}.json").is_file(),'Partial notification persistence: repair same D/N, do not duplicate')
-            if 'work_start' in d.get('granted_scopes',[]):
+            if set(d.get('granted_scopes',[])) & {'work_start','work_adoption'}:
                 need(d.get('work_id') and safe(root,f"work/items/{d['work_id']}.json").is_file(),'Partial work persistence: repair same W-ID')
             for q,expected in render(root,{},actors).items():
                 need(safe(root,q).is_file() and safe(root,q).read_text(encoding='utf-8')==expected,'Derived views incomplete; rebuild without another decision')
@@ -300,7 +293,16 @@ def plan(root: Path, event: dict) -> dict:
         d=result['decision']
         if 'submission_id' in obj:d['artifact_refs']=[{'path':obj['artifact_path'],'sha256':obj['artifact_sha256'],'revision':obj['revision']}]
         request=load(root,d['request_ref']);work=work_effect(d,request,event,records(root,'work/items','W-*.json'))
-        if work:files[work[0]]=dump(work[1])
+        if work:
+            files.update(wp.assign(root,work[1],event,d))
+            if d['decision']=='approved' and 'plan_execution' in d['granted_scopes']:
+                w=work[1]
+                need(w.get('assigned_to_actor_id') is not None,'Plan execution needs an explicitly assigned performer')
+                need(w['assigned_to_actor_id']==obj.get('proposed_assignee_actor_id',obj.get('submitted_by_actor_id')),'Plan performer differs from assigned performer')
+                d['execution_assignee_actor_id']=w['assigned_to_actor_id'];d['assignment_ref']=w.get('current_assignment_ref')
+                w['plan_status']='approved';w['execution_plan_ref']=event['target_ref'];w['execution_decision_ref']=f"approvals/{d['decision_id']}.json"
+                w['authorized_scopes']=d['granted_scopes'];w['next_action']='최신 승인 계획·배정 확인 후 허용 범위 수행'
+            files[work[0]]=dump(work[1])
         files[f"approvals/{d['decision_id']}.json"]=dump(d)
         assignee=work[1].get('assigned_to_actor_id') if work else None
         if not work and obj.get('work_id'):
@@ -310,9 +312,21 @@ def plan(root: Path, event: dict) -> dict:
         files[f"approvals/{d['decision_id']}.json"]=dump(d)
         for p,n in notes:
             need(not safe(root,p).exists(),'Notification ID collision');files[p]=dump(n)
+    elif operation=='assign_work':
+        need(role=='admin' and actor['actor_id']==ADMIN,'Administrator assignment only')
+        need(command=='','Use explicit natural-language assignment, not an implicit decision outcome')
+        path=event['work_ref'];w=copy.deepcopy(load(root,path))
+        need(event.get('expected_revision')==w['revision'],'Stale assignment work revision')
+        added=wp.assign(root,w,event)
+        if not added:return dict(status='already_recorded',files={},expected_blobs={},base_commit=event['base_commit'])
+        w['revision']+=1;w['updated_at']=event['assignment']['assigned_at'];files.update(added);files[path]=dump(w)
     elif operation=='submit_request':
         need(command=='/업무요청','Wrong submission command')
-        obj=copy.deepcopy(event['request']);need(obj.get('requester_actor_id')==actor['actor_id'],'Cannot submit as another actor')
+        obj=copy.deepcopy(event['request'])
+        if obj.get('requester_actor_id')!=actor['actor_id']:
+            _,obj=wp.reported_request(root,actor['actor_id'],obj)
+        obj.setdefault('record_owner_actor_id',actor['actor_id'])
+        need(obj['record_owner_actor_id']==actor['actor_id'],'Request record ownership')
         need(valid_id(obj.get('request_id'),'R'),'Invalid R-ID');need(obj.get('original_text'),'Original text required')
         check_review(event.get('review',{}),obj,event['base_commit'])
         obj['submission_status']='submitted';obj['review_snapshot']=event['review']
@@ -327,12 +341,26 @@ def plan(root: Path, event: dict) -> dict:
             need(len(obj.get('request_change_refs',[]))>len(old.get('request_change_refs',[])),'Material admin changes require RC workflow first')
         files[path]=dump(obj)
     elif operation=='submit_submission':
-        need(command=='/품의서작성' and role in {'admin','assistant'},'Submission role boundary')
+        need(command=='/업무계획안제출' and role in {'admin','assistant'},'Submission role boundary')
         obj=copy.deepcopy(event['submission']);need(obj.get('submitted_by_actor_id')==actor['actor_id'],'Submission author mismatch')
         need(re.fullmatch(r'SUB-[RW]-\d{8}-\d{3,}-\d{3,}',str(obj.get('submission_id'))),'Invalid SUB-ID')
         need(type(obj.get('revision')) is int and obj['revision']>0,'Submission revision required')
         check_review(event.get('review',{}),obj,event['base_commit'])
-        request=load(root,obj['request_ref']);need(request.get('request_id'),'Actual request required')
+        if event.get('reported_request'):
+            rp,request=wp.reported_request(root,actor['actor_id'],event['reported_request'])
+            need(obj['request_ref']==rp,'Plan must reference the captured oral request')
+            files[rp]=dump(request)
+            ip='records/REQUEST_INDEX.md';prior=safe(root,ip).read_text(encoding='utf-8') if safe(root,ip).exists() else '# Request Index\n'
+            files[ip]=prior+f"\n- {request['request_id']} / reported requester ACT-002 / recorder {actor['actor_id']} / captured with plan / {rp}\n"
+        else:request=load(root,obj['request_ref'])
+        need(request.get('request_id'),'Actual request required')
+        wp.check_request_access(root,actor['actor_id'],request,obj.get('assignment_ref'))
+        obj['plan_type']='execution_plan';obj['proposed_assignee_actor_id']=obj.get('proposed_assignee_actor_id',actor['actor_id'])
+        need(obj.get('primary_scope')=='plan_execution','New plans use a separate plan_execution decision scope')
+        if obj.get('work_id'):
+            assigned=load(root,f"work/items/{obj['work_id']}.json")
+            need(role=='admin' or assigned.get('assigned_to_actor_id')==actor['actor_id'],'Not your assigned work')
+            need(obj.get('assignment_ref')==assigned.get('current_assignment_ref'),'Plan assignment is stale')
         artifact=event.get('artifact_text');need(isinstance(artifact,str) and bool(artifact),'Actual submission body required')
         sp=f"records/submissions/{obj['submission_id']}-r{obj['revision']}.json"
         ap=f"assistant/40-handoff/to-jin/{obj['submission_id']}-r{obj['revision']}.md"
@@ -340,13 +368,18 @@ def plan(root: Path, event: dict) -> dict:
         if obj.get('work_id'):need(safe(root,f"work/items/{obj['work_id']}.json").is_file(),'Do not invent W-ID before approval')
         obj.update(submission_status='submitted',review_snapshot=event['review'],artifact_path=ap,artifact_sha256=hashlib.sha256(artifact.encode()).hexdigest(),request_content_revision=revision(request),request_content_hash=digest(proposal(request)))
         files[sp]=dump(obj);files[ap]=artifact
+        if obj.get('work_id'):
+            wp_path=f"work/items/{obj['work_id']}.json";assigned=copy.deepcopy(load(root,wp_path))
+            assigned['revision']+=1;assigned['proposed_plan_ref']=sp;assigned['proposed_plan_status']='submitted'
+            assigned['submission_refs']=list(dict.fromkeys(assigned.get('submission_refs',[])+[sp]))
+            if not assigned.get('execution_plan_ref'):
+                assigned['plan_status']='submitted';assigned['next_action']='업무계획안 관리자 결의 대기'
+            files[wp_path]=dump(assigned)
     elif operation=='update_work':
         need(command=='/업무업데이트' and role in {'admin','assistant'},'Work-update role boundary')
         path=event['work_ref'];w=load(root,path)
         need(role=='admin' or w.get('assigned_to_actor_id')==actor['actor_id'],'Only assigned assistant may update')
-        d=load(root,w['confirmation_decision_ref']);ds=[x for _,x in records(root,'approvals','D-*.json')]
-        tip=latest(ds,chain_key(d))
-        need(tip and tip['decision']=='approved' and 'work_start' in tip['granted_scopes'],'Work authorization not current')
+        wp.check_execution(root,w,event)
         need(event.get('expected_revision')==w['revision'],'Stale work revision')
         allowed={'work_status','next_action','evidence_refs','artifact_refs','unknowns'}
         patch=event.get('patch',{});need(set(patch)<=allowed,'Cannot expand scope or modify approval')
@@ -359,7 +392,7 @@ def plan(root: Path, event: dict) -> dict:
         need(event.get('displayed') is True and event.get('presentation_ref'),'Fetch is not delivery; actual presentation required')
         need(event.get('delivered_at'),'Delivery timestamp required')
         for nid in event.get('notification_ids',[]):
-            need(re.fullmatch(r'N-D-\d{8}-\d{3,}-ACT-\d{3,}',nid),'Invalid N-ID')
+            need(re.fullmatch(r'N-(?:D|ASG)-\d{8}-\d{3,}-ACT-\d{3,}',nid),'Invalid N-ID')
             np=f"records/notifications/{actor['actor_id']}/{nid}.json";n=load(root,np)
             need(n['recipient_actor_id']==actor['actor_id'],'Receipt ownership')
             rp=f"records/notification-receipts/{actor['actor_id']}/{nid}.json"

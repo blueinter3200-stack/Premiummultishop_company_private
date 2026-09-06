@@ -1,21 +1,22 @@
-# Work Lifecycle — GOV-20260906-05
+# Work Lifecycle — GOV-20260907-01
 
 ## 생명주기
-원문 R(captured) → 검토 PASS → R/SUB(submitted) → D(관리자 결정) → work_start 승인 범위 W → 수행 갱신 → 결과 검증/수락이다. 품의 SUB는 W가 없을 때도 R에 연결할 수 있다. 원문 I/P와 조사 업무는 별개다.
+R captured → 검토 → R submitted 또는 SUB 계획안 → 업무채택 D → W 등록 → 담당 ASG → 계획실행 D → 수행 갱신 → 산출물 검증/수락이다. 구두 대표 요청의 계획안은 W/ASG 전에 R에 연결해 제출할 수 있다. 초기 결정 없는 요청의 복합 결의는 명시 범위 안에서 채택·배정·계획승인을 함께 기록할 수 있다.
 
-## 버전과 상태
-request.revision은 객체 갱신 횟수, content_revision은 결정 대상 내용 버전이다. 상태·연결만 갱신할 때 content_revision은 유지한다. proposal/current_requirements 등 의미 내용 변경에는 content_revision을 올리고 검토를 다시 받는다. 과거 schema 1/2는 원문·기존 필드를 보존하고 건별로 필요한 선택 필드만 추가한다.
-R의 request_status(captured/in_progress/fulfilled 등 과거 의미)는 결정 상태를 대체하지 않는다. 신규 submission_status는 captured 또는 submitted 등 제출 단계, review_snapshot은 통과한 정확한 내용/근거, 결정 상태는 D에서 파생한다. 과거 fulfilled를 승인 범위로 간주하지 않는다.
-SUB는 submission_id + revision별 불변 Markdown과 metadata다. 수정본은 새 revision·파일로 제출한다. 새 버전은 pending으로 보며 이전 버전 결정은 역사로만 연결한다.
-D는 target_type/id/content_revision/content_hash, scope_key, previous_decision_id로 연결한다. 전역 최신 날짜 하나로 다른 버전·범위까지 덮어쓰지 않는다. 동시에 같은 선행 D를 대체하는 분기가 생기면 CONFLICT로 처리하고 관리자가 해소한다.
+## 버전과 기존 데이터
+request.revision은 객체 갱신, content_revision은 의미 내용 버전이다. 연결/상태만 바뀌면 내용 버전은 유지한다. 의미 내용이 바뀌면 새 검토·내용 버전이며 ACT-001 기존 요청은 RC 규칙도 따른다. 과거 schema1/2/3·최초 원문·supersedes는 강제 마이그레이션하지 않는다.
+R.request_status와 submission_status는 제출/수행 연결이고 D의 결재 상태를 대신하지 않는다. 과거 fulfilled를 실행 승인으로 해석하지 않는다. 구두 대리 기록은 실제 recorder/record_owner와 reported requester를 나누며 원 발언자가 확인된 것처럼 꾸미지 않는다.
+SUB-ID와 revision마다 본문/metadata를 보존한다. 새 본문은 새 파일이며 이전 결의가 자동 적용되지 않는다. request_content_revision/hash와 artifact_sha256을 결정·수행 전에 대조한다. 기존 SUB-W 형식을 바꾸지 않고 새 계획은 SUB-R 형식을 사용할 수 있다.
+D는 정확한 대상·내용 버전/hash·scope_key·선행 D로, ASG는 W·선행 ASG·담당자·실제 관리자 지시로 연결한다. 시간 정렬 하나로 다른 버전/범위를 덮지 않고 분기·중복은 CONFLICT다.
 
-## 업무
-신규 W는 administrator work_start 승인과 연결한다. confirmation_decision_ref, authorized_scopes, request_refs, submission_refs, decision_refs를 갖는다. 관리자가 이미 승인한 같은 R의 상세 품의를 결재해도 W를 중복 생성하지 않는다. 기존 legacy W는 일괄 삭제·재생성하지 않으며, 승인 근거가 미확인인 건의 추가 실행은 재확인한다.
-기존 필수 필드 schema_version,id,revision,title,requested_by_actor_id,assigned_to_actor_id,created_at,updated_at,information_as_of,work_status,evidence_status,approval_status,persistence_status,execution_status,priority,due_at,next_action,source_refs,directive_refs,evidence_refs,artifact_refs,submission_refs,decision_refs,related_idea_ids,related_problem_ids,unknowns,completion_criteria와 request_refs/request_change_refs를 유지한다.
-work_status: draft/queued/in_progress/submitted/revision_required/blocked/done/cancelled. evidence_status: pending/partial/passed/failed. approval_status: not_requested/pending/approved/revision_required/rejected/revoked. persistence_status: pending_commit/verified/failed/partial. execution_status: not_requested/running/succeeded/failed/uncertain.
-승인은 queued와 실행 허용 범위를 만들 수 있지만 실제 작업 시작·완료를 가정하지 않는다. 게시 상태·영수증은 별도다. work revision은 진행 갱신마다 올리고 결과 버전은 별도 artifact_refs로 고정한다.
+## 업무 상태와 실행 권한
+새 W는 명확한 관리자 work_adoption(legacy work_start는 과거 기록) 승인에 연결한다. W 등록은 본 작업 in_progress/done이 아니다. 기존 W를 같은 요청으로 중복 생성하지 않는다.
+기존 schema/id/revision/title/requested_by/assigned_to/시점/work_status/evidence_status/approval_status/persistence_status/execution_status/priority/due_at/next_action/source_refs/request_refs/request_change_refs/directive_refs/evidence_refs/artifact_refs/submission_refs/decision_refs/related I/P/unknowns/completion_criteria 필드는 유지한다.
+추가 필드는 adoption_decision_ref/adoption_status, current_assignment_ref/assignment_refs, execution_mode, execution_plan_ref/execution_decision_ref, plan_status, proposed_plan_ref/proposed_plan_status다. confirmation_decision_ref는 호환 연결이며 이를 계획 실행 허가로 단독 사용하지 않는다.
+work_status는 draft/queued/in_progress/submitted/revision_required/blocked/done/cancelled를 유지한다. evidence는 pending/partial/passed/failed, persistence는 pending_commit/verified/failed/partial, execution은 not_requested/running/succeeded/failed/uncertain이다. 계획 준비는 별도 phase=planning으로 기록하고 본 수행 시작/전체 완료로 표시하지 않는다.
+본 작업은 최신 유효 업무채택 + 현재 배정 + 정확한 plan_execution 결의 + research/production 등 활동 범위를 모두 확인한다. 관리자 명시 직접 수행(self_direct)은 본인에게만 적용되고 재배정 시 부사수에게 이전되지 않는다. 담당/지시가 바뀌면 이전 담당/배정에 묶인 계획승인을 자동 재사용하지 않는다.
+새 r2 계획의 제출/반려가 r1의 기존 승인 범위를 자동 철회하지는 않는다. 새 범위 실행은 r2 결의 전 불가이며 실제 현재 실행계획 참조로 구분한다. 게시·지출·정책 변경은 별도 범위다.
 
-## 조회판
-CURRENT_WORK=회사 수행 업무, ACTIVE=ACT-003 배정 활성 업무, BLOCKED=차단 업무, DECISION_NEEDED=관리자 결정대기다. 별도 records/decision-views/ACT-NNN.json은 요청/품의 pending·held·revision_required·approved·rejected 상태함이다. INBOX는 아직 안내하지 않은 최신 결정 사건 요약이다. 상태함이나 INBOX를 고쳐 결정을 변경하지 않는다.
-
-work_start 결재는 간이 R와 상세 SUB가 같은 authorization_target(R-ID/content_revision/hash) 체인을 공유한다. 대상 버전은 개별 R/SUB로 보존하되 승인 상태가 서로 모순되거나 업무를 중복 생성하지 않게 한다.
+## 조회판과 보존
+CURRENT_WORK=회사 업무, ACTIVE=현재 ACT-003 배정 업무, BLOCKED=차단 업무, DECISION_NEEDED=관리자 결정대기, decision-views=요청/계획안 상태함, assignment-views=수신자가 수행해야 할 미완료 작업지시다.
+INBOX는 새 미전달 사건 요약이다. 전달된 알림을 반복하지 않아도 미완료 지시는 assignment-views에 남는다. 과거 원본은 상태별로 이동/삭제하지 않는다. 기존 승인 근거가 불명확한 legacy W의 추가 수행은 관리자에게 확인하며 과거 상태를 임의로 완료/승인으로 고치지 않는다.

@@ -1,18 +1,1 @@
-{
-  "schema_version": 1,
-  "submission_id": null,
-  "revision": 1,
-  "request_ref": null,
-  "requester_actor_id": null,
-  "submitted_by_actor_id": null,
-  "work_id": null,
-  "title": null,
-  "primary_scope": "work_start",
-  "requested_scopes": [],
-  "current_requirements": {},
-  "review_snapshot": null,
-  "artifact_path": null,
-  "artifact_sha256": null,
-  "submission_status": "draft",
-  "supersedes_revision": null
-}
+{"schema_version":2,"submission_id":null,"revision":1,"plan_type":"execution_plan","request_ref":null,"requester_actor_id":null,"submitted_by_actor_id":null,"proposed_assignee_actor_id":null,"work_id":null,"assignment_ref":null,"title":null,"primary_scope":"plan_execution","requested_scopes":[],"current_requirements":{},"review_snapshot":null,"artifact_path":null,"artifact_sha256":null,"request_content_revision":null,"request_content_hash":null,"submission_status":"draft","supersedes_revision":null}
