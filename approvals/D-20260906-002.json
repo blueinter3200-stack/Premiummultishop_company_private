@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "object_type": "decision",
+  "decision_id": "D-20260906-002",
+  "work_id": "W-20260906-002",
+  "submission_id": null,
+  "submission_revision": null,
+  "artifact_refs": [
+    "llm-source/ACTOR_REGISTRY.json",
+    "llm-source/WORK_GOVERNANCE.md",
+    "llm-source/PRODUCT_REQUIREMENTS.md",
+    "chatgpt/representative/PROJECT_INSTRUCTIONS.md",
+    "chatgpt/assistant/PROJECT_INSTRUCTIONS.md"
+  ],
+  "requested_scopes": ["policy_change", "repository_update"],
+  "granted_scopes": ["policy_change", "repository_update"],
+  "decision": "approved",
+  "approver_actor_id": "ACT-001",
+  "approver_role": "admin",
+  "approver_name": "Jin",
+  "approval_source": "current administrator conversation: actor ID를 포함해 전체 아이디어/문제/업무 라우팅을 Git main에 업데이트 요청",
+  "principal_verification": "project_role_based_not_independently_authenticated",
+  "decided_at": "2026-09-06",
+  "conditions": [
+    "기존 아이디어 원문 경로를 이동해 참조를 깨지 않는다",
+    "새 기록부터 actor_id 경로를 사용한다",
+    "아이디어/문제 저장과 업무공유/공식반영을 분리한다"
+  ],
+  "recheck_conditions": ["actor registry와 main 저장 결과 재조회"],
+  "execution_receipt": null
+}
