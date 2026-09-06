@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "id": "W-20260906-004",
+  "revision": 1,
+  "title": "ACT-001 요청 변경이력 RC 호환 확장",
+  "requested_by_actor_id": "ACT-001",
+  "assigned_to_actor_id": "ACT-001",
+  "created_at": "2026-09-06",
+  "updated_at": "2026-09-06",
+  "information_as_of": "2026-09-06",
+  "work_status": "in_progress",
+  "evidence_status": "passed",
+  "approval_status": "approved",
+  "persistence_status": "pending_commit",
+  "execution_status": "not_requested",
+  "priority": "high",
+  "due_at": null,
+  "next_action": "변경 파일과 배포 패키지의 main 반영·read-back 검증",
+  "source_refs": [
+    {
+      "path": "records/requests/ACT-001/R-20260906-002.source.md",
+      "sha256": "92a55434d916210a16b4f51d1105ac8c4a5d4571ff3577a1f0a6bd22a7ae5c10"
+    }
+  ],
+  "request_refs": [
+    "records/requests/ACT-001/R-20260906-002.json"
+  ],
+  "request_change_refs": [],
+  "directive_refs": [],
+  "evidence_refs": [
+    "docs/audits/GOV-20260906-04-implementation.md",
+    "tests/test_request_changes.py"
+  ],
+  "artifact_refs": [
+    "llm-source/workflows/REQUEST_CHANGE_WORKFLOW.md",
+    "templates/REQUEST_CHANGE.json",
+    "scripts/request_changes.py",
+    "chatgpt/admin/PROJECT_INSTRUCTIONS.md"
+  ],
+  "submission_refs": [],
+  "decision_refs": [
+    "approvals/D-20260906-004.json"
+  ],
+  "related_idea_ids": [],
+  "related_problem_ids": [],
+  "unknowns": [
+    "실제 ChatGPT 프로젝트 설정과 실사용 LLM 동작은 별도"
+  ],
+  "completion_criteria": [
+    "RC/R/W/D 연결 및 원문·이유 보존 규격",
+    "A–H·호환성·권한·경로 테스트 통과",
+    "관리자 배포 패키지 생성",
+    "최신 main 저장과 재조회 검증"
+  ],
+  "scope_note": "RC 체계의 구현·문서·패키지 반영이다. 기존 요청의 가상 변경 사건을 만들거나 기존 결재를 바꾸지 않음."
+}

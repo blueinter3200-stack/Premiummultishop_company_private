@@ -1,0 +1,47 @@
+{
+  "schema_version": 2,
+  "object_type": "decision",
+  "decision_id": "D-20260906-004",
+  "work_id": "W-20260906-004",
+  "request_refs": [
+    "records/requests/ACT-001/R-20260906-002.json"
+  ],
+  "submission_id": null,
+  "submission_revision": null,
+  "artifact_version": "GOV-20260906-04",
+  "artifact_refs": [
+    "docs/releases/GOV-20260906-04-manifest.json"
+  ],
+  "requested_scopes": [
+    "policy_change",
+    "repository_update"
+  ],
+  "granted_scopes": [
+    "policy_change",
+    "repository_update"
+  ],
+  "decision": "approved",
+  "approver_actor_id": "ACT-001",
+  "approver_role": "admin",
+  "approver_name": "Jin",
+  "approval_source": {
+    "type": "current_user_attachment",
+    "path": "records/requests/ACT-001/R-20260906-002.source.md",
+    "sha256": "92a55434d916210a16b4f51d1105ac8c4a5d4571ff3577a1f0a6bd22a7ae5c10",
+    "locator": "작업 지시 / 대상 main / 20~25절"
+  },
+  "principal_verification": "project_role_based_not_independently_authenticated",
+  "decided_at": "2026-09-06",
+  "conditions": [
+    "기존 15개 명령과 세 역할 권한 유지",
+    "ACT-002/003에 RC 의무·관리자 자료 열람 권한 추가 금지",
+    "변경 이유는 추측하지 않음",
+    "read-only/저장 금지 예외 유지",
+    "과거 기록 일괄 재작성·기존 approvals/materials 변경 금지",
+    "현재 요청 범위 외 외부 게시·지출·계정 권한 설정 변경 금지"
+  ],
+  "recheck_conditions": [
+    "대상 범위 변경 또는 최신 main 동시 변경"
+  ],
+  "execution_receipt": null
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "release_id": "GOV-20260906-04",
+  "basis_commit": "d708129d0419ca61d79517344091f0b89d096932",
+  "scope": "Backward-compatible ACT-001 request-change traceability; no trigger/other-role changes",
+  "files": [
+    {
+      "path": "FILE_MAP.json",
+      "git_blob_sha": "ad0715eaeaf5c66cb4bc189754dd719640bc1fca",
+      "sha256": "6e83724efc2b4ce8ee03830c7d08d93c9a10901e6b2b54e994cf1332a03803e6"
+    },
+    {
+      "path": "README.md",
+      "git_blob_sha": "fba42d72800619edb5c4235c664dfe46649a8a1d",
+      "sha256": "a92319546d80ba82a7971bbaf625e2a95326f698b1d9527f9bb4af18ab3bd0e8"
+    },
+    {
+      "path": "chatgpt/INSTALLATION.md",
+      "git_blob_sha": "5470259ffadd8e64a5d4857b28d229174510c1bb",
+      "sha256": "e12c7af1a683c0bfd6afd334895ccecf9e087793f97ece60e3fb6365e91c21e1"
+    },
+    {
+      "path": "chatgpt/PROJECT_COMMON.md",
+      "git_blob_sha": "fa63631614789ae2d4de92442303d04a2279ebc9",
+      "sha256": "0a6a47860967397961e3fc7f43efc43567360d2cc3832e7729fc6d25f3d6d355"
+    },
+    {
+      "path": "chatgpt/admin/PROJECT_INSTRUCTIONS.md",
+      "git_blob_sha": "fabbc8700d8d82dd622defe7470ffe55218dc412",
+      "sha256": "4b4092583c18e2e79324085c7655ef2a27ad5c2345ad8c600364965cf22440b4"
+    },
+    {
+      "path": "chatgpt/assistant/PROJECT_INSTRUCTIONS.md",
+      "git_blob_sha": "7da13df0e395598a9690c7c96e119c5f29a65788",
+      "sha256": "44d7eeae94c0f71355c6b79e7ccb20033ea7f05cceec0281d9fdbb81b31603db"
+    },
+    {
+      "path": "chatgpt/representative/PROJECT_INSTRUCTIONS.md",
+      "git_blob_sha": "195320a66aa981feed8e4775f9ded88896bb32b1",
+      "sha256": "bfae5d3e58f769a06455a8cf3990547380c68242b35b4d833c3d58411e201ce9"
+    },
+    {
+      "path": "docs/audits/GOV-20260906-04-implementation.md",
+      "git_blob_sha": "824d4c3b169cca0b8477a2a7f2b98de96382624a",
+      "sha256": "8a616069cd597037bc949de5e825ecf1f252f8c2c9d80ab4ba564a33865046a5"
+    },
+    {
+      "path": "docs/requirement-changelog.md",
+      "git_blob_sha": "405f8855f828d60969ea882ed5a776425e8c6dd0",
+      "sha256": "d01a48074b68600b5ccaeae14dfe6a74e9cc875f91a1a79e5ab7b09d1d14fc25"
+    },
+    {
+      "path": "llm-source/ACTOR_REGISTRY.json",
+      "git_blob_sha": "f711787127a7d9ab87ed8411d6080ad0bd31bce9",
+      "sha256": "bb786a58d76790b0ce9f4ac8eb819f1c94defe3c0e83bd00e7a26d64771f4d2e"
+    },
+    {
+      "path": "llm-source/LLM_RUNTIME.md",
+      "git_blob_sha": "5d05e5fd34ff6120cc02e062dcb0ec5cacba96d6",
+      "sha256": "c221b52defe4d1b85b39a09debf837e9ce91fa95b1a7d2ef4cde1f80caca555e"
+    },
+    {
+      "path": "llm-source/TRIGGER_REGISTRY.json",
+      "git_blob_sha": "3c7c8774d6639ddc367080355903d64f11c211bc",
+      "sha256": "1322958f800cb81bdb93c58d8e49b2c9360bc696bf62079bc5cb6207a49abf16"
+    },
+    {
+      "path": "llm-source/actors/ACT-001/ROLE.md",
+      "git_blob_sha": "91fccd362b6c75b5b68a6fa7d0d4f6da19c9022e",
+      "sha256": "9fb663104c8f514878431937555fafacfc940c6c73e841a43bf6dee6d64bd239"
+    },
+    {
+      "path": "llm-source/actors/ACT-002/ROLE.md",
+      "git_blob_sha": "da2e40cd4a54edc487a2722756b4ae65138d5833",
+      "sha256": "6cf51c985e8a67ff6685f3ed1471237c8bef0e771e192d458ddf068fc8d41e6f"
+    },
+    {
+      "path": "llm-source/actors/ACT-003/ROLE.md",
+      "git_blob_sha": "30e6b24e4d13e0124a715c29546cfc9b3e268bcd",
+      "sha256": "678015117a663b61f431011b282e92828e5b181fa57990be0f5ca44e65a6da86"
+    },
+    {
+      "path": "llm-source/actors/ACT-003/RULES.md",
+      "git_blob_sha": "88d896fd11f480f609105a096cf9cc16d26a735f",
+      "sha256": "ce44869b9ae9448cba27ebad43aa0e9d1e47c22e0fcba5921cf1b75af7f34ef4"
+    },
+    {
+      "path": "llm-source/workflows/REQUEST_CAPTURE.md",
+      "git_blob_sha": "46bfda35d42a72fc69271216f29872f72afde223",
+      "sha256": "401f8391544bcc4ec810c51a1873af58ad55e53e663c247b25679c5898694eb9"
+    },
+    {
+      "path": "llm-source/workflows/REQUEST_CHANGE_WORKFLOW.md",
+      "git_blob_sha": "b0cd1d5f74e700a5ab8dec8a03b1978e9e598b24",
+      "sha256": "a67dd511343b337134832db0a604a2455ac224e676f6c217deaa468323393145"
+    },
+    {
+      "path": "scripts/build_chatgpt_package.py",
+      "git_blob_sha": "196fc196cec81a2b1f614bfdd8fc80db0944658c",
+      "sha256": "2d0a11171df1265036da632b78449bb09ce5bd143ba642d05ab1b1575824863a"
+    },
+    {
+      "path": "scripts/request_changes.py",
+      "git_blob_sha": "cd17f332cac58f4094292dfa86f36103efeea49e",
+      "sha256": "eb79645b1567a614a6f7b9fbcced44dccbe1314e0ef82890582036b8a1d5995f"
+    },
+    {
+      "path": "scripts/validate_llm_sources.py",
+      "git_blob_sha": "9ba90e3d0cfca365ebcc63387f10a80aaed9db50",
+      "sha256": "4729b16cd8f8ea5f5d850f9157069b506a7ee6b2ba4bf6734f2e30f1eddb2700"
+    },
+    {
+      "path": "templates/REQUEST.json",
+      "git_blob_sha": "79acd089de432c6b1ba0d75c0e009e734c042b4c",
+      "sha256": "63ad99512ba04535ace7dc8358639bb123f875458d97942596ca3968ad05cd72"
+    },
+    {
+      "path": "templates/REQUEST_CHANGE.json",
+      "git_blob_sha": "3dc18735f3c2ab9a9a54ee3b59876419f110a8b2",
+      "sha256": "b427bc29cfe0a686fe30021e1ce5b956c9839dfe9a4c101b298129e199720858"
+    },
+    {
+      "path": "templates/WORK.json",
+      "git_blob_sha": "7cb7b43f536d90cc899f0a8c1b63578b1d92d8e1",
+      "sha256": "fc573b953d6dbd6884c19f42e7afa0a6ecfda949b2e5c5234ad19df8babe0f71"
+    },
+    {
+      "path": "tests/test_request_changes.py",
+      "git_blob_sha": "429a704978e316e74ae645949c1dea860491b641",
+      "sha256": "0f7d6d4fa277dcf7fdfbfafc4588de0c784e131825a7776cffad9cfa3c750bb5"
+    }
+  ],
+  "excluded_from_hash_scope": [
+    "this manifest",
+    "request/work lifecycle and indices",
+    "decision and post-write receipt",
+    "package with source_commit"
+  ],
+  "preserved_source_hashes": {
+    "chatgpt/PROJECT_COMMON.md": "fa63631614789ae2d4de92442303d04a2279ebc9",
+    "llm-source/TRIGGER_REGISTRY.json": "3c7c8774d6639ddc367080355903d64f11c211bc",
+    "llm-source/actors/ACT-002/ROLE.md": "da2e40cd4a54edc487a2722756b4ae65138d5833",
+    "llm-source/actors/ACT-003/ROLE.md": "30e6b24e4d13e0124a715c29546cfc9b3e268bcd",
+    "llm-source/actors/ACT-003/RULES.md": "88d896fd11f480f609105a096cf9cc16d26a735f",
+    "chatgpt/representative/PROJECT_INSTRUCTIONS.md": "195320a66aa981feed8e4775f9ded88896bb32b1",
+    "chatgpt/assistant/PROJECT_INSTRUCTIONS.md": "7da13df0e395598a9690c7c96e119c5f29a65788",
+    "records/requests/ACT-001/R-20260906-001.json": "18918d18a7278b4f0e0c0a16abb5b00d456ce506",
+    "llm-source/workflows/COMMON_IO.md": "57abc7f233f0c4ee5b969af9721cd4c198df0f82"
+  }
+}

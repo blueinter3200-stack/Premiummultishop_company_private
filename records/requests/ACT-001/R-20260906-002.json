@@ -1,0 +1,47 @@
+{
+  "schema_version": 2,
+  "object_type": "request",
+  "request_id": "R-20260906-002",
+  "revision": 1,
+  "requester_actor_id": "ACT-001",
+  "recorded_by_actor_id": "ACT-001",
+  "requester_role_at_capture": "admin",
+  "source_type": "user_uploaded_work_instruction",
+  "source_locator": "붙여넣은 마크다운(1).md / 1~25절",
+  "original_text": "이번 작업에서는 여기에 **관리자 ACT-001 / Jin이 한 사용자 요청이 의미 있게 변경될 경우, 변경 내용과 변경 이유를 독립적인 변경이력으로 추적하는 구조**를 추가한다.",
+  "source_created_at": null,
+  "captured_at": "2026-09-06",
+  "classification": "policy_change",
+  "scope": [
+    "ACT-001 요청의 의미 있는 변경을 RC-ID로 추적",
+    "최초 원문·revision·supersedes·R/W/D 및 기존 자료 보존",
+    "변경 전/후·이유·출처·영향·검증을 연결",
+    "관리자 로컬 지침·배포 소스·워크플로·검증 확장",
+    "최신 main에 안전하게 반영하고 read-back 확인"
+  ],
+  "conditions": [
+    "기존 15개 명령과 세 역할 권한 유지",
+    "ACT-002/003에 RC 의무·관리자 자료 열람 권한 추가 금지",
+    "변경 이유는 추측하지 않음",
+    "read-only/저장 금지 예외 유지",
+    "과거 기록 일괄 재작성·기존 approvals/materials 변경 금지"
+  ],
+  "request_status": "in_progress",
+  "related_work_ids": [
+    "W-20260906-004"
+  ],
+  "related_idea_ids": [],
+  "related_problem_ids": [],
+  "related_decision_ids": [
+    "D-20260906-004"
+  ],
+  "supersedes": null,
+  "unknowns": [
+    "실제 프로젝트 설정 교체 및 실사용 LLM 동작 테스트 여부"
+  ],
+  "request_change_refs": [],
+  "current_requirements": {},
+  "original_text_is_excerpt": true,
+  "original_source_path": "records/requests/ACT-001/R-20260906-002.source.md",
+  "original_source_sha256": "92a55434d916210a16b4f51d1105ac8c4a5d4571ff3577a1f0a6bd22a7ae5c10"
+}

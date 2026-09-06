@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "object_type": "request",
   "request_id": null,
   "revision": 1,
@@ -20,5 +20,7 @@
   "related_problem_ids": [],
   "related_decision_ids": [],
   "supersedes": null,
-  "unknowns": []
+  "unknowns": [],
+  "request_change_refs": [],
+  "current_requirements": {}
 }
