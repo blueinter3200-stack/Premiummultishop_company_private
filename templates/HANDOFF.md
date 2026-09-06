@@ -1,12 +1,12 @@
 ---
 object_type: submission_template
-schema_version: 1
+schema_version: 2
 ---
 # 품의 / 진행 보고 제목
 
 - work_id:
 - submission_id / revision:
-- reporter:
+- submitted_by_actor_id:
 - work_revision:
 - report_type: progress 또는 submission 또는 verified_final
 - requested_scopes:
@@ -16,7 +16,10 @@ schema_version: 1
 무엇을 어느 버전·범위로 승인받을 것인지.
 
 ## 요청 출처
-실제 원문, 요청자, directive/자료 경로. 접수자가 요청자를 대신하지 않음.
+실제 원문, requested_by_actor_id, directive/자료 경로. 접수자가 요청자를 대신하지 않음.
+
+## 관련 아이디어 / 문제
+related_idea_ids, related_problem_ids. 아이디어·문제 기록과 현재 업무를 혼동하지 않음.
 
 ## 내부 근거
 파일 ID/링크, 버전·시트·행/범위, 정보 기준일, 확인한 내용, 상품/SKU.
@@ -28,7 +31,7 @@ schema_version: 1
 근거 → 선택 기준 → 대안 비교 → 적용 이유. 가정은 별도 표시.
 
 ## 기획·스토리보드·결과물
-각 파일/영상의 실제 링크·ID·revision/hash. 스토리보드는 시간·장면·자막·음성·사용 자료·연결 근거.
+각 파일/영상의 실제 링크·ID·revision/hash.
 
 ## 검수 결과
 상품 재현·문구 사실성·권리·개인정보·수치·승인 범위. 실제 도구 job/결과 확인.
