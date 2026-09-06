@@ -1,0 +1,12 @@
+{
+  "schema_version":2,"object_type":"decision","decision_id":"D-20260906-003","work_id":"W-20260906-003",
+  "request_refs":["records/requests/ACT-001/R-20260906-001.json"],
+  "submission_id":null,"submission_revision":null,"artifact_version":"GOV-20260906-03",
+  "artifact_refs":["docs/releases/GOV-20260906-03-manifest.json"],
+  "requested_scopes":["policy_change","repository_update"],"granted_scopes":["policy_change","repository_update"],"decision":"approved",
+  "approver_actor_id":"ACT-001","approver_role":"admin","approver_name":"Jin",
+  "approval_source":{"type":"current_project_user_message","text":"지금까지 대화한 거 다 적용해서 수정하고 메인에다 올려놔","context_ref":"records/requests/ACT-001/R-20260906-001.json"},
+  "principal_verification":"project_role_based_not_independently_authenticated","decided_at":"2026-09-06",
+  "conditions":["기존 사업 아이디어·원본·과거 결재는 변경하지 않음","로컬 추천과 실제 원격 실행을 구분","읽기 전용·저장 금지 예외 유지","관리자 최종 결재권 유지","실제 프로젝트 설치·외부 실행은 수행 완료로 표시하지 않음"],
+  "recheck_conditions":["대상 버전·범위가 바뀌거나 역할·승인 권한이 달라지는 경우"],"execution_receipt":null
+}

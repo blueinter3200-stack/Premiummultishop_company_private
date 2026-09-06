@@ -17,6 +17,7 @@
   "due_at": null,
   "next_action": null,
   "source_refs": [],
+  "request_refs": [],
   "directive_refs": [],
   "evidence_refs": [],
   "artifact_refs": [],

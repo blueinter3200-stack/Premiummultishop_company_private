@@ -1,13 +1,13 @@
 # Work Lifecycle — 업무 생명주기
 
-- Version: 1.1 / 2026-09-06
-- Release: GOV-20260906-02
+- Version: 1.2 / 2026-09-06
+- Release: GOV-20260906-03
 
 ## 객체 연결
 
 Input/Idea/Problem → NormalizedSource → Evidence → Work → Artifact → Submission → Decision → ExecutionReceipt.
 
-모든 단계는 안정적인 ID로 연결한다. 사람은 actor_id, 아이디어는 idea_id, 문제는 problem_id, 업무는 work_id, 결재는 decision_id를 쓴다. 지시 원문은 directive, 상태는 work/items, 결과는 handoff, 결재는 approvals에 둔다.
+모든 단계는 안정적인 ID로 연결한다. 사람은 actor_id, 아이디어는 idea_id, 문제는 problem_id, 업무는 work_id, 결재는 decision_id를 쓴다. 기존 지시 원문은 directive에 보존하고 새 요청 원문은 records/requests에 둔다. 상태는 work/items, 결과는 handoff, 결재는 approvals에 둔다.
 
 아이디어·문제·업무는 서로 다른 객체다. 아이디어를 조사하는 업무가 생기면 `idea_id ↔ work_id`를 연결하고, 문제 때문에 업무가 차단되면 `problem_id ↔ work_id`를 연결한다.
 
@@ -36,3 +36,8 @@ Input/Idea/Problem → NormalizedSource → Evidence → Work → Artifact → S
 ## 조회판
 
 CURRENT_WORK는 전체 활성 업무, ACTIVE는 assigned_to_actor_id=ACT-003인 활성 업무, BLOCKED는 차단 업무, DECISION_NEEDED는 관리자 결정이 필요한 품의/미정 항목을 참조한다. 원장을 읽고 재생성하며 원장과 충돌하면 원장을 따른다.
+
+## 요청·품의 명령 연결
+
+새 요청 R-ID는 records/requests에 보존하며 관련 업무의 `request_refs`로 연결한다. 기존 directive·과거 업무·actor 귀속은 재작성하지 않는다. 요청 이력의 상태와 work_status는 다르다.
+사용자 명령은 /품의서작성과 /품의서승인이다. 내부 submission 객체와 submitted 상태는 유지한다. 보류 결정은 approval_status=pending에 이유를 남기고 실행하지 않는다.

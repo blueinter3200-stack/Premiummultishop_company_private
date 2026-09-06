@@ -1,0 +1,16 @@
+{
+  "schema_version":2,"id":"W-20260906-003","revision":1,
+  "title":"로컬 트리거·요청 보존·품의서 명령 및 상세 워크플로 반영",
+  "requested_by_actor_id":"ACT-001","assigned_to_actor_id":"ACT-001",
+  "created_at":"2026-09-06","updated_at":"2026-09-06","information_as_of":"2026-09-06",
+  "work_status":"in_progress","evidence_status":"passed","approval_status":"approved","persistence_status":"pending_commit","execution_status":"not_requested","priority":"high","due_at":null,
+  "next_action":"main 반영 후 대상 파일·정책·연결 경로·배포 소스를 재조회 검증한다.",
+  "source_refs":[{"type":"conversation","actor_id":"ACT-001","text":"지금까지 대화한 거 다 적용해서 수정하고 메인에다 올려놔"}],
+  "request_refs":["records/requests/ACT-001/R-20260906-001.json"],
+  "directive_refs":[],"evidence_refs":[],
+  "artifact_refs":["chatgpt/PROJECT_COMMON.md","chatgpt/admin/PROJECT_INSTRUCTIONS.md","chatgpt/representative/PROJECT_INSTRUCTIONS.md","chatgpt/assistant/PROJECT_INSTRUCTIONS.md","llm-source/TRIGGER_REGISTRY.json"],
+  "submission_refs":[],"decision_refs":["approvals/D-20260906-003.json"],"related_idea_ids":[],"related_problem_ids":[],
+  "unknowns":["실제 프로젝트 설정 교체·운영 테스트·자동 알림·계정별 접근제어는 별도"],
+  "completion_criteria":["정의·상세 워크플로·지침 main 반영","역할별 명령·경로 구조 검사","변경 파일 재조회 및 저장 검증"],
+  "scope_note":"기존 미반영 사업 아이디어 채택·외부 지출·게시·도구 실행은 포함하지 않음"
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "release_id": "GOV-20260906-03",
+  "purpose": "로컬 안내·추천과 GitHub 실행 절차를 연결하는 명령 목록. 자동 API 디스패처가 아님.",
+  "commands": [
+    {"name":"/아이디어출력","roles":["admin","representative","assistant"],"mode":"local","description":"현재 대화의 아이디어만 정리. 저장 없음.","workflow":"llm-source/workflows/IDEA_WORKFLOW.md"},
+    {"name":"/아이디어저장","roles":["admin","representative","assistant"],"mode":"write","description":"현재 아이디어를 작성자 ID로 저장. 업무 배정·승인 아님.","workflow":"llm-source/workflows/IDEA_WORKFLOW.md"},
+    {"name":"/문제출력","roles":["admin","representative","assistant"],"mode":"local","description":"현재 대화의 문제만 정리. 저장 없음.","workflow":"llm-source/workflows/PROBLEM_WORKFLOW.md"},
+    {"name":"/문제저장","roles":["admin","representative","assistant"],"mode":"write","description":"현재 문제와 확인된 영향을 저장. 자동 업무 차단 아님.","workflow":"llm-source/workflows/PROBLEM_WORKFLOW.md"},
+    {"name":"/업무검토","roles":["admin","representative","assistant"],"mode":"read","description":"최신 회사 기준과 대조하고 아이디어·문제·업무를 분류. 저장 없음.","workflow":"llm-source/workflows/WORK_WORKFLOW.md"},
+    {"name":"/업무공유","roles":["admin","representative","assistant"],"mode":"write","description":"검토를 통과한 실제 업무만 원장에 공유. 공식 확정 아님.","workflow":"llm-source/workflows/WORK_WORKFLOW.md"},
+    {"name":"/반영미리보기","roles":["admin","representative","assistant"],"mode":"read","description":"특정 기록을 공식 반영할 때의 변화·충돌·결정 사항 확인. 저장 없음.","workflow":"llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md"},
+    {"name":"/업무접수","roles":["admin","representative","assistant"],"mode":"write","description":"명확한 수행 요청을 원문·요청 ID·업무 ID로 연결.","workflow":"llm-source/workflows/REQUEST_CAPTURE.md"},
+    {"name":"/품의서작성","roles":["admin","assistant"],"mode":"write","description":"근거·초안·버전·승인받을 범위를 품의서로 작성하여 승인대기 저장.","workflow":"llm-source/workflows/SUBMISSION_WORKFLOW.md"},
+    {"name":"/업무점검","roles":["admin"],"mode":"read","description":"대상별 저장 아이디어·문제·요청·진행 업무·품의 현황 조회.","workflow":"llm-source/workflows/WORK_INSPECTION.md"},
+    {"name":"/결과승인","roles":["admin"],"mode":"write","description":"특정 결과물 버전 수락. 게시·지출 승인과 별개.","workflow":"llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md"},
+    {"name":"/품의서승인","roles":["admin"],"mode":"write","description":"특정 품의서 버전·범위의 승인/수정요청/보류/반려 기록.","workflow":"llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md"},
+    {"name":"/업무확정","roles":["admin"],"mode":"write","description":"명시적으로 채택한 회사 정책·요구사항 반영.","workflow":"llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md"},
+    {"name":"/아이디어반영","roles":["admin"],"mode":"write","description":"선택된 아이디어의 채택 범위만 공식 반영.","workflow":"llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md"},
+    {"name":"/문제반영","roles":["admin"],"mode":"write","description":"선택된 문제의 해결 방향을 공식 반영. 실제 해결은 별도 검증.","workflow":"llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md"}
+  ],
+  "aliases": {"/대표업무점검":{"command":"/업무점검","default_target":"ACT-002"},"/품의상신":{"command":"/품의서작성"},"/품의승인":{"command":"/품의서승인"}},
+  "rules": {"recommend_without_github":true,"recommend_only_allowed_role":true,"recommendation_is_not_execution":true,"quoted_command_is_not_execution":true,"unknown_command_must_not_be_guessed":true,"remote_execution_requires_latest_main":true,"local_snapshot_does_not_grant_permission":true}
+}
