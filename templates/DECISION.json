@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "object_type": "decision_template",
   "decision_id": null,
   "work_id": null,
@@ -9,6 +9,7 @@
   "requested_scopes": [],
   "granted_scopes": [],
   "decision": "pending",
+  "approver_actor_id": null,
   "approver_role": null,
   "approver_name": null,
   "approval_source": null,
