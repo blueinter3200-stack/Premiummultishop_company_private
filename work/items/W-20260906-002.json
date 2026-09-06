@@ -1,32 +1,37 @@
 {
   "schema_version": 2,
   "id": "W-20260906-002",
-  "revision": 1,
+  "revision": 2,
   "title": "actor ID·아이디어/문제/업무 라우팅 규칙 반영",
   "requested_by_actor_id": "ACT-001",
   "assigned_to_actor_id": "ACT-001",
   "created_at": "2026-09-06",
   "updated_at": "2026-09-06",
   "information_as_of": "2026-09-06",
-  "work_status": "in_progress",
+  "work_status": "done",
   "evidence_status": "passed",
   "approval_status": "approved",
-  "persistence_status": "pending_commit",
+  "persistence_status": "verified",
+  "persistence_receipt": "docs/releases/GOV-20260906-02.json",
   "execution_status": "not_requested",
   "priority": "high",
   "due_at": null,
-  "next_action": "main 반영 후 actor registry, 라우팅 규칙, 프로젝트 지침, 기존 6개 아이디어 매핑을 재조회한다.",
+  "next_action": "실제 ChatGPT 프로젝트 설정에서 GOV-20260906-02 지침을 교체하고 역할별 라우팅 동작을 인수 테스트한다.",
   "source_refs": [
     {"type": "conversation", "actor_id": "ACT-001", "note": "현재 관리자 지시"},
     {"path": "assistant/20-directives/from-jin/W-20260906-002-actor-id-record-routing.md"}
   ],
   "directive_refs": ["assistant/20-directives/from-jin/W-20260906-002-actor-id-record-routing.md"],
-  "evidence_refs": ["records/PENDING_INDEX.md", "materials/normalized/CATALOG.json", "llm-source/ACTOR_REGISTRY.json"],
+  "evidence_refs": ["records/PENDING_INDEX.md", "materials/normalized/CATALOG.json", "llm-source/ACTOR_REGISTRY.json", "docs/releases/GOV-20260906-02.json"],
   "artifact_refs": ["chatgpt/admin/PROJECT_INSTRUCTIONS.md", "chatgpt/representative/PROJECT_INSTRUCTIONS.md", "chatgpt/assistant/PROJECT_INSTRUCTIONS.md"],
   "submission_refs": [],
   "decision_refs": ["approvals/D-20260906-002.json"],
   "related_idea_ids": [],
   "related_problem_ids": [],
   "unknowns": ["실제 ChatGPT 프로젝트 설정 교체 여부", "향후 신규 직원 실제 actor 등록 시점"],
-  "completion_criteria": ["main 저장 성공", "관련 파일 재조회", "기존 아이디어 원문 경로 미이동 확인"]
+  "completion_criteria": ["main 저장 성공", "관련 파일 재조회", "기존 아이디어 원문 경로 미이동 확인"],
+  "completion_evidence": {
+    "governance_commit": "3f749837509cc06e0c2bd68a61cdb05bd1f143fe",
+    "release_receipt": "docs/releases/GOV-20260906-02.json"
+  }
 }
