@@ -31,5 +31,7 @@ GOV-20260906-05 저장·패키지 검증: `docs/releases/GOV-20260906-05.json`. 
 
 ## GOV-20260907-01 요청
 
-- R-20260907-001 / ACT-001 / policy_change / in_progress / W-20260907-001 / records/requests/ACT-001/R-20260907-001.json
+- R-20260907-001 / ACT-001 / policy_change / fulfilled / W-20260907-001 / records/requests/ACT-001/R-20260907-001.json
 - 업무계획안·작업지시·구두 요청 직접 제출·배정 알림 개편. 기존 완료 요청의 원문·상태는 변경하지 않는다.
+
+GOV-20260907-01 저장·패키지 검증: `docs/releases/GOV-20260907-01.json`. 실제 프로젝트 설치·푸시는 별도다.
