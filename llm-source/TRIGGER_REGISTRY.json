@@ -1,24 +1,211 @@
 {
-  "schema_version": 1,
-  "release_id": "GOV-20260906-03",
-  "purpose": "로컬 안내·추천과 GitHub 실행 절차를 연결하는 명령 목록. 자동 API 디스패처가 아님.",
+  "schema_version": 2,
+  "release_id": "GOV-20260906-05",
+  "purpose": "로컬 기능 발견과 권한별 실행 라우팅. 서버 설치나 독립 인증이 아님.",
   "commands": [
-    {"name":"/아이디어출력","roles":["admin","representative","assistant"],"mode":"local","description":"현재 대화의 아이디어만 정리. 저장 없음.","workflow":"llm-source/workflows/IDEA_WORKFLOW.md"},
-    {"name":"/아이디어저장","roles":["admin","representative","assistant"],"mode":"write","description":"현재 아이디어를 작성자 ID로 저장. 업무 배정·승인 아님.","workflow":"llm-source/workflows/IDEA_WORKFLOW.md"},
-    {"name":"/문제출력","roles":["admin","representative","assistant"],"mode":"local","description":"현재 대화의 문제만 정리. 저장 없음.","workflow":"llm-source/workflows/PROBLEM_WORKFLOW.md"},
-    {"name":"/문제저장","roles":["admin","representative","assistant"],"mode":"write","description":"현재 문제와 확인된 영향을 저장. 자동 업무 차단 아님.","workflow":"llm-source/workflows/PROBLEM_WORKFLOW.md"},
-    {"name":"/업무검토","roles":["admin","representative","assistant"],"mode":"read","description":"최신 회사 기준과 대조하고 아이디어·문제·업무를 분류. 저장 없음.","workflow":"llm-source/workflows/WORK_WORKFLOW.md"},
-    {"name":"/업무공유","roles":["admin","representative","assistant"],"mode":"write","description":"검토를 통과한 실제 업무만 원장에 공유. 공식 확정 아님.","workflow":"llm-source/workflows/WORK_WORKFLOW.md"},
-    {"name":"/반영미리보기","roles":["admin","representative","assistant"],"mode":"read","description":"특정 기록을 공식 반영할 때의 변화·충돌·결정 사항 확인. 저장 없음.","workflow":"llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md"},
-    {"name":"/업무접수","roles":["admin","representative","assistant"],"mode":"write","description":"명확한 수행 요청을 원문·요청 ID·업무 ID로 연결.","workflow":"llm-source/workflows/REQUEST_CAPTURE.md"},
-    {"name":"/품의서작성","roles":["admin","assistant"],"mode":"write","description":"근거·초안·버전·승인받을 범위를 품의서로 작성하여 승인대기 저장.","workflow":"llm-source/workflows/SUBMISSION_WORKFLOW.md"},
-    {"name":"/업무점검","roles":["admin"],"mode":"read","description":"대상별 저장 아이디어·문제·요청·진행 업무·품의 현황 조회.","workflow":"llm-source/workflows/WORK_INSPECTION.md"},
-    {"name":"/결과승인","roles":["admin"],"mode":"write","description":"특정 결과물 버전 수락. 게시·지출 승인과 별개.","workflow":"llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md"},
-    {"name":"/품의서승인","roles":["admin"],"mode":"write","description":"특정 품의서 버전·범위의 승인/수정요청/보류/반려 기록.","workflow":"llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md"},
-    {"name":"/업무확정","roles":["admin"],"mode":"write","description":"명시적으로 채택한 회사 정책·요구사항 반영.","workflow":"llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md"},
-    {"name":"/아이디어반영","roles":["admin"],"mode":"write","description":"선택된 아이디어의 채택 범위만 공식 반영.","workflow":"llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md"},
-    {"name":"/문제반영","roles":["admin"],"mode":"write","description":"선택된 문제의 해결 방향을 공식 반영. 실제 해결은 별도 검증.","workflow":"llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md"}
+    {
+      "name": "/아이디어출력",
+      "roles": [
+        "admin",
+        "representative",
+        "assistant"
+      ],
+      "mode": "local",
+      "workflow": "llm-source/workflows/IDEA_WORKFLOW.md",
+      "description": "현재 대화의 아이디어를 정리한다. 저장하지 않는다.",
+      "recommend_when": "저장 전 아이디어를 정리하거나 문장으로 보고 싶을 때"
+    },
+    {
+      "name": "/아이디어저장",
+      "roles": [
+        "admin",
+        "representative",
+        "assistant"
+      ],
+      "mode": "write",
+      "workflow": "llm-source/workflows/IDEA_WORKFLOW.md",
+      "description": "자기 actor의 아이디어 기록을 저장한다. 업무 시작이 아니다.",
+      "recommend_when": "가능성·제안·가설을 나중에 다시 보고 싶을 때"
+    },
+    {
+      "name": "/문제출력",
+      "roles": [
+        "admin",
+        "representative",
+        "assistant"
+      ],
+      "mode": "local",
+      "workflow": "llm-source/workflows/PROBLEM_WORKFLOW.md",
+      "description": "현재 문제·영향·미확인 원인을 정리한다. 저장하지 않는다.",
+      "recommend_when": "불편이나 장애의 내용을 먼저 정리할 때"
+    },
+    {
+      "name": "/문제저장",
+      "roles": [
+        "admin",
+        "representative",
+        "assistant"
+      ],
+      "mode": "write",
+      "workflow": "llm-source/workflows/PROBLEM_WORKFLOW.md",
+      "description": "자기 actor의 문제를 저장한다. 업무 차단·해결 확정은 아니다.",
+      "recommend_when": "발견한 장애·리스크·불편을 기록할 때"
+    },
+    {
+      "name": "/업무검토",
+      "roles": [
+        "admin",
+        "representative",
+        "assistant"
+      ],
+      "mode": "read",
+      "workflow": "llm-source/workflows/WORK_WORKFLOW.md",
+      "description": "최신 기준·근거·관련 과거 결정을 대조하고 분류한다. 저장하지 않는다.",
+      "recommend_when": "업무로 요청할 만한지, 중복·충돌·과거 반려 사유가 있는지 판단할 때"
+    },
+    {
+      "name": "/업무요청",
+      "roles": [
+        "admin",
+        "representative",
+        "assistant"
+      ],
+      "mode": "write",
+      "workflow": "llm-source/workflows/REQUEST_CAPTURE.md",
+      "description": "유효한 검토를 통과한 내용을 관리자 결정대기로 제출한다. W-ID를 만들지 않는다.",
+      "recommend_when": "업무검토 PASS인 실제 업무 후보를 관리자에게 올릴 때"
+    },
+    {
+      "name": "/업무업데이트",
+      "roles": [
+        "admin",
+        "assistant"
+      ],
+      "mode": "write",
+      "workflow": "llm-source/workflows/WORK_WORKFLOW.md",
+      "description": "승인된 기존 W-ID의 수행자·진행·결과·문제를 갱신한다.",
+      "recommend_when": "이미 승인된 업무에서 누가 무엇을 했는지 기록할 때"
+    },
+    {
+      "name": "/품의서작성",
+      "roles": [
+        "admin",
+        "assistant"
+      ],
+      "mode": "write",
+      "workflow": "llm-source/workflows/SUBMISSION_WORKFLOW.md",
+      "description": "검토 후 근거·방법·범위·버전의 상세 품의서를 작성·제출한다. 본문만 요청은 미저장이다.",
+      "recommend_when": "관리자가 계획을 요구하거나 실행 방법·근거·비용·산출물이 정리됐을 때"
+    },
+    {
+      "name": "/업무결정",
+      "roles": [
+        "admin"
+      ],
+      "mode": "write",
+      "workflow": "llm-source/workflows/DECISION_WORKFLOW.md",
+      "description": "업무요청에 승인·수정요청·보류·반려 중 명시한 결정을 기록한다.",
+      "recommend_when": "검토된 업무요청에 관리자의 판단과 이유를 남길 때",
+      "required_outcomes": [
+        "승인",
+        "수정요청",
+        "보류",
+        "반려"
+      ],
+      "default_outcome": null,
+      "syntax": "/업무결정 <승인|수정요청|보류|반려> <대상 ID/버전> [이유·조건]",
+      "nonapproval_reason_required": true
+    },
+    {
+      "name": "/품의서결정",
+      "roles": [
+        "admin"
+      ],
+      "mode": "write",
+      "workflow": "llm-source/workflows/DECISION_WORKFLOW.md",
+      "description": "특정 품의서 버전·범위에 명시한 결정을 기록한다.",
+      "recommend_when": "실행계획을 검토한 관리자가 승인·보완·대기·종료를 결정할 때",
+      "required_outcomes": [
+        "승인",
+        "수정요청",
+        "보류",
+        "반려"
+      ],
+      "default_outcome": null,
+      "syntax": "/품의서결정 <승인|수정요청|보류|반려> <대상 ID/버전> [이유·조건]",
+      "nonapproval_reason_required": true
+    },
+    {
+      "name": "/업무점검",
+      "roles": [
+        "admin"
+      ],
+      "mode": "read",
+      "workflow": "llm-source/workflows/WORK_INSPECTION.md",
+      "description": "대표님·부사수·전체·등록 actor의 업무 관련 현황을 조회한다.",
+      "recommend_when": "사람별 요청·품의·승인대기·진행상황을 한 번에 볼 때"
+    },
+    {
+      "name": "/결과승인",
+      "roles": [
+        "admin"
+      ],
+      "mode": "write",
+      "workflow": "llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md",
+      "description": "특정 산출물 버전을 수락한다. 게시·지출·업무 전체 완료와 구분한다.",
+      "recommend_when": "완성된 영상·조사보고서 등 결과물을 수락할 때"
+    },
+    {
+      "name": "/반영미리보기",
+      "roles": [
+        "admin",
+        "representative",
+        "assistant"
+      ],
+      "mode": "read",
+      "workflow": "llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md",
+      "description": "공식 반영 시 변화와 충돌을 미리 본다. 저장하지 않는다.",
+      "recommend_when": "아이디어·문제 해결안·새 기준의 공식화 영향을 먼저 볼 때"
+    },
+    {
+      "name": "/기준확정",
+      "roles": [
+        "admin"
+      ],
+      "mode": "write",
+      "workflow": "llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md",
+      "description": "관리자가 명시한 회사 공통 정책·요구사항을 공식 반영한다.",
+      "recommend_when": "앞으로 반복 적용할 보고·데이터·운영 기준을 채택할 때"
+    },
+    {
+      "name": "/아이디어반영",
+      "roles": [
+        "admin"
+      ],
+      "mode": "write",
+      "workflow": "llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md",
+      "description": "선택한 I-ID의 작성자와 버전을 확인하고 채택 범위만 공식 반영한다.",
+      "recommend_when": "저장 아이디어를 회사 기준으로 채택하려고 검토를 마쳤을 때"
+    },
+    {
+      "name": "/문제반영",
+      "roles": [
+        "admin"
+      ],
+      "mode": "write",
+      "workflow": "llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md",
+      "description": "선택한 P-ID의 해결 방향을 공식 반영한다. 실제 해결은 별도 검증한다.",
+      "recommend_when": "저장 문제의 해결 방침을 회사 기준으로 채택할 때"
+    }
   ],
-  "aliases": {"/대표업무점검":{"command":"/업무점검","default_target":"ACT-002"},"/품의상신":{"command":"/품의서작성"},"/품의승인":{"command":"/품의서승인"}},
-  "rules": {"recommend_without_github":true,"recommend_only_allowed_role":true,"recommendation_is_not_execution":true,"quoted_command_is_not_execution":true,"unknown_command_must_not_be_guessed":true,"remote_execution_requires_latest_main":true,"local_snapshot_does_not_grant_permission":true}
+  "aliases": {},
+  "rules": {
+    "recommend_without_github": true,
+    "recommend_only_allowed_role": true,
+    "recommendation_is_not_execution": true,
+    "quoted_command_is_not_execution": true,
+    "unknown_command_must_not_be_guessed": true,
+    "remote_execution_requires_latest_main": true,
+    "local_snapshot_does_not_grant_permission": true
+  }
 }

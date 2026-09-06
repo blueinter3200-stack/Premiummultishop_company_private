@@ -1,0 +1,51 @@
+{
+  "schema_version": 3,
+  "id": "W-20260906-005",
+  "revision": 1,
+  "title": "업무 검토·결정·상태함·선택적 알림 및 프로젝트 소스 통합 개편",
+  "requested_by_actor_id": "ACT-001",
+  "assigned_to_actor_id": "ACT-001",
+  "created_at": "2026-09-06",
+  "updated_at": "2026-09-06",
+  "information_as_of": "2026-09-06",
+  "work_status": "in_progress",
+  "evidence_status": "passed",
+  "approval_status": "approved",
+  "persistence_status": "pending_commit",
+  "execution_status": "not_requested",
+  "priority": null,
+  "due_at": null,
+  "next_action": "실제 main 반영과 전체 변경 blob·프로젝트 패키지 재조회 검증",
+  "source_refs": [
+    "records/requests/ACT-001/R-20260906-003.source.md"
+  ],
+  "request_refs": [
+    "records/requests/ACT-001/R-20260906-003.json"
+  ],
+  "request_change_refs": [],
+  "directive_refs": [],
+  "evidence_refs": [],
+  "artifact_refs": [],
+  "submission_refs": [],
+  "decision_refs": [
+    "approvals/D-20260906-005.json"
+  ],
+  "related_idea_ids": [],
+  "related_problem_ids": [],
+  "unknowns": [
+    "실제 세 프로젝트 설정 교체 및 실사용 검증은 별도"
+  ],
+  "completion_criteria": [
+    "정책·템플릿·코드·지침 main 반영",
+    "변경 동작 테스트와 구조 검사",
+    "main·파일 재조회",
+    "정본 바이트 일치 배포 ZIP과 지침 제공"
+  ],
+  "confirmation_decision_ref": "approvals/D-20260906-005.json",
+  "effective_decision_ref": "approvals/D-20260906-005.json",
+  "authorized_scopes": [
+    "work_start",
+    "policy_change"
+  ],
+  "progress_events": []
+}

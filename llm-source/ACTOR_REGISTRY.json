@@ -1,13 +1,43 @@
 {
   "schema_version": 1,
-  "release_id": "GOV-20260906-04",
+  "release_id": "GOV-20260906-05",
   "updated_at": "2026-09-06",
   "authority": "official_actor_identity_registry",
-  "id_scheme": {"actor_id":"ACT-NNN","idea_id":"I-YYYYMMDD-NNN","problem_id":"P-YYYYMMDD-NNN","work_id":"W-YYYYMMDD-NNN","decision_id":"D-YYYYMMDD-NNN","request_id":"R-YYYYMMDD-NNN","request_change_id":"RC-YYYYMMDD-NNN"},
+  "id_scheme": {
+    "actor_id": "ACT-NNN",
+    "idea_id": "I-YYYYMMDD-NNN",
+    "problem_id": "P-YYYYMMDD-NNN",
+    "work_id": "W-YYYYMMDD-NNN",
+    "decision_id": "D-YYYYMMDD-NNN",
+    "request_id": "R-YYYYMMDD-NNN",
+    "request_change_id": "RC-YYYYMMDD-NNN",
+    "notification_id": "N-<decision_id>-<actor_id>"
+  },
   "actors": [
-    {"actor_id":"ACT-001","display_name":"Jin","role":"admin","status":"active","role_source":"llm-source/actors/ACT-001/ROLE.md","project_instructions":"chatgpt/admin/PROJECT_INSTRUCTIONS.md"},
-    {"actor_id":"ACT-002","display_name":"대표님","role":"representative","status":"active","role_source":"llm-source/actors/ACT-002/ROLE.md","project_instructions":"chatgpt/representative/PROJECT_INSTRUCTIONS.md"},
-    {"actor_id":"ACT-003","display_name":"부사수","role":"assistant","status":"active","role_source":"llm-source/actors/ACT-003/ROLE.md","project_instructions":"chatgpt/assistant/PROJECT_INSTRUCTIONS.md"}
+    {
+      "actor_id": "ACT-001",
+      "display_name": "Jin",
+      "role": "admin",
+      "status": "active",
+      "role_source": "llm-source/actors/ACT-001/ROLE.md",
+      "project_instructions": "chatgpt/admin/PROJECT_INSTRUCTIONS.md"
+    },
+    {
+      "actor_id": "ACT-002",
+      "display_name": "대표님",
+      "role": "representative",
+      "status": "active",
+      "role_source": "llm-source/actors/ACT-002/ROLE.md",
+      "project_instructions": "chatgpt/representative/PROJECT_INSTRUCTIONS.md"
+    },
+    {
+      "actor_id": "ACT-003",
+      "display_name": "부사수",
+      "role": "assistant",
+      "status": "active",
+      "role_source": "llm-source/actors/ACT-003/ROLE.md",
+      "project_instructions": "chatgpt/assistant/PROJECT_INSTRUCTIONS.md"
+    }
   ],
   "rules": {
     "actor_id_is_stable": true,
@@ -15,16 +45,24 @@
     "role_may_change_without_rewriting_history": true,
     "replacement_person_gets_new_actor_id": true,
     "future_record_paths": {
-      "ideas":"records/ideas/<actor_id>/YYYY-MM-DD-<short-slug>.md",
-      "problems":"records/problems/<actor_id>/YYYY-MM-DD-<short-slug>.md",
-      "idea_originals":"materials/originals/<actor_id>/ideas/YYYY-MM-DD/<original-file>",
-      "problem_originals":"materials/originals/<actor_id>/problems/YYYY-MM-DD/<original-file>",
-      "idea_normalized":"materials/normalized/<actor_id>/ideas/YYYY-MM-DD/<original-file>.md",
-      "problem_normalized":"materials/normalized/<actor_id>/problems/YYYY-MM-DD/<original-file>.md",
-      "requests":"records/requests/<actor_id>/<request_id>.json",
-      "request_changes":"records/request-changes/ACT-001/<request_id>/<request_change_id>.json"
+      "ideas": "records/ideas/<actor_id>/YYYY-MM-DD-<short-slug>.md",
+      "problems": "records/problems/<actor_id>/YYYY-MM-DD-<short-slug>.md",
+      "idea_originals": "materials/originals/<actor_id>/ideas/YYYY-MM-DD/<original-file>",
+      "problem_originals": "materials/originals/<actor_id>/problems/YYYY-MM-DD/<original-file>",
+      "idea_normalized": "materials/normalized/<actor_id>/ideas/YYYY-MM-DD/<original-file>.md",
+      "problem_normalized": "materials/normalized/<actor_id>/problems/YYYY-MM-DD/<original-file>.md",
+      "requests": "records/requests/<actor_id>/<request_id>.json",
+      "request_changes": "records/request-changes/ACT-001/<request_id>/<request_change_id>.json",
+      "notifications": "records/notifications/<actor_id>/<notification_id>.json",
+      "notification_receipts": "records/notification-receipts/<actor_id>/<notification_id>.json"
     },
-    "legacy_paths":"기존 role 기반 records/ideas/admin, representative 등은 참조 안정성을 위해 이동하지 않는다. PENDING_INDEX와 normalized metadata에서 actor_id를 연결한다.",
-    "new_actor_process":["관리자가 미사용 ACT-NNN을 발급한다","표시명과 현재 role을 registry에 등록한다","필요한 역할 소스와 ChatGPT 프로젝트 지침을 만든다","아이디어/문제는 첫 저장부터 actor_id 경로를 쓴다","직무 전용 작업공간은 실제 필요할 때 추가한다"]
+    "legacy_paths": "기존 role 기반 records/ideas/admin, representative 등은 참조 안정성을 위해 이동하지 않는다. PENDING_INDEX와 normalized metadata에서 actor_id를 연결한다.",
+    "new_actor_process": [
+      "관리자가 미사용 ACT-NNN을 발급한다",
+      "표시명과 현재 role을 registry에 등록한다",
+      "필요한 역할 소스와 ChatGPT 프로젝트 지침을 만든다",
+      "아이디어/문제는 첫 저장부터 actor_id 경로를 쓴다",
+      "직무 전용 작업공간은 실제 필요할 때 추가한다"
+    ]
   }
 }

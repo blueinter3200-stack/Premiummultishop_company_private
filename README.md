@@ -1,75 +1,39 @@
 # Miracle Company Private
 
-대표님·관리자 Jin·부사수 및 향후 등록되는 회사 협업자가 사용하는 **회사 기준, 전처리 데이터, 업무, 근거, 품의·결재 기록** 저장소.
+대표님·관리자 Jin·부사수와 향후 등록 actor가 사용하는 회사 기준·요청·전처리·업무·품의·결정 저장소다.
+Repository: `jintonic1010/miracle_company_private` / main / GOV-20260906-05.
 
-- Repository: `jintonic1010/miracle_company_private`
-- Canonical branch: `main`
-- Updated: 2026-09-06
-- Release: `GOV-20260906-04`
+## 대화와 실행
+명령 설명·추천·대화 내 아이디어/문제 정리는 프로젝트 지침·PROJECT_COMMON·자기 ROLE로 한다. GitHub 조회부터 요구하지 않는다.
+최신 회사 사실·검토·저장·결정을 실제 수행할 때 FILE_MAP → ACTOR_REGISTRY → 자기 ROLE → LLM_RUNTIME → 회사 기준·관련 workflow·CURRENT_WORK를 확인한다.
 
-## 가장 먼저
+## 업무 흐름
+업무검토 → 업무요청(간이 제출)/품의서작성(상세 제출) → 관리자 업무결정/품의서결정 → 승인 범위 업무 → 업무업데이트다.
+결정값은 승인·수정요청·보류·반려를 명시한다. default 승인은 없다. 대표님·부사수의 요청 기록만으로 W-ID나 착수 권한을 만들지 않는다. 같은 요청을 상세 품의로 보강할 때 중복 업무를 만들지 않는다.
+업무 시작(work_start) 승인이 포함되면 관리자 결정에서 W를 생성/연결한다. 일반 결과 수락은 결과승인, 지속 회사 기준은 기준확정이다. 구명령 별칭은 사용하지 않는다.
 
-명령 설명·추천과 대화 내 아이디어/문제 출력은 프로젝트 지침·`chatgpt/PROJECT_COMMON.md`·자기 ROLE로 안내한다. 이 단계에서 GitHub 조회를 먼저 요구하지 않는다.
-최신 회사 사실을 답하거나 실제 검토·저장·결재를 할 때는 `FILE_MAP.json` → `llm-source/ACTOR_REGISTRY.json` → 자기 역할 → `llm-source/LLM_RUNTIME.md` → 회사 공식 기준·해당 워크플로 → `working/CURRENT_WORK.md`를 읽는다. 상세 자료는 현재 업무와 연결된 것만 읽는다.
+## 사람과 데이터
+ACT-001=Jin, ACT-002=대표님, ACT-003=부사수. actor ID는 재사용하지 않고 role 변경과 과거 원문 귀속을 분리한다. I/P/R/RC/SUB/W/D는 서로 다른 객체다.
+기존 role 기반 원문·과거 요청·결정·materials는 보존한다. 상태함으로 원본 파일을 이동하지 않는다. 상태는 최신 유효 결정에서 파생하며 보류→승인/반려는 새 D다.
+GitHub는 지식·업무·결정 기록이고 ERP는 운영 데이터 원장, n8n은 연결·자동화 기반이다. 기존 COMPANY_OS의 부서·ERP·채널 방향은 유지한다. 비밀번호·키·토큰·운영 DB·민감 개인정보를 GitHub에 복사하지 않는다.
 
-## 사람·역할·기록 ID
+## 위치
+- llm-source/: 회사 기준, 역할, TRIGGER_REGISTRY, 상세 workflows.
+- chatgpt/: 고정 공통 소스와 세 프로젝트 지침·설치 안내.
+- assistant/10-playbooks/: 반복 업무 방법; assistant/20-directives/: 과거 지시 원문.
+- records/ideas·problems·requests/: actor별 입력 원문과 연결.
+- records/request-changes/: ACT-001 의미 변경 RC; REQUEST_CHANGE_INDEX는 조회용.
+- work/items/: 승인된 개별 수행 업무 원장; working/CURRENT_WORK와 assistant/30-working은 조회판.
+- assistant/40-handoff/: 품의 본문·근거·결과물; records/submissions는 버전 metadata.
+- approvals/: 관리자 결정 원본. records/DECISION_INDEX.json·decision-views는 상태 조회판.
+- records/notifications·notification-receipts·inbox: 새 결정 통지·실제 표시/확인·경량 조회판.
+- materials/originals·normalized/: 실제 확보 원본과 의미 보존 정제자료.
 
-- actor_id: 사람/행위자 고정 ID. 현재 `ACT-001` Jin, `ACT-002` 대표님, `ACT-003` 부사수.
-- role: 현재 직무/권한. 역할이 바뀌어도 과거 actor_id를 다시 쓰거나 과거 기록의 소유자를 바꾸지 않는다.
-- request/idea/problem/work/submission/decision은 각각 별도 ID를 가진다.
-- 새 사람이 들어오면 관리자가 새 `ACT-NNN`을 발급하고 역할·프로젝트 소스를 연결한다.
+## 알림
+새 결정 변화만 작성자/요청자·직접 관련 담당자에게 연결한다. 사용자 다음 실제 업무 행동 때 자기 작은 INBOX를 확인하고 동일 알림을 반복하지 않는다. 과거 반려를 소급 방송하지 않는다. 같은 건 재검토에는 관련 과거 이유·현재 차이를 별도로 확인한다.
+fetch는 사용자 읽음이 아니다. 실제 표시 뒤 허용된 경우에만 전달 기록을 남기고 읽기 전용/저장 금지에는 영수증도 쓰지 않는다. 영속 전달 기록이 없으면 새 대화에서 다시 보일 수 있다. 이 기능은 실시간 푸시 설치가 아니다.
 
-기존 role 기반 아이디어 경로는 참조 안정성을 위해 이동하지 않는다. 새 아이디어·문제부터 actor_id 경로를 사용한다.
-
-## 아이디어·문제·업무 구분
-
-아이디어를 검토했다고 업무가 된 것은 아니다. `/업무검토`는 먼저 대상을 `idea / problem / work / mixed / policy_change`로 분류한다.
-
-- idea → `/아이디어저장` 권장
-- problem → `/문제저장` 권장
-- 실제 실행 범위·다음 행동이 있는 work → `/업무공유`
-- idea + 조사 지시 → 아이디어와 조사 업무를 서로 다른 ID로 연결
-
-부사수도 자기 아이디어와 실무 중 발견한 문제를 저장할 수 있다. 문제 저장이 자동으로 업무 차단을 뜻하지 않으며 실제 업무 영향은 관련 work_id 상태로 따로 관리한다.
-명확한 업무·지속 지시는 R-ID로 보존하되 단순 질문·읽기 전용 검토·저장 금지는 자동 기록하지 않는다.
-
-## 역할과 쉬운 명령
-
-대표님은 아이디어·방향·요청을 넣는다. 부사수는 전처리·조사·실무·초안·품의서 작성을 맡는다. 이 업무·품의 체계의 최종 결재권자는 관리자 Jin이다.
-관리자 현황 조회는 `/업무점검 대표님`, `/업무점검 부사수`, `/업무점검 전체`다. 품의 문서는 `/품의서작성`, 관리자 결재는 `/품의서승인`이다. 구명령은 동일 권한 별칭으로만 호환한다.
-
-## 저장 위치
-
-| 위치 | 의미 |
-|---|---|
-| `llm-source/` | 승인된 회사 기준과 공통 규격 |
-| `llm-source/ACTOR_REGISTRY.json` | 고정 actor_id와 현재 역할 매핑 |
-| `llm-source/actors/<actor_id>/` | 각 actor의 역할·권한 소스 |
-| `llm-source/TRIGGER_REGISTRY.json` | 명령·권한·실행 모드·워크플로 연결 |
-| `llm-source/workflows/` | 기능별 상세 실행·검증·실패 처리 |
-| `assistant/10-playbooks/` | 반복 수행 방법 |
-| `assistant/20-directives/` | 기존 요청 원문·업무 지시 보존 |
-| `records/requests/<actor_id>/` | 새 명확한 사용자 요청과 연결 ID |
-| `records/REQUEST_INDEX.md` | 요청 선택 조회 목차 |
-| `work/items/` | 개별 업무 상태 원장 |
-| `working/CURRENT_WORK.md` | 회사 현재 업무판 |
-| `assistant/40-handoff/` | 결과물·근거·결정 요청 |
-| `approvals/` | 관리자 결재 기록 |
-| `records/ideas/<actor_id>/` | 새 아이디어 기록 |
-| `records/problems/<actor_id>/` | 새 문제 기록 |
-| `materials/normalized/` | 출처가 연결된 정제자료 |
-| `materials/originals/` | 실제 확보한 비민감 원본 |
-
-GitHub는 문서·지식·품의 기록의 원장이다. ERP는 운영 데이터 원장, n8n은 연결·자동화 기반이다. 고객 개인정보·운영 DB·인증정보를 GitHub로 복사하지 않는다.
-
-## 설치·검증
-
-`chatgpt/INSTALLATION.md`를 따른다. 프로젝트 지침과 소스는 이번 판으로 교체해야 하며 GitHub 반영만으로 실제 프로젝트 설정이 바뀌지는 않는다.
-`python scripts/validate_llm_sources.py`는 JSON·명령·역할·경로·manifest 구조를 검사한다. 실제 LLM 행동이나 외부 도구 실행을 검증하는 테스트가 아니다.
-main 저장, 결과물 승인, 외부 게시, 도구 연결, 프로젝트 지침 설치는 서로 다른 완료 항목이다.
-
-## 관리자 요청 변경추적
-
-기존 R-ID의 관리자 요구가 의미 있게 바뀌면 RC-ID로 what/why/evidence/impact를 남긴다. 최초 원문·revision·supersedes는 보존하며 RC는 승인·완료가 아니다. 절차: `llm-source/workflows/REQUEST_CHANGE_WORKFLOW.md`. 정본은 `records/request-changes/ACT-001/<R-ID>/<RC-ID>.json`, 목차는 `records/REQUEST_CHANGE_INDEX.md`다.
-대표님·부사수의 명령·역할·요청 revision 동작은 유지한다. `python -m unittest discover -s tests -v`로 A–H 등 RC 단위 테스트를 실행한다. `scripts/request_changes.py`는 계획·검증만 하며 실제 GitHub 쓰기는 COMMON_IO로 수행한다.
-배포 ZIP 재생성: `python scripts/build_chatgpt_package.py --source-commit <실제 확인한 커밋> --output <출력 폴더>`.
+## 설치와 검증
+chatgpt/INSTALLATION.md를 따라 이번에는 세 프로젝트 지침·운영 소스를 교체한다. 일반 업무자료는 삭제하지 않는다. 이후 내부 workflow·알림 주기·업무 데이터 변경은 통상 GitHub만 갱신한다. 역할/명령/로컬 행동 변경에는 관련 고정 소스 교체가 필요하다.
+`python scripts/validate_llm_sources.py`, `python -m unittest discover -s tests`로 문서 연결과 코드 동작을 검사한다. `decision_flow.py plan`은 파일 변경 계획만 출력하며 실제 GitHub 쓰기는 연결 도구로 원자적으로 반영하고 재조회해야 한다. `build_chatgpt_package.py`는 정본 바이트로 ZIP을 만든다.
+스크립트 테스트는 실제 계정 인증·세 채팅방 행동·자동 메시지·외부 게시·지출의 완료 증거가 아니다.

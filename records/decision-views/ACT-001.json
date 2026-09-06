@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "actor_id": "ACT-001",
+  "authority": "derived_view",
+  "items": [
+    {
+      "target_type": "request",
+      "target_id": "R-20260906-003",
+      "target_revision": 1,
+      "path": "records/requests/ACT-001/R-20260906-003.json",
+      "scope_key": "work_start",
+      "author_actor_id": "ACT-001",
+      "requester_actor_id": "ACT-001",
+      "title": "업무 검토·결정·상태함·선택적 알림 및 프로젝트 소스 통합 개편",
+      "status": "approved",
+      "decision_id": "D-20260906-005",
+      "reason": null,
+      "decision_ref": "approvals/D-20260906-005.json"
+    }
+  ]
+}

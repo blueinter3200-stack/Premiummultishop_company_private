@@ -1,0 +1,72 @@
+{
+  "schema_version": 3,
+  "object_type": "request",
+  "request_id": "R-20260906-003",
+  "revision": 1,
+  "content_revision": 1,
+  "requester_actor_id": "ACT-001",
+  "recorded_by_actor_id": "ACT-001",
+  "requester_role_at_capture": "admin",
+  "source_type": "direct_conversation",
+  "source_locator": "현재 관리자방 메시지와 직전 업무/결정/알림 설계 대화; 플랫폼 메시지 ID 미제공",
+  "original_text": "그렇게 해가지고 지금 메인 수정이나줘. \n전체 수정한 다음에 프로젝트별 지침도 다시 주고, 그 다음에 소스도 넣을 것들 다시 다 줘.",
+  "source_created_at": null,
+  "captured_at": "2026-09-06",
+  "classification": "policy_change",
+  "scope": [],
+  "conditions": [
+    "ACT-001 최종 결정권 유지",
+    "기존 원문·과거 결재·업무·materials 보존",
+    "실시간 푸시·외부 게시·지출·계정 권한 변경 제외"
+  ],
+  "request_status": "in_progress",
+  "submission_status": "submitted",
+  "primary_scope": "work_start",
+  "requested_scopes": [
+    "work_start",
+    "policy_change"
+  ],
+  "review_snapshot": {
+    "result": "PASS",
+    "classification": "work",
+    "subject_hash": "5a1bc03270b390d673cd3f868fbab4e961de10b78a710f32b6613d9392a55029",
+    "basis_commit": "93055685f424fa2af06e438af51552d67eaff208",
+    "reviewed_by_actor_id": "ACT-001",
+    "evidence_refs": [
+      "FILE_MAP.json",
+      "llm-source/PRODUCT_REQUIREMENTS.md",
+      "llm-source/LLM_RUNTIME.md",
+      "working/CURRENT_WORK.md"
+    ],
+    "notes": "현재 사용자 명시적 정책 변경/반영 요청. 기존 규칙과 달라지는 범위는 이 릴리스로 대체하고 과거 데이터는 보존."
+  },
+  "related_work_ids": [
+    "W-20260906-005"
+  ],
+  "related_idea_ids": [],
+  "related_problem_ids": [],
+  "related_decision_ids": [
+    "D-20260906-005"
+  ],
+  "submission_refs": [],
+  "supersedes": null,
+  "unknowns": [],
+  "request_change_refs": [],
+  "current_requirements": {
+    "title": "업무 검토·결정·상태함·선택적 알림 및 프로젝트 소스 통합 개편",
+    "scope": [
+      "검토→요청/품의→관리자 결정→승인 업무 업데이트",
+      "업무결정/품의서결정의 4가지 결과",
+      "구명령·별칭 제거, 과거 원문 보존",
+      "D 이력에서 상태함 계산, 작성자별 결정 통지",
+      "새 알림만 선택 조회, 표시/확인 분리, 관련 과거 결정 검토",
+      "세 프로젝트 지침·정본 일치 ZIP 제공"
+    ],
+    "completion_criteria": [
+      "정책·템플릿·코드·지침 main 반영",
+      "변경 동작 테스트와 구조 검사",
+      "main·파일 재조회",
+      "정본 바이트 일치 배포 ZIP과 지침 제공"
+    ]
+  }
+}

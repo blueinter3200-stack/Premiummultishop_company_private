@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "id": null,
   "revision": 1,
   "title": null,
@@ -27,5 +27,9 @@
   "related_idea_ids": [],
   "related_problem_ids": [],
   "unknowns": [],
-  "completion_criteria": []
+  "completion_criteria": [],
+  "confirmation_decision_ref": null,
+  "effective_decision_ref": null,
+  "authorized_scopes": [],
+  "progress_events": []
 }

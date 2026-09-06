@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "actor_id": "ACT-001",
+  "authority": "derived_view",
+  "unread_count": 0,
+  "items": [],
+  "more_count": 0,
+  "next_page": null,
+  "inbox_revision": "1e039c90f7af40f2abb821f8e6f13320c2a629629b5928fd52083966f20d7b7a"
+}

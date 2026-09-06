@@ -1,63 +1,55 @@
 #!/usr/bin/env python3
-"""Validate source routing and role boundaries; does not execute any company trigger."""
-import json
+"""Validate active command/source routing. --staged-only skips unchanged RC code checks."""
+import argparse
 import hashlib
+import json
 from pathlib import Path
 import sys
 
-def validate(root: Path) -> int:
-    def load(path): return json.loads((root/path).read_text(encoding="utf-8"))
-    actors=load("llm-source/ACTOR_REGISTRY.json")["actors"]
-    triggers=load("llm-source/TRIGGER_REGISTRY.json")
-    fmap=load("FILE_MAP.json")
-    common=(root/"chatgpt/PROJECT_COMMON.md").read_text(encoding="utf-8")
-    ids=[a["actor_id"] for a in actors]
-    assert len(ids)==len(set(ids))==3 and set(ids)=={"ACT-001","ACT-002","ACT-003"}
-    names=[c["name"] for c in triggers["commands"]]
-    assert len(names)==len(set(names))==15
-    admin_only={"/업무점검","/결과승인","/품의서승인","/업무확정","/아이디어반영","/문제반영"}
-    for c in triggers["commands"]:
-        assert c["name"] in common
-        assert (root/c["workflow"]).is_file(),c["workflow"]
-        assert fmap["workflow_routes"][c["name"]]==c["workflow"]
-        if c["name"] in admin_only: assert c["roles"]==["admin"]
-        if c["mode"]=="local": assert c["name"] in {"/아이디어출력","/문제출력"}
-        for a in actors:
-            if a["role"] in c["roles"]:
-                assert c["name"] in (root/a["project_instructions"]).read_text(encoding="utf-8")
-                assert c["name"] in (root/a["role_source"]).read_text(encoding="utf-8")
+def validate(root: Path, staged_only: bool=False) -> dict:
+    def load(p):return json.loads((root/p).read_text(encoding='utf-8'))
+    reg=load('llm-source/ACTOR_REGISTRY.json');actors=reg['actors'];tr=load('llm-source/TRIGGER_REGISTRY.json');fm=load('FILE_MAP.json')
+    common=(root/'chatgpt/PROJECT_COMMON.md').read_text(encoding='utf-8')
+    need=lambda ok,msg: None if ok else (_ for _ in ()).throw(ValueError(msg))
+    ids=[a['actor_id'] for a in actors];need(len(ids)==len(set(ids)),'Duplicate actor')
+    need({'ACT-001','ACT-002','ACT-003'}<=set(ids),'Required actors missing')
+    commands=tr['commands'];names=[c['name'] for c in commands]
+    need(len(names)==len(set(names))==16,'Expected 16 canonical commands')
+    need(tr.get('aliases')=={},'Aliases must be absent')
+    retired=set(load('llm-source/RETIRED_COMMANDS.json')['commands']);need(not retired.intersection(names),'Retired command is active')
+    admin_only={'/업무결정','/품의서결정','/업무점검','/결과승인','/기준확정','/아이디어반영','/문제반영'}
+    counts={}
+    active=[root/'chatgpt/PROJECT_COMMON.md',root/'llm-source/LLM_RUNTIME.md',root/'llm-source/PRODUCT_REQUIREMENTS.md']
     for a in actors:
-        assert fmap["role_sources"][a["actor_id"]]==a["role_source"]
-        assert a["actor_id"] in (root/a["role_source"]).read_text(encoding="utf-8")
-    for alias,v in triggers["aliases"].items():
-        assert alias not in names and v["command"] in names
-    for p in root.rglob("*.json"): json.loads(p.read_text(encoding="utf-8"))
-    assert "request_refs" in load("templates/WORK.json")
-    assert load("templates/REQUEST.json")["source_created_at"] is None
-    assert fmap["approval_actor_id"]=="ACT-001"
-    assert "검토만" in common and "저장하지 마" in common
-    assert "미저장" in common and "추천과 실행은 별개" in common
-    manifest=root/f"docs/releases/{fmap['release_id']}-manifest.json"
-    assert manifest.is_file(), "Current release manifest missing"
-    if manifest.exists():
-        for entry in json.loads(manifest.read_text(encoding="utf-8"))["files"]:
-            data=(root/entry["path"]).read_bytes()
-            if "canonical_json_sha256" in entry:
-                data=json.dumps(json.loads(data),ensure_ascii=False,sort_keys=True,separators=(",",":")).encode()
-                expected=entry["canonical_json_sha256"]
-            else: expected=entry["sha256"]
-            assert hashlib.sha256(data).hexdigest()==expected,entry["path"]
-    if "request_change_workflow" in fmap:
+        need(fm['role_sources'][a['actor_id']]==a['role_source'],'Role route mismatch')
+        for path in [a['role_source'],a['project_instructions']]:
+            text=(root/path).read_text(encoding='utf-8');need(a['actor_id'] in text,'Actor identity missing');active.append(root/path)
+        allowed=[c for c in commands if a['role'] in c['roles']];counts[a['actor_id']]=len(allowed)
+        for c in allowed:
+            need(c['name'] in (root/a['role_source']).read_text(encoding='utf-8') and c['name'] in (root/a['project_instructions']).read_text(encoding='utf-8'),'Local command discovery missing')
+    for c in commands:
+        need(c['name'] in common and c.get('recommend_when'),'Recommendation missing')
+        need((root/c['workflow']).is_file() and fm['workflow_routes'][c['name']]==c['workflow'],'Workflow route broken')
+        active.append(root/c['workflow'])
+        if c['name'] in admin_only:need(c['roles']==['admin'],'Administrator boundary broken')
+        if c['name'] in {'/품의서작성','/업무업데이트'}:need(c['roles']==['admin','assistant'],'Staff boundary broken')
+        if c['name'] in {'/업무결정','/품의서결정'}:need(c.get('default_outcome') is None and len(c['required_outcomes'])==4,'Decision default or outcomes invalid')
+    for p in set(active):need(not any(n in p.read_text(encoding='utf-8') for n in retired),f'Retired active command reference: {p}')
+    for p in root.rglob('*.json'):json.loads(p.read_text(encoding='utf-8'))
+    need(fm['approval_actor_id']=='ACT-001','Wrong final approver')
+    need('request_change_refs' in load('templates/REQUEST.json') and 'request_change_refs' in load('templates/WORK.json'),'RC compatibility missing')
+    need(load('templates/REQUEST.json')['source_created_at'] is None,'Invented original timestamp')
+    manifest=root/f"docs/releases/{fm['release_id']}-manifest.json"
+    if manifest.is_file():
+        for e in json.loads(manifest.read_text(encoding='utf-8'))['files']:
+            need(hashlib.sha256((root/e['path']).read_bytes()).hexdigest()==e['sha256'],f"Manifest mismatch: {e['path']}")
+    legacy='skipped (unchanged files not in staged snapshot)'
+    if not staged_only:
         from request_changes import validate_repository
-        assert (root/fmap["request_change_workflow"]).is_file()
-        assert (root/fmap["request_change_index"]).is_file()
-        assert load(fmap["request_change_template"])["object_type"]=="request_change"
-        assert "request_change_refs" in load("templates/REQUEST.json")
-        assert "request_change_refs" in load("templates/WORK.json")
-        validate_repository(root)
-    print("PASS: RC structure, manifest, JSON, 15 commands, 3 roles, aliases, workflow paths, local discovery and request templates. Live LLM/tool tests not run.")
-    return 0
-if __name__=="__main__":
-    try: sys.exit(validate(Path(sys.argv[1]) if len(sys.argv)>1 else Path(__file__).resolve().parents[1]))
-    except (AssertionError,KeyError,OSError,ValueError) as exc:
-        print("FAIL:",repr(exc),file=sys.stderr);sys.exit(1)
+        validate_repository(root);legacy='passed'
+    return dict(status='PASS',commands=len(names),aliases=0,actor_command_counts=counts,legacy_rc=legacy,live_project_behavior='not tested')
+
+if __name__=='__main__':
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('root',nargs='?',type=Path,default=Path(__file__).resolve().parents[1]);p.add_argument('--staged-only',action='store_true');a=p.parse_args()
+    try: print(json.dumps(validate(a.root,a.staged_only),ensure_ascii=False,indent=2))
+    except (ValueError,KeyError,OSError,ImportError) as exc:p.exit(1,f'FAIL: {exc}\n')

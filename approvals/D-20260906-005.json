@@ -1,0 +1,70 @@
+{
+  "schema_version": 3,
+  "object_type": "decision",
+  "decision_id": "D-20260906-005",
+  "target_type": "request",
+  "target_id": "R-20260906-003",
+  "target_revision": 1,
+  "target_hash": "5a1bc03270b390d673cd3f868fbab4e961de10b78a710f32b6613d9392a55029",
+  "target_ref": "records/requests/ACT-001/R-20260906-003.json",
+  "scope_key": "work_start",
+  "previous_decision_id": null,
+  "previous_state": "pending",
+  "decision": "approved",
+  "reason": null,
+  "reason_source": "not_stated",
+  "requested_scopes": [
+    "work_start",
+    "policy_change"
+  ],
+  "granted_scopes": [
+    "work_start",
+    "policy_change"
+  ],
+  "scope_details": {
+    "policy_change": {
+      "release_id": "GOV-20260906-05",
+      "manifest": "docs/releases/GOV-20260906-05-manifest.json"
+    }
+  },
+  "conditions": [
+    "ACT-001 최종 결정권 유지",
+    "기존 원문·과거 결재·업무·materials 보존",
+    "실시간 푸시·외부 게시·지출·계정 권한 변경 제외"
+  ],
+  "approver_actor_id": "ACT-001",
+  "approver_role": "admin",
+  "approver_name": "Jin",
+  "approval_source": {
+    "type": "current_project_user_message",
+    "text": "그렇게 해가지고 지금 메인 수정이나줘. \n전체 수정한 다음에 프로젝트별 지침도 다시 주고, 그 다음에 소스도 넣을 것들 다시 다 줘.",
+    "locator": "현재 관리자방 메시지와 직전 업무/결정/알림 설계 대화; 플랫폼 메시지 ID 미제공"
+  },
+  "principal_verification": "project_role_based_not_independently_authenticated",
+  "decided_at": "2026-09-06",
+  "source_event_id": "ACT-001-GOV05-current-release-request",
+  "request_ref": "records/requests/ACT-001/R-20260906-003.json",
+  "work_id": "W-20260906-005",
+  "review_snapshot": {
+    "result": "PASS",
+    "classification": "work",
+    "subject_hash": "5a1bc03270b390d673cd3f868fbab4e961de10b78a710f32b6613d9392a55029",
+    "basis_commit": "93055685f424fa2af06e438af51552d67eaff208",
+    "reviewed_by_actor_id": "ACT-001",
+    "evidence_refs": [
+      "FILE_MAP.json",
+      "llm-source/PRODUCT_REQUIREMENTS.md",
+      "llm-source/LLM_RUNTIME.md",
+      "working/CURRENT_WORK.md"
+    ],
+    "notes": "현재 사용자 명시적 정책 변경/반영 요청. 기존 규칙과 달라지는 범위는 이 릴리스로 대체하고 과거 데이터는 보존."
+  },
+  "authorization_target": {
+    "request_id": "R-20260906-003",
+    "content_revision": 1,
+    "content_hash": "5a1bc03270b390d673cd3f868fbab4e961de10b78a710f32b6613d9392a55029"
+  },
+  "revokes_decision_ids": [],
+  "recipient_actor_ids": [],
+  "authority": "scoped_decision_not_execution_receipt"
+}

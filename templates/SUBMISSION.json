@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "submission_id": null,
+  "revision": 1,
+  "request_ref": null,
+  "requester_actor_id": null,
+  "submitted_by_actor_id": null,
+  "work_id": null,
+  "title": null,
+  "primary_scope": "work_start",
+  "requested_scopes": [],
+  "current_requirements": {},
+  "review_snapshot": null,
+  "artifact_path": null,
+  "artifact_sha256": null,
+  "submission_status": "draft",
+  "supersedes_revision": null
+}

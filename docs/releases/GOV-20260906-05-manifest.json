@@ -1,0 +1,228 @@
+{
+  "release_id": "GOV-20260906-05",
+  "basis_commit": "93055685f424fa2af06e438af51552d67eaff208",
+  "files": [
+    {
+      "path": "FILE_MAP.json",
+      "sha256": "aadd17c890540c1882c83a2a604583b2da32e30e06b0d2d018a42511883ce4ff",
+      "git_blob_sha": "344150d5433137314de3a5e62edb8a92cf7fb4c9"
+    },
+    {
+      "path": "README.md",
+      "sha256": "d461e7f98b212ddece000d00564e93cc599cfed0e386ee1d8c81f5555b795728",
+      "git_blob_sha": "71c8d5860dacecd284673c94ac2f60dd615baf07"
+    },
+    {
+      "path": "admin/REFLECTION_POLICY.md",
+      "sha256": "2fdc860300ca6a851acf3eb543c9144682cd5f05ea421e8b26744c588a6c1300",
+      "git_blob_sha": "854c976e32c1f753d1cc2e17dc73fd54a189eb64"
+    },
+    {
+      "path": "approvals/D-20260906-005.json",
+      "sha256": "d393943f693e7d530e6968c07b41d0e698c84ba420e389278f91d3594a533fb8",
+      "git_blob_sha": "95c0974a16e5ee2aba4fb75eab71584893225244"
+    },
+    {
+      "path": "chatgpt/INSTALLATION.md",
+      "sha256": "9f51b5aae0772293b2fd26b5b1bd0b41cd604ecc911c8f8c4c8507bcb5f08e2a",
+      "git_blob_sha": "cc776040a9c63c4a7f4506a1dcf0e3670c646c2a"
+    },
+    {
+      "path": "chatgpt/PROJECT_COMMON.md",
+      "sha256": "2e7a28e07b396b7d8640014fa375873c1075d0c7a482823588dad15929635d47",
+      "git_blob_sha": "8c9a1baff4bd0f6d38671197493a3e7b44e807a1"
+    },
+    {
+      "path": "chatgpt/admin/PROJECT_INSTRUCTIONS.md",
+      "sha256": "da41216a807b6af102f1439c6e2609354f1e44ac0ad6b8a9f44f9fbbcf24e504",
+      "git_blob_sha": "9ccaa06b553c9965c5c6912a8a22800e38fd97dd"
+    },
+    {
+      "path": "chatgpt/assistant/PROJECT_INSTRUCTIONS.md",
+      "sha256": "ce8bd780f368250a2045fc021a8c9736d79152e1df590b670b9253aa08c50bba",
+      "git_blob_sha": "e9d22a7a10d0b2b91e3a1ede3b5d6e1cbc4180ce"
+    },
+    {
+      "path": "chatgpt/representative/PROJECT_INSTRUCTIONS.md",
+      "sha256": "4fec485a8ec425ea191e5378d1b756aefc76cf9c11be3400c5cbfb71b0794cae",
+      "git_blob_sha": "7b7309d5218165f0ebbe513cdd1809e5d344fbc7"
+    },
+    {
+      "path": "docs/audits/GOV-20260906-05-implementation.md",
+      "sha256": "58a7831a3c0b14ef742e8b6d9a25666385364ccc9cd4ade6f3d82fe652a26658",
+      "git_blob_sha": "8f4b8542ddf63966712d66c5d3e354417182f94b"
+    },
+    {
+      "path": "docs/requirement-changelog.md",
+      "sha256": "4536e0d215aa985e9cdc1532fcd074e44c40a3fc7da872540a662bc9797cc56d",
+      "git_blob_sha": "b1e85b4f3f1ccb4192c8c0ac4b8296539e018837"
+    },
+    {
+      "path": "llm-source/ACTOR_REGISTRY.json",
+      "sha256": "c9ba95113006670dd8d3ea298bc47f9c9c4990a521bca8f165f966ee01b6f97c",
+      "git_blob_sha": "30503aec2215cf5967f64ec55aa12856da42eab0"
+    },
+    {
+      "path": "llm-source/APPROVAL_GOVERNANCE.md",
+      "sha256": "7575506a79c068a17857806e96be8b66450a92c308987b6b5c892e82833e8de3",
+      "git_blob_sha": "3be60032940f3f3f22d00a94a32423af3c17553f"
+    },
+    {
+      "path": "llm-source/LLM_RUNTIME.md",
+      "sha256": "46ed0f913fb351c1b392cd89cd793f2b8a6b76b848b4a37944dce6f0ad6a5197",
+      "git_blob_sha": "380ff9bbac6ba9f41ee8a38e273c68e27c6d3c08"
+    },
+    {
+      "path": "llm-source/PRODUCT_REQUIREMENTS.md",
+      "sha256": "c01f59be2f063ff47799563a0e995e35a5f90fd7c8b83cc00a378560a818f3f9",
+      "git_blob_sha": "a6753325928f9907fceeb2441f14c4212ddfe367"
+    },
+    {
+      "path": "llm-source/RETIRED_COMMANDS.json",
+      "sha256": "538bf3cf086f0ddf7cce132de6c6deb1488d0c4d8e72cf4b38052e2354646cfb",
+      "git_blob_sha": "6f89fff6b5b513f3793d1765463ce004717d11d4"
+    },
+    {
+      "path": "llm-source/TRIGGER_REGISTRY.json",
+      "sha256": "9a45f86e45d67e4c01ec7b20b012d7f41f531f6d6cbd70987b8f878a0e478213",
+      "git_blob_sha": "7fca88560bb89c786360e9bd8de3fe1d45662228"
+    },
+    {
+      "path": "llm-source/WORK_GOVERNANCE.md",
+      "sha256": "7f5456f35d53226adc738197f4cd78e307061d48c80a70d4f55fc2e62c0bb76c",
+      "git_blob_sha": "ce737ee773df028b78d7f5607274c72a6c9a6ef7"
+    },
+    {
+      "path": "llm-source/WORK_LIFECYCLE.md",
+      "sha256": "e7e8ebb606bc9c0991d247b0e24443cf4a31f1c11b91a696a4439ef3382ce176",
+      "git_blob_sha": "a8f6f8c53d94ff3df27c1cb9e33690486b19a3c8"
+    },
+    {
+      "path": "llm-source/actors/ACT-001/ROLE.md",
+      "sha256": "585f5f45501817476a0cad576cf9fb8a13d3c6d396d354a7eefa330a4270e6e7",
+      "git_blob_sha": "8a2a2ef76cffe53e6e36516510e6ac98b70b5a43"
+    },
+    {
+      "path": "llm-source/actors/ACT-002/ROLE.md",
+      "sha256": "c074eb181ea1703371b47150bef102571549cbd0c09c15f86a50f026d0570f84",
+      "git_blob_sha": "29bebf08ba62f4a2c62efca358e5681b7bea9fdd"
+    },
+    {
+      "path": "llm-source/actors/ACT-003/ROLE.md",
+      "sha256": "135f8e275d3db77aea6d7cc0da0abebec4589f3ab8ebaa07cb83c539658c1c0e",
+      "git_blob_sha": "e2e650acb154d544b4abb19c5b9ee8207f30dc65"
+    },
+    {
+      "path": "llm-source/actors/ACT-003/RULES.md",
+      "sha256": "a2b97be1df98b6622ceae8e20bed54fe1931575240ea9d8645c12c113271fc3b",
+      "git_blob_sha": "b7e86cfbe038b5ae536ea4a1e7f7110983efcde8"
+    },
+    {
+      "path": "llm-source/workflows/ADMIN_REFLECTION_WORKFLOW.md",
+      "sha256": "40819cf9aee1dbea7225725d0fec11686ccbb14ab087e7ec29fb63db4b3f8082",
+      "git_blob_sha": "104d85d37bea50752612d270538ceed91a6f24c0"
+    },
+    {
+      "path": "llm-source/workflows/DECISION_WORKFLOW.md",
+      "sha256": "08de07c53287d48d6c01429aa8b450457b532877564b0031afb6a3498f1c9c95",
+      "git_blob_sha": "030abfdd64a351dded35c6b6d605daac2b7e93a0"
+    },
+    {
+      "path": "llm-source/workflows/IDEA_WORKFLOW.md",
+      "sha256": "da449f20eaf0296656d27415ce7de6c6c45fba5a8360ed0226be691a6b05993f",
+      "git_blob_sha": "22733238ad85e5c8e600d88145c6f99f8c4babb6"
+    },
+    {
+      "path": "llm-source/workflows/INBOX_WORKFLOW.md",
+      "sha256": "064b3bd75fdb50bd4c37347fc74538ae14a9b34ade63dd9dd0b82fe7a27659f3",
+      "git_blob_sha": "d44a1fc63bcee450ab8aecdae87560dd5fac7ab2"
+    },
+    {
+      "path": "llm-source/workflows/PROBLEM_WORKFLOW.md",
+      "sha256": "a71c41786e43a9fb31288f4401d3e618b410e694dd8a476438c18d0b101ff717",
+      "git_blob_sha": "935e72b8502dcc58b90292cb6a285a0d1f944bbc"
+    },
+    {
+      "path": "llm-source/workflows/REQUEST_CAPTURE.md",
+      "sha256": "caa6a79e56547a7d86ec8f55f04f6af0ef5fa73b14155ba604ca24f851c9b56f",
+      "git_blob_sha": "ee934bfcf55a31d0f81feb751e2e5837dac72843"
+    },
+    {
+      "path": "llm-source/workflows/SUBMISSION_WORKFLOW.md",
+      "sha256": "8a58381a9cfd77fb26fb37834181abd652d46d7695d2291bea294c183a44512f",
+      "git_blob_sha": "bf96317d454a11731398da1eb3757b4b64920533"
+    },
+    {
+      "path": "llm-source/workflows/WORK_INSPECTION.md",
+      "sha256": "a79a5d5ccd5a106afdb8de747069c56d86fa66fc3b354648da9e60eae7826e3f",
+      "git_blob_sha": "7a73a2fc73af044cccab33060001309af095bd74"
+    },
+    {
+      "path": "llm-source/workflows/WORK_WORKFLOW.md",
+      "sha256": "4da4746509137abff283489fa11c7a7a74ae8e2e84b3c3547288fc8a82794ff9",
+      "git_blob_sha": "ceba74b4ed8b46ee2d4d07426299603699d5aa10"
+    },
+    {
+      "path": "records/requests/ACT-001/R-20260906-003.source.md",
+      "sha256": "a0cd7eeb4ebabf64d426b5cf646db037ecf29cba68c5c3c8d465c6962ebd501f",
+      "git_blob_sha": "f3e51bbf698bbdd29e29faeb7a3932060af34327"
+    },
+    {
+      "path": "scripts/build_chatgpt_package.py",
+      "sha256": "293b9c4a1c3a974d04c6e5701c11743dac177ff7ac0da408a5da8f966967d840",
+      "git_blob_sha": "1ce75ed945d86d45439a3907e3b95e385ee225c5"
+    },
+    {
+      "path": "scripts/decision_flow.py",
+      "sha256": "1661bd8f20712459987a23dc4a7be3680fd5a7891e6633cf489e8583095e83a8",
+      "git_blob_sha": "0e44eb35eaf29f770f8369505100e1ef0394fabc"
+    },
+    {
+      "path": "scripts/validate_llm_sources.py",
+      "sha256": "c3d37476a81b292002e565140285e3193ce09a2fc3838425590e9e6beae0048f",
+      "git_blob_sha": "c58165897dcf53fa28822dd5918a2b5b447e3cc5"
+    },
+    {
+      "path": "templates/DECISION.json",
+      "sha256": "384f4731ba9f9d2b33686007ae8c2ef65d4d21188394a55f2ee5752428c0d3a3",
+      "git_blob_sha": "0a34cd01735612ce0612d1b7a48df2fcccec9e2e"
+    },
+    {
+      "path": "templates/HANDOFF.md",
+      "sha256": "b1f991b316307066af34ae66deafde25183e9d7c60ea7c65f12ac0b2e61fea8d",
+      "git_blob_sha": "2784ca9afb80b4ce566ac16b6169fba46d993cfd"
+    },
+    {
+      "path": "templates/NOTIFICATION_RECEIPT.json",
+      "sha256": "bcabbcfeffd425a8f73ded8c4973e723d9c91556e10fa6c44f190222f2750e6d",
+      "git_blob_sha": "f857179cb2900ee4a8dd0aa83b6224b8ab272df7"
+    },
+    {
+      "path": "templates/REQUEST.json",
+      "sha256": "4cf64f2dac121ad7180a3c5800f3d126427e0958d987ea631496d67ca20c2c28",
+      "git_blob_sha": "04cb0ea321aca81bca0ccaebb0cf899508645990"
+    },
+    {
+      "path": "templates/SUBMISSION.json",
+      "sha256": "263ccdfb7ed1010811e4f30cd6a4b68719c3ca4e80410c892dc48c30ebf03aba",
+      "git_blob_sha": "0ada14ccca42f0f067b9074c7e4801fb796bc1da"
+    },
+    {
+      "path": "templates/WORK.json",
+      "sha256": "04286f367b98abb294aee850ed8071aa64cbbd51a278dac6885abdb7a611b097",
+      "git_blob_sha": "dcb9d692fdb1b8fe775577229afed147d879f64a"
+    },
+    {
+      "path": "tests/test_decision_flow.py",
+      "sha256": "fe524a11caddd9b6d793bca54d1a13c89ea7d3cfe473dd1ebe16d8ef417a6d55",
+      "git_blob_sha": "558b27badf59b9be614031d93ea2fe90b3c05728"
+    }
+  ],
+  "excluded": [
+    "this manifest",
+    "post-write execution receipt",
+    "mutable request/work lifecycle and derived indexes/inboxes/views"
+  ],
+  "scope": "Review-first submission, scoped administrator decisions, versioned history, selective inbox delivery, retired commands removed, role source packages",
+  "verification_note": "Manifest hashes are source snapshots, not proof of deployment or live LLM behavior."
+}

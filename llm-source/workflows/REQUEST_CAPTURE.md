@@ -1,35 +1,22 @@
-# 사용자 요청 보존·업무접수 — GOV-20260906-04
+# 사용자 요청 보존·업무요청 — GOV-20260906-05
 
-목적: 명확히 한 번 말한 회사 요청을 원문·출처·범위와 함께 보존하고 다음 작업에서 찾아 이어간다. 대화 전체 수집이나 ChatGPT 자동 기억 기능이 아니다.
+## 원문 보존과 제출 분리
+명확한 회사 수행·배정·지속 지시는 한 번의 발언으로 R-ID와 원문/요청자/기록자를 보존한다. 이것은 captured이고 검토 전이면 formal submission이 아니다. 새로운 조사·제작·개발을 바로 시작하거나 W-ID를 만들지 않는다. 질문·탐색·가정·검토만·저장 금지·출력/업무검토/업무점검/반영미리보기는 자동 저장하지 않는다.
+관리자의 직접 실행 승인도 범위 확인·검토·결정 기록을 건너뛰지 않는다. 다만 한 메시지가 검토·제출·승인·반영까지 명확히 포함하면 내부적으로 순차 처리하고 같은 확인을 반복하지 않는다.
 
-## 보존 대상과 예외
+## 업무요청: 검토가 먼저
+세 역할이 사용한다. 현재 대상의 유효한 업무검토 PASS와 classification=work/mixed가 있어야 관리자 결정대기 submitted로 저장한다. 검토 결과가 없으면 제출 준비로 검토부터 수행하며, REVISION/HOLD 또는 순수 아이디어/문제는 formal submission하지 않고 적합한 정리를 안내한다. 사용자가 검토만 원하면 저장하지 않는다.
+검토 대상 내용 hash/revision과 실제 제출 내용이 같아야 한다. main이 바뀌어도 관련 기준·결정·근거가 동일한지 확인할 수 있으면 PASS를 재사용할 수 있고, 확인 불가/영향 변경이면 재검토한다. review_snapshot의 관련 SHA와 최신 조회 SHA를 함께 보존한다.
+기존 R-ID가 있으면 같은 원문을 유지한 채 proposal/current_requirements와 제출 메타데이터만 갱신한다. 새로운 독립 요청만 새 R-ID다. 재시도·같은 제안의 상세화는 중복 R/W를 만들지 않는다.
 
-명확한 회사 업무 배정·실행 요청·지속 지시·기준 변경 요청은 현재 역할 범위에서 접수한다. 특히 ACT-001의 “앞으로 보고에 실제 링크를 넣어”, “이 기준으로 진행해”, “부사수에게 조사를 맡겨”는 다시 저장 명령을 요구하지 않는다.
-단순 질문·잡담·가정·“이거 어때?”·“검토해봐”만의 탐색은 자동 저장하지 않는다. `/아이디어출력`, `/문제출력`, `/업무검토`, `/업무점검`, `/반영미리보기` 및 “검토만/본문만/저장하지 마”는 읽기·정리만 한다. 명확한 별도 담당·산출물·후속 행동이 있는 검토 배정은 업무 요청으로 구분한다.
-관리자가 말했다는 이유만으로 모든 문장을 보존하거나 모든 요청을 승인된 정책으로 만들지 않는다. 불명확한 승인 범위를 확장하지 않는다.
+## 데이터와 저장
+경로 records/requests/<requester_actor_id>/<R-ID>.json. templates/REQUEST.json을 따른다. original_text와 실제 원문 위치, source_created_at(null 가능), captured_at, 요청자·기록자 actor, scope/conditions, proposal, content_revision, submission_status, review_snapshot, 관련 I/P/W/D/SUB와 RC 참조를 구분한다. 전해 들은 요청은 reported_request이지 직접 관리자 승인 아니다.
+REQUEST_INDEX와 해당 요청/품의 조회 metadata를 같은 커밋으로 저장한다. W-ID는 관리자 work_start 결정까지 null/빈 목록이다. 신규 대기 건은 수행 ACTIVE가 아닌 결정대기 조회판에 보인다. 기존 지시 원문은 assistant/20-directives에 보존하고 새 directive는 R 참조를 쓴다.
+아이디어·문제 저장은 I/P를 정본으로 삼아 R을 불필요하게 중복 생성하지 않는다. 아이디어와 조사 요청이 함께 있으면 I와 R을 연결하되 W는 승인 후 연결한다.
 
-## 저장
+## 변경·재개
+최초 원문과 원본 경로를 후속 요구로 교체하지 않는다. revision은 객체 갱신, content_revision은 의미 내용 갱신이다. 수정본 제출은 새 검토·내용 버전이고 이전 결재를 물려받지 않는다. 보류 조건 해소·반려 후 재추진 근거는 실제 출처와 함께 남긴다. 과거 반려를 삭제하거나 영구 금지로 해석하지 않는다.
+ACT-001 기존 요청의 의미 있는 변경은 REQUEST_CHANGE_WORKFLOW의 RC와 전후·이유·근거·영향 W/D를 연결한다. 기존 revision/supersedes와 schema1/2 읽기를 보존한다. content_revision은 메타데이터이며 실제 의미 delta는 RC의 current_requirements 등 허용 필드로 기록한다. 이유 미확인은 null/unknown이다. 상태/표현만 수정은 RC를 만들지 않는다. ACT-002/003은 기존 revision 방식이며 관리자 RC 의무가 없다.
 
-COMMON_IO를 실행하고 `templates/REQUEST.json`을 사용한다. `R-YYYYMMDD-NNN`과 요청자 actor_id를 발급·확인한다.
-새 경로: `records/requests/<requester_actor_id>/<request_id>.json`.
-필드: 요청자, 기록자, 원문, 원문 위치/회수 가능한 메시지 식별자(있을 때), source_type, source_created_at, captured_at, classification, scope, conditions, request_status, related_work_ids/idea_ids/problem_ids/decision_ids, unknowns.
-실제 원문 작성시각이 없으면 null, captured_at과 분리한다. 다른 사람이 전달한 지시는 reported_request로 표시하고 당사자의 직접 승인으로 쓰지 않는다. 인용 속 발언자가 현재 프로젝트 actor를 바꾸지 않는다.
-같은 메시지·첨부·요청 ID의 재시도는 새로 만들지 않는다. 지시 수정·취소는 원문을 지우지 않고 새 revision/event와 supersedes를 연결한다. 같은 문구의 독립된 새 지시는 중복으로 삭제하지 않는다.
-요청과 `records/REQUEST_INDEX.md`를 같이 저장한다. 목차는 요청 ID·요청자·종류·상태·연결 업무·경로·짧은 요약이다. 영속 상태 원본은 요청 파일이고 목차만 독립 변경하지 않는다.
-
-## 연결·실행
-
-기존 업무의 후속 지시는 request_refs에 연결한다. 실제 새 수행 범위가 있으면 `/업무접수`로 검토하고 별도 W-ID를 생성·연결한다. 구 `assistant/20-directives/from-jin/`, `from-representative/` 기록은 그대로 보존한다. 새 요청의 원문 정본은 records/requests이며 directive가 필요하면 원문 복사 대신 R-ID 참조를 둔다.
-아이디어/문제 저장 요청은 해당 I/P 기록을 정본으로 삼아 불필요한 요청 원본 중복을 만들지 않는다. 아이디어와 조사 업무가 섞이면 I-ID와 W-ID를 별도로 둔다.
-지속 지시가 공식 규칙과 충돌하면 policy_change/결정대기로 표시하고 원문만 보존한다. 관리자에게 정책 반영까지 명시된 경우만 검토→D-ID 범위 기록→공식 수정→재조회한다. 요청 기록만으로 approved·done·게시·지출로 바꾸지 않는다.
-
-## 다음 업무에서 읽기
-
-실제 업무 시작/재개 시 REQUEST_INDEX에서 현재 actor·대상 업무·범위에 해당하는 활성 요청만 선택하여 원문을 읽는다. 이미 아는 요구를 다시 묻지 않으며, 더 최신의 명시적 정정·취소와 충돌은 함께 보여준다. 관련 없는 요청을 전부 읽지 않는다.
-조회·저장 실패면 대화 내 요청 정리와 미저장/재시도 필요를 알린다. GitHub에 남지 않은 요청을 다른 방에서 자동으로 기억하거나 읽었다고 하지 않는다.
-
-## 기존 ACT-001 요청의 의미 있는 변경
-
-기존 R-ID에 대한 관리자 변경 지시를 접수할 때는 `REQUEST_CHANGE_WORKFLOW.md`를 실행한다. 기존 request와 현재 발언 비교 → 의미 변경 판정 → 중복 확인 → RC/request revision·연결·index를 하나의 변경 집합으로 저장 → 재조회한다. 원래 R-ID/최초 원문/supersedes는 덮어쓰지 않는다.
-request의 선택 필드 `request_change_refs`는 RC 경로 목록이다. v1에 없으면 빈 목록으로 읽으며 과거 파일을 일괄 이관하지 않는다. revision은 객체 갱신 번호, RC는 의미 있는 요구 변경 사건이다. 단순 상태·오탈자·표현 수정은 모든 revision에 RC를 요구하지 않는다.
-관리자의 처음 하는 독립 요청에는 새 R-ID를 쓰며, RC를 만들기 위해 과거 요청에 억지로 붙이지 않는다. 대표님·부사수 요청은 기존 revision 동작을 유지한다. 이 절차도 위 보존 예외와 COMMON_IO의 원자적 저장·실패·재조회 원칙에 종속된다.
+## 후속 확인
+업무 재개 시 관련 활성 요청과 실제 최신 결정만 읽고 이미 제공된 요구를 다시 묻지 않는다. COMMON_IO대로 저장·연결·인덱스를 한 단위로 반영하고 재조회한다. 실패하면 실제 저장 범위와 미저장 부분을 보고한다. 다른 방을 자동 통보했다거나 GitHub에 없는 요구를 기억했다고 말하지 않는다.

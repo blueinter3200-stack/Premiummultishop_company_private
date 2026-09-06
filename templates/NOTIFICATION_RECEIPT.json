@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "notification_id": null,
+  "recipient_actor_id": null,
+  "delivered_at": null,
+  "presentation_ref": null,
+  "acknowledged_at": null,
+  "ack_source": null,
+  "authority": "delivery_evidence_not_approval"
+}
