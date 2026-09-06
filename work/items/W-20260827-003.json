@@ -1,0 +1,11 @@
+{
+  "schema_version":1,"id":"W-20260827-003","revision":1,"title":"AI 기반 매출개선·경영 의사결정 국책과제 기획","requested_by":null,"assigned_to":null,"created_at":"2026-08-27","updated_at":"2026-09-06","information_as_of":"2026-08-27",
+  "work_status":"in_progress","reported_status":"진행·협의 중","verification_status":"legacy_report_not_reverified","evidence_status":"partial","approval_status":"not_requested","persistence_status":"pending_commit","execution_status":"not_requested","priority":null,"due_at":null,
+  "next_action":"지원사업·부처·컨소시엄·실증 범위와 검증 가능한 데이터·성과 기준을 조사해 품의한다.",
+  "source_refs":[{"path":"archive/migrations/2026-09-06/CURRENT_WORK.before.md","blob_sha":"d5464690fb61a7d388b7b71dd3d2b84d6e5e0724","section":"AI 기반 매출개선 · 경영 의사결정 국책과제 기획; 협의 중 요구사항 후보; 결정 대기"}],
+  "directive_refs":[],"evidence_refs":["materials/normalized/records/S-20260827-001.json"],"artifact_refs":[],"submission_refs":[],"decision_refs":[],
+  "summary":"경영데이터 수집→AI 진단/원인분석→개선 액션→사람 승인→ERP/n8n 실행→성과 환류 구조를 차별화 방향으로 검토.",
+  "source_assertions":["사용자 공유 기준 2026-08-26 노박사와 심사위원장 통화 완료라는 기존 기록; 독립 재검증 아님"],
+  "unknowns":["최종 과제명·지원사업·부처","기관·컨소시엄","실증 업종·규모·방법","사업비·기간·KPI","R&D 범위·승인·실행 경계","데이터 확보·보안·법적 조건"],"completion_criteria":["근거와 실증 설계가 연결된 과제 품의·관리자 검토"],
+  "migration_note":"홍보 화면의 특허·4757개 매장·1만 데이터·수상을 사실 검증 또는 회사 실적으로 승격하지 않음. 원문 가칭은 보존본에 유지."
+}

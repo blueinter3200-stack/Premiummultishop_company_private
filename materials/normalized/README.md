@@ -1,20 +1,7 @@
 # Normalized Materials
 
-첨부 원본을 LLM이 읽기 쉽게 정제한 Markdown 영역입니다.
+정본 규격은 `llm-source/NORMALIZATION_STANDARD.md`다. 원본 의미·출처·기준일·위치·변환 이력을 보존한다. 정제됐다는 이유로 독립 검증 또는 회사 승인이 끝난 것으로 보지 않는다.
 
-경로 규칙:
+기존 representative/admin 첨부 정제본은 경로와 본문을 그대로 유지한다. `CATALOG.json`과 `records/*.json`은 기존 아이디어 6건과 첨부 정제본 2건을 탐색·연결하기 위한 구조화 자료다. 전체 원문 대체본이 아니다.
 
-```text
-materials/normalized/<author-role>/ideas/YYYY-MM-DD/<original-name>.md
-materials/normalized/<author-role>/problems/YYYY-MM-DD/<original-name>.md
-materials/normalized/<author-role>/work/YYYY-MM-DD/<original-name>.md
-```
-
-정제 원칙:
-- 의미 있는 본문, 제목, 표, 목록, 수치, 날짜, 결정·요구사항 구조를 보존
-- 바이너리 메타데이터, XML, 앱 캐시, 중복 시스템 잔여물은 제거
-- 원본에 없는 사실을 새로 만들지 않음
-- 원본 파일 경로, 작성 역할, 정제일을 문서 상단에 기록
-- 원본이 길어도 LLM이 업무 맥락을 파악할 수 있도록 구조를 보존하면서 불필요한 포맷 잔여물만 제거
-
-관련 질문·업무검토·저장 기록 확인 때 필요한 정제본만 선택적으로 읽습니다. 폴더 전체를 반복해서 읽지 않습니다.
+원본 DOCX/PNG가 저장소에 없는 2건은 원본을 보았거나 복원했다고 표시하지 않는다. 원본 해시는 출처에서 선언된 값과 실제 다시 계산한 값을 구분한다. 출처가 바뀌면 새 revision과 정정 이유를 남긴다. 대용량·민감 원본은 별도 승인 저장소에 보존하고 위치만 참조한다.

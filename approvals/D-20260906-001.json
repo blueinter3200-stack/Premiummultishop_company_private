@@ -1,0 +1,14 @@
+{
+  "schema_version":1,"object_type":"decision","decision_id":"D-20260906-001","work_id":"W-20260906-001","target_release":"GOV-20260906-01","base_commit":"1db3d4839488d8313f9e5cadd1db0365ce77be16",
+  "decision":"approved","approver_role":"admin","approver_name":"Jin","decided_at":"2026-09-06",
+  "approval_source":"assistant/20-directives/from-jin/W-20260906-001-governance-release.md",
+  "principal_verification":"configured_admin_project_role_and_explicit_current_user_instruction; no independent account signature verification performed",
+  "requested_scopes":["policy_change","repository_maintenance","data_normalization","project_instruction_authoring"],
+  "granted_scopes":["policy_change","repository_maintenance","data_normalization","project_instruction_authoring"],
+  "target_paths":["llm-source/","roles/","assistant/","work/","working/","materials/normalized/","records/PENDING_INDEX.md","chatgpt/","templates/","admin/REFLECTION_POLICY.md","docs/","FILE_MAP.json","README.md","archive/migrations/2026-09-06/"],
+  "conditions":["기존 원문·운영 방향·미확정 업무 보존","사업 아이디어 6건을 자동 공식화하지 않음","원본 미확보·독립 미검증 표시","main 갱신 후 실제 커밋·파일 재조회","다른 사람 변경을 force로 덮어쓰지 않음"],
+  "excluded_scopes":["external_publication","expenditure","customer_data_transfer","operational_database_mutation","confirmed_Higgsfield_integration","actual_ChatGPT_project_settings_edit"],
+  "recheck_conditions":["승인 범위 밖 정책·역할 변경","원본 삭제","운영·대외 실행 추가","새 동시 변경 충돌"],
+  "execution_receipt":null,
+  "note":"이 결재는 현재 관리자가 명시 요청한 이번 문서·전처리 배포에 한정. 부사수 전달만으로 생성한 결재가 아니며 자동 인증 시스템 구현 증거도 아님."
+}

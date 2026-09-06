@@ -1,0 +1,10 @@
+{
+  "schema_version":1,"id":"W-20260827-005","revision":1,"title":"마케팅 운영 / 퍼포먼스 인력","requested_by":null,"assigned_to":null,"created_at":"2026-08-27","updated_at":"2026-09-06","information_as_of":"2026-08-27",
+  "work_status":"in_progress","reported_status":"협의 중","verification_status":"legacy_report_not_reverified","evidence_status":"pending","approval_status":"not_requested","persistence_status":"pending_commit","execution_status":"not_requested","priority":null,"due_at":null,
+  "next_action":"AI 이미지 개발 역할과 구분해 퍼포먼스·CRM 운영 인력의 직무·경력·인원·채용 순서를 정리한다.",
+  "source_refs":[{"path":"archive/migrations/2026-09-06/CURRENT_WORK.before.md","blob_sha":"d5464690fb61a7d388b7b71dd3d2b84d6e5e0724","section":"마케팅 운영 / 퍼포먼스 인력; 협의 중 요구사항 후보; 결정 대기"}],
+  "directive_refs":[],"evidence_refs":[],"artifact_refs":[],"submission_refs":[],"decision_refs":[],
+  "summary":"광고비·Meta/Google 광고·ROAS 등 퍼포먼스와 CRM/커머스/ERP 데이터 활용 마케팅 운영 인력은 AI 이미지 역할과 별도 구성하는 방향.",
+  "unknowns":["직무명·경력·인원","채용 순서·구체 기준","실제 채용 진행"],"completion_criteria":["역할 구분·채용 범위 관리자 확정"],
+  "migration_note":"기존 협의 내용을 보존한 이관이며 실제 채용 완료로 표시하지 않음."
+}

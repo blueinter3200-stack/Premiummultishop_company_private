@@ -1,0 +1,15 @@
+{
+  "schema_version":1,"id":"I-20260831-002","object_type":"normalized_idea","revision":1,
+  "title":"PMS Meta 광고 Creative Factory — 승자 소재 반복 생산 구조","author_role":"representative","author_name":"대표님","created_at":"2026-08-31","normalized_at":"2026-09-06","normalized_by":"LLM under admin instruction",
+  "source_path":"records/ideas/representative/2026-08-31-pms-meta-creative-factory.md","source_commit":"1db3d4839488d8313f9e5cadd1db0365ce77be16","source_blob_sha":"01c459507146732d51c4beccd472638b586c65e4","source_locator":"전체 본문; 테스트 설계/성과 판정/아직 미정",
+  "source_status":"saved","authority":"unreflected_proposal","verification_status":"source_text_checked_not_independently_verified","information_as_of":"2026-08-31","access_scope":"company_internal","related_work_ids":[],
+  "summary":"상품·고객 문제·광고소재·한 변수 테스트·성과 판정·변형 확대를 반복하고 ROAS뿐 아니라 광고 후 기여이익을 확인하는 광고 실험 제안.",
+  "proposed_structure":["HOOK","PROBLEM","PROOF","PRODUCT","PRICE","CTA"],
+  "proposed_experiment":{"sku":1,"angles":3,"hooks_per_angle":3,"total_initial_creatives":9,"kind":"proposal_not_result"},
+  "source_formula":"광고 후 실제 기여이익 = 매출 - 상품원가 - 결제수수료 - 배송·포장 - 반품예상비 - 광고비",
+  "source_metrics":["Spend","CTR","CPC","구매 CVR","CPA","ROAS"],
+  "claims_requiring_evidence_before_use":["정품 보증","가격 비교","수입 이력","사후서비스","희소성·재입고 표현"],
+  "unknowns":["테스트 종료·승자 판정 수치","계정별 ABO/CBO 기준","자동 생성·중단·확대 승인 범위"],
+  "not_adopted_as_rule":["최소 50개 전환 같은 고정 최적화 기준"],
+  "transformation":"실험 구성·공식·미정 조건을 구조화. 제안한 광고 표현을 실제 증빙된 상품 사실로 전환하지 않음."
+}

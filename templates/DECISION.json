@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "object_type": "decision_template",
+  "decision_id": null,
+  "work_id": null,
+  "submission_id": null,
+  "submission_revision": null,
+  "artifact_refs": [],
+  "requested_scopes": [],
+  "granted_scopes": [],
+  "decision": "pending",
+  "approver_role": null,
+  "approver_name": null,
+  "approval_source": null,
+  "principal_verification": "not_verified",
+  "decided_at": null,
+  "conditions": [],
+  "recheck_conditions": [],
+  "execution_receipt": null
+}

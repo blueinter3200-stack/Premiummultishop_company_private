@@ -1,0 +1,10 @@
+{
+  "schema_version":1,"id":"W-20260827-002","revision":1,"title":"ERP / API 연동","requested_by":null,"assigned_to":null,"created_at":"2026-08-27","updated_at":"2026-09-06","information_as_of":"2026-08-27",
+  "work_status":"in_progress","reported_status":"진행 중","verification_status":"legacy_report_not_reverified","evidence_status":"pending","approval_status":"not_requested","persistence_status":"pending_commit","execution_status":"not_requested","priority":null,"due_at":null,
+  "next_action":"ERPNext/InvenTree 선택, 채널별 실제 API 범위, 공통 식별자·데이터 계약을 확인한다.",
+  "source_refs":[{"path":"archive/migrations/2026-09-06/CURRENT_WORK.before.md","blob_sha":"d5464690fb61a7d388b7b71dd3d2b84d6e5e0724","section":"ERP / API 연동; 협의 중 요구사항 후보; 결정 대기"}],
+  "directive_refs":[],"evidence_refs":[],"artifact_refs":[],"submission_refs":[],"decision_refs":[],
+  "summary":"ERP 기반 미선택. Cafe24·Naver SmartStore·Google·해외 공급처의 IN/OUT·이벤트 범위 및 ERP/n8n 개발 공통 계약 조사 필요.",
+  "unknowns":["ERP 최종 선택","채널별 읽기/쓰기/Webhook·인증 권한","구현 우선순위·범위","공통 ID·데이터 계약","실제 개발 상태"],"completion_criteria":["선택 근거와 관리자 결정","실제 API 명세·공통 데이터 계약 검수"],
+  "migration_note":"기존 진행 보고를 이관했으며 구현 저장소 코드를 이번 정비로 검증한 것은 아님. 실제 시작일 미확인."
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version":1,"catalog_id":"CAT-20260906-01","updated_at":"2026-09-06","basis_commit":"1db3d4839488d8313f9e5cadd1db0365ce77be16","purpose":"선택 조회용 정제자료 카탈로그; 원본과 사실 검증을 대체하지 않음",
+  "counts":{"ideas":6,"supporting_materials":2,"total":8},
+  "entries":[
+    {"id":"I-20260819-001","path":"materials/normalized/records/I-20260819-001.json","title":"AI 쇼핑쇼츠 실험 엔진","keywords":["쇼츠","광고소재","성과 환류"],"authority":"unreflected_proposal"},
+    {"id":"I-20260819-002","path":"materials/normalized/records/I-20260819-002.json","title":"PMS 코어·자동화 개발 운영안","keywords":["데이터 우선","Master","개발 순서"],"authority":"unreflected_proposal"},
+    {"id":"I-20260820-001","path":"materials/normalized/records/I-20260820-001.json","title":"PMS Sourcing OS","keywords":["소싱","SKU","증거","수익","승인"],"authority":"unreflected_proposal"},
+    {"id":"I-20260831-001","path":"materials/normalized/records/I-20260831-001.json","title":"약어·전문용어 풀이","keywords":["보고","설명","전문용어"],"authority":"unreflected_proposal"},
+    {"id":"I-20260831-002","path":"materials/normalized/records/I-20260831-002.json","title":"Meta 광고 Creative Factory","keywords":["광고","실험","기여이익"],"authority":"unreflected_proposal"},
+    {"id":"I-20260905-001","path":"materials/normalized/records/I-20260905-001.json","title":"Codex Revenue OS 규칙 제안","keywords":["Codex","하드스탑","승인"],"authority":"unreflected_proposal"},
+    {"id":"S-20260819-001","path":"materials/normalized/records/S-20260819-001.json","title":"PMS 개발 미팅 지침서 출처·품질 메타데이터","keywords":["DOCX","원본 미확보","계획"],"authority":"supporting_proposal_not_official"},
+    {"id":"S-20260827-001","path":"materials/normalized/records/S-20260827-001.json","title":"장사닥터 홍보 화면 출처·품질 메타데이터","keywords":["국책과제","홍보 주장","원본 미확보"],"authority":"promotional_source_assertions_only"}
+  ]
+}

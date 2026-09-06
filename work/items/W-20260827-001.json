@@ -1,0 +1,10 @@
+{
+  "schema_version":1,"id":"W-20260827-001","revision":1,"title":"회사 OS 설계 및 대표님 보고 준비","requested_by":null,"assigned_to":null,"created_at":"2026-08-27","updated_at":"2026-09-06","information_as_of":"2026-08-27",
+  "work_status":"in_progress","reported_status":"진행 중","verification_status":"legacy_report_not_reverified","evidence_status":"pending","approval_status":"not_requested","persistence_status":"pending_commit","execution_status":"not_requested","priority":null,"due_at":null,
+  "next_action":"세 역할 운영 규격을 바탕으로 실제 프로젝트 설치·연결 상태를 확인하고 남은 회사 OS 설계를 이어간다.",
+  "source_refs":[{"path":"archive/migrations/2026-09-06/CURRENT_WORK.before.md","blob_sha":"d5464690fb61a7d388b7b71dd3d2b84d6e5e0724","section":"회사 OS 설계 및 대표님 보고 준비"}],
+  "directive_refs":[],"evidence_refs":[],"artifact_refs":[],"submission_refs":[],"decision_refs":[],
+  "summary":"n8n 기반과 부서 모듈, 회사 공통 지식·진행상황 공유, 선택적 LLM 읽기 구조를 정리 중이라는 기존 보고.",
+  "unknowns":["실제 프로젝트별 설치·운영 상태","담당·마감"],"completion_criteria":["공식 기준과 역할별 실제 읽기·보고 흐름 검수"],"related_work_ids":["W-20260906-001"],
+  "migration_note":"ID 부여일과 원장 변환일은 2026-09-06. created_at은 원자료 업무판 기준일이며 실제 업무 시작일은 알 수 없음."
+}

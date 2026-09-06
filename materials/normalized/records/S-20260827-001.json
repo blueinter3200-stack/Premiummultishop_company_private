@@ -1,0 +1,11 @@
+{
+  "schema_version":1,"id":"S-20260827-001","object_type":"normalized_material_metadata","revision":1,
+  "title":"장사닥터 참고 화면 정제본","author_role":"admin","created_at":"2026-08-27","normalized_at":"2026-09-06","normalized_by":"LLM under admin instruction",
+  "source_path":"materials/normalized/admin/work/2026-08-27/1000042080.png.md","source_commit":"1db3d4839488d8313f9e5cadd1db0365ce77be16","source_blob_sha":"39bf39f2dd3e11a777ecc17819657aa6f1859d17","source_locator":"화면에서 확인되는 내용/업무상 참고 포인트",
+  "source_status":"supporting_material","authority":"promotional_source_assertions_only","verification_status":"normalized_text_checked_original_missing","information_as_of":"2026-08-27","access_scope":"company_internal","related_work_ids":["W-20260827-003"],
+  "original_filename_reported":"1000042080.png","original_path":null,"original_status":"no_original_blob_found_in_repository","original_hash_recomputed":false,
+  "source_claims":[{"claim":"4757개 매장 진단","kind":"promotional_assertion"},{"claim":"1만 개 가게 데이터","kind":"promotional_assertion"},{"claim":"AI 장사 성과 분석 장치·제어 방법 특허 등록","kind":"promotional_assertion"},{"claim":"2025년 제20회 대한민국ESG대상 상패 이미지","kind":"reported_image_description"}],
+  "permitted_use":"AI 기반 경영 데이터 분석·매출개선 문제 설정의 참고 사례",
+  "blocked_use":"특허·수상·매장 수·데이터 수를 독립 확인된 사실 또는 회사 자체 실적으로 제시",
+  "transformation":"기존 정제본 전체 보존. 스크린샷 원본을 이번에 보았다고 주장하지 않고 원문에 있는 홍보 주장과 업무 참고를 분리."
+}
