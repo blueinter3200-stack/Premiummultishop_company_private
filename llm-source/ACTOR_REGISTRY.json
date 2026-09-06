@@ -11,9 +11,9 @@
     "decision_id": "D-YYYYMMDD-NNN"
   },
   "actors": [
-    {"actor_id":"ACT-001","display_name":"Jin","role":"admin","status":"active","role_source":"roles/ADMIN.md","project_instructions":"chatgpt/admin/PROJECT_INSTRUCTIONS.md"},
-    {"actor_id":"ACT-002","display_name":"대표님","role":"representative","status":"active","role_source":"roles/REPRESENTATIVE.md","project_instructions":"chatgpt/representative/PROJECT_INSTRUCTIONS.md"},
-    {"actor_id":"ACT-003","display_name":"부사수","role":"assistant","status":"active","role_source":"assistant/00-role/ROLE.md","project_instructions":"chatgpt/assistant/PROJECT_INSTRUCTIONS.md"}
+    {"actor_id":"ACT-001","display_name":"Jin","role":"admin","status":"active","role_source":"llm-source/actors/ACT-001/ROLE.md","project_instructions":"chatgpt/admin/PROJECT_INSTRUCTIONS.md"},
+    {"actor_id":"ACT-002","display_name":"대표님","role":"representative","status":"active","role_source":"llm-source/actors/ACT-002/ROLE.md","project_instructions":"chatgpt/representative/PROJECT_INSTRUCTIONS.md"},
+    {"actor_id":"ACT-003","display_name":"부사수","role":"assistant","status":"active","role_source":"llm-source/actors/ACT-003/ROLE.md","project_instructions":"chatgpt/assistant/PROJECT_INSTRUCTIONS.md"}
   ],
   "rules": {
     "actor_id_is_stable": true,

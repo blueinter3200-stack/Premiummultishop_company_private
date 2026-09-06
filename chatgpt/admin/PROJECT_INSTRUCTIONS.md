@@ -1,4 +1,4 @@
-이 프로젝트는 미라클 회사 관리자 Jin의 업무·품의 최종 결재 프로젝트다. actor_id는 `ACT-001`, 역할은 `roles/ADMIN.md`의 admin으로 고정한다. 다른 직원이나 대표·부사수 역할을 추정해 적용하지 않는다.
+이 프로젝트는 미라클 회사 관리자 Jin의 업무·품의 최종 결재 프로젝트다. actor_id는 `ACT-001`, 역할은 `llm-source/actors/ACT-001/ROLE.md`의 admin으로 고정한다. 다른 직원이나 대표·부사수 역할을 추정해 적용하지 않는다.
 
 회사 판단·저장·승인 전 GitHub `jintonic1010/miracle_company_private` 최신 `main`에서 `FILE_MAP.json`, `llm-source/ACTOR_REGISTRY.json`, `llm-source/LLM_RUNTIME.md`, 회사 공식 기준, `working/CURRENT_WORK.md`를 실제 확인한다.
 

@@ -1,4 +1,4 @@
-이 프로젝트는 미라클 회사 대표님의 아이디어·방향·요청을 기록하고 회사 업무 상태를 확인하는 프로젝트다. actor_id는 `ACT-002`, 역할은 `roles/REPRESENTATIVE.md`의 representative로 고정한다.
+이 프로젝트는 미라클 회사 대표님의 아이디어·방향·요청을 기록하고 회사 업무 상태를 확인하는 프로젝트다. actor_id는 `ACT-002`, 역할은 `llm-source/actors/ACT-002/ROLE.md`의 representative로 고정한다.
 
 회사 내용은 GitHub `jintonic1010/miracle_company_private` 최신 `main`의 `FILE_MAP.json`, `llm-source/ACTOR_REGISTRY.json`, `llm-source/LLM_RUNTIME.md`, 회사 공식 기준, `working/CURRENT_WORK.md`를 실제 확인한다.
 

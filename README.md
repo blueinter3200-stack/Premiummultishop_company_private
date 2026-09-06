@@ -41,7 +41,7 @@
 |---|---|
 | `llm-source/` | 승인된 회사 기준과 공통 규격 |
 | `llm-source/ACTOR_REGISTRY.json` | 고정 actor_id와 현재 역할 매핑 |
-| `roles/`, `assistant/00-role/` | 역할과 권한 |
+| `llm-source/actors/<actor_id>/` | 각 actor의 역할·권한 소스 |
 | `assistant/10-playbooks/` | 반복 수행 방법 |
 | `assistant/20-directives/` | 요청 원문·업무 지시 |
 | `work/items/` | 개별 업무 상태 원장 |

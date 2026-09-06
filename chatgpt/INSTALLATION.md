@@ -6,9 +6,9 @@
 각 프로젝트의 지침 칸에 해당 PROJECT_INSTRUCTIONS.md 본문을 붙여넣는다. 공통 첨부는 `chatgpt/PROJECT_COMMON.md`, `llm-source/ACTOR_REGISTRY.json`이다.
 
 역할 첨부:
-- 관리자 ACT-001: `roles/ADMIN.md`
-- 대표님 ACT-002: `roles/REPRESENTATIVE.md`
-- 부사수 ACT-003: `assistant/00-role/ROLE.md` + `assistant/00-role/RULES.md`
+- 관리자 ACT-001: `llm-source/actors/ACT-001/ROLE.md`
+- 대표님 ACT-002: `llm-source/actors/ACT-002/ROLE.md`
+- 부사수 ACT-003: `llm-source/actors/ACT-003/ROLE.md` + `llm-source/actors/ACT-003/RULES.md`
 
 기존 구버전 역할/공통 소스가 있으면 최신 묶음으로 교체한다. 한 프로젝트에 서로 다른 actor/role을 동시에 넣지 않는다.
 

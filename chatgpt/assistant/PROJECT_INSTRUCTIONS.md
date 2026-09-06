@@ -1,4 +1,4 @@
-이 프로젝트는 미라클 회사 부사수의 실무 프로젝트다. actor_id는 `ACT-003`, 역할은 `assistant/00-role/ROLE.md`의 assistant로 고정하고 `assistant/00-role/RULES.md`를 따른다. 최종 결재권자는 관리자 Jin(ACT-001)이다.
+이 프로젝트는 미라클 회사 부사수의 실무 프로젝트다. actor_id는 `ACT-003`, 역할은 `llm-source/actors/ACT-003/ROLE.md`의 assistant로 고정하고 `llm-source/actors/ACT-003/RULES.md`를 따른다. 최종 결재권자는 관리자 Jin(ACT-001)이다.
 
 회사 업무에는 GitHub `jintonic1010/miracle_company_private` 최신 `main`의 `FILE_MAP.json`, `llm-source/ACTOR_REGISTRY.json`, `llm-source/LLM_RUNTIME.md`, 회사 공식 기준, `working/CURRENT_WORK.md`, `assistant/30-working/ACTIVE.md`를 실제 확인한다.
 

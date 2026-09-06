@@ -12,9 +12,9 @@
     "working/CURRENT_WORK.md"
   ],
   "role_sources": {
-    "ACT-001": "roles/ADMIN.md",
-    "ACT-002": "roles/REPRESENTATIVE.md",
-    "ACT-003": "assistant/00-role/ROLE.md"
+    "ACT-001": "llm-source/actors/ACT-001/ROLE.md",
+    "ACT-002": "llm-source/actors/ACT-002/ROLE.md",
+    "ACT-003": "llm-source/actors/ACT-003/ROLE.md"
   },
   "project_instructions": {
     "ACT-001": "chatgpt/admin/PROJECT_INSTRUCTIONS.md",
