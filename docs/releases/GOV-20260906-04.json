@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "object_type": "repository_execution_receipt",
+  "release_id": "GOV-20260906-04",
+  "repository": "jintonic1010/miracle_company_private",
+  "branch": "main",
+  "verified_at": "2026-09-06",
+  "basis_commit": "d708129d0419ca61d79517344091f0b89d096932",
+  "release_commit": "a118fcda02206b6734100ccde72c0665f4014828",
+  "release_tree": "d147a7d4582806b7934331f39854989a69534185",
+  "result": "succeeded",
+  "request_id": "R-20260906-002",
+  "work_id": "W-20260906-004",
+  "decision_ref": "approvals/D-20260906-004.json",
+  "verification": {
+    "release_main_ref_read_back": true,
+    "fast_forward": true,
+    "changed_files_in_release": 26,
+    "deleted_files": 0,
+    "key_files_read_back": [
+      "llm-source/workflows/REQUEST_CHANGE_WORKFLOW.md",
+      "chatgpt/admin/PROJECT_INSTRUCTIONS.md",
+      "templates/REQUEST_CHANGE.json",
+      "work/items/W-20260906-004.json",
+      "records/requests/ACT-001/R-20260906-002.json"
+    ],
+    "existing_command_count": 15,
+    "trigger_registry_unchanged": true,
+    "representative_and_assistant_roles_and_instructions_unchanged": true,
+    "common_project_source_unchanged": true,
+    "historical_requests_and_decisions_unchanged": true,
+    "existing_ideas_and_materials_unchanged": true,
+    "source_instruction_sha256": "92a55434d916210a16b4f51d1105ac8c4a5d4571ff3577a1f0a6bd22a7ae5c10"
+  },
+  "validation_references": [
+    "docs/audits/GOV-20260906-04-implementation.md",
+    "tests/test_request_changes.py",
+    "scripts/validate_llm_sources.py",
+    "docs/releases/GOV-20260906-04-manifest.json"
+  ],
+  "package_builder": "scripts/build_chatgpt_package.py",
+  "not_performed": [
+    "actual ChatGPT project settings replacement",
+    "live multi-project LLM behavior tests",
+    "technical principal authentication or permission enforcement deployment",
+    "external publication, expenditure, or production data changes",
+    "fictional or retroactive RC events on existing requests"
+  ],
+  "receipt_note": "The release commit and listed files were read back before this receipt. This document confirms repository persistence; it does not predict its own commit, claim live project deployment, or replace the immutable administrator decision."
+}
