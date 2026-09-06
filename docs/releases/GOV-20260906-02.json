@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "object_type": "repository_execution_receipt",
+  "release_id": "GOV-20260906-02",
+  "work_id": "W-20260906-002",
+  "decision_ref": "approvals/D-20260906-002.json",
+  "verified_at": "2026-09-06",
+  "repository": "jintonic1010/miracle_company_private",
+  "branch": "main",
+  "pre_release_main": "8af1396f36c07f38a30c68fb027580a65521bcd7",
+  "governance_commit": "3f749837509cc06e0c2bd68a61cdb05bd1f143fe",
+  "result": "succeeded",
+  "verification": {
+    "main_ref_updated": true,
+    "fast_forward": true,
+    "compare_status": "ahead",
+    "ahead_by": 1,
+    "changed_files": 37,
+    "deleted_files": 0,
+    "actor_registry_read_back": true,
+    "work_governance_read_back": true,
+    "representative_project_instructions_read_back": true,
+    "assistant_project_instructions_read_back": true,
+    "pending_index_read_back": true,
+    "existing_idea_original_paths_moved": false
+  },
+  "actor_ids": {
+    "ACT-001": "Jin / admin",
+    "ACT-002": "대표님 / representative",
+    "ACT-003": "부사수 / assistant"
+  },
+  "existing_idea_mappings": {
+    "I-20260819-001": "ACT-001",
+    "I-20260819-002": "ACT-002",
+    "I-20260820-001": "ACT-001",
+    "I-20260831-001": "ACT-002",
+    "I-20260831-002": "ACT-002",
+    "I-20260905-001": "ACT-002"
+  },
+  "routing_rules": {
+    "idea": "아이디어저장",
+    "problem": "문제저장",
+    "work": "업무공유 또는 업무접수",
+    "mixed": "기록 객체와 업무 객체를 별도 ID로 연결",
+    "pass_is_not_auto_work_share": true
+  },
+  "not_performed": [
+    "실제 ChatGPT 프로젝트 설정의 지침 교체",
+    "새 마케팅 직원 등 미래 actor의 실제 등록",
+    "외부 도구 연결 또는 게시",
+    "기존 아이디어 원문 내용의 재검증·재작성"
+  ]
+}
