@@ -4,7 +4,7 @@
 - Branch: `main`
 - Updated: 2026-09-07
 - Authority: official confirmed requirements
-- Release: `GOV-20260907-01`
+- Release: `GOV-20260907-02`
 
 현재 확정된 요구사항이다. 아이디어 저장·업무 요청·자료 정제만으로 변경되지 않는다.
 
@@ -60,7 +60,7 @@ n8n은 연결·자동화를 담당하고 ERP 운영 원장을 대체하지 않�
 협업 역할은 representative, admin, assistant다. 프로젝트에 고정된 자기 역할 하나만 사용한다. 최종 결재자는 admin/Jin이다.
 
 ### GOV-002 — single work source
-개별 `work/items/<work_id>.json`을 업무 상태 원장으로 사용한다. CURRENT_WORK와 assistant/30-working은 파생 조회판이다.
+개별 `work/items/<work_id>.json`을 업무 상태 원장으로 사용한다. CURRENT_WORK, WORK_STATUS_MAP과 assistant/30-working은 파생 조회판이다.
 
 ### GOV-003 — review before submission
 업무요청·업무계획안 제출 전 최신 공식 기준·현재 업무·관련 기록/과거 결정을 검토한다. `/업무검토`는 읽기 전용이며 전달 영수증도 쓰지 않는다.
@@ -147,7 +147,7 @@ main에는 초안·미반영 기록도 공존할 수 있다. main에 있다는 �
 트리거 이름·용도·추천 조건·자기 권한을 프로젝트 지침과 PROJECT_COMMON/ROLE에 둔다. 명령 추천·설명·대화 내 출력은 GitHub 없이 한다. 최신 사실·실제 원격 실행은 최신 정본을 확인한다.
 
 ### GOV-031 — explicit decisions without aliases
-정식 명령은 TRIGGER_REGISTRY의 16개다. 업무결정/업무계획안결의에는 승인·수정요청·보류·반려를 명시한다. 기본 승인은 없고 구명령·별칭은 실행하지 않는다. 과거 원문은 보존한다.
+정식 명령은 TRIGGER_REGISTRY의 17개다. 업무결정/업무계획안결의에는 승인·수정요청·보류·반려를 명시한다. 기본 승인은 없고 구명령·별칭은 실행하지 않는다. 과거 원문은 보존한다.
 
 ### GOV-032 — durable requests
 명확한 회사 업무 배정·수행·지속 지시는 원문·요청자 actor·R-ID로 보존하여 관련 업무에서 다시 읽는다. 단순 질문·탐색·읽기 전용 명령·저장 금지는 자동 기록하지 않는다. 요청 보존은 승인·정책 확정이 아니다.
@@ -202,3 +202,15 @@ main에는 초안·미반영 기록도 공존할 수 있다. main에 있다는 �
 
 ### GOV-049 — assignment-scoped visibility
 대표님이 관리자에게 직접 제출한 미배정 요청은 부사수의 자동 조회/할 일 대상이 아니다. 부사수는 자기 기록·계획안·배정된 지시 요약과 승인된 관련 자료만 읽는다. 인사·개인화·관리자 비공개 메모를 전달하지 않는다. 폴더 구분은 실제 계정 ACL을 대체하지 않는다.
+
+### GOV-050 — company-wide work status map
+`/업무진행현황`은 admin·representative·assistant 모두가 사용하는 읽기 전용 명령이며 대상 생략 시 회사 전체를 `working/WORK_STATUS_MAP.json`에서 조회한다. 공용 요약은 공유하되 비공개 요청 원문·상세 결재·개인자료 권한은 확대하지 않는다.
+
+### GOV-051 — atomic status projection maintenance
+업무요청·업무결정·배정/재배정·업무계획안 제출/결의·업무업데이트·완료·관련 요청 변경을 저장할 때 정본과 `WORK_STATUS_MAP`을 같은 검증된 변경 집합에서 갱신한다. 맵은 정본이나 승인 증거가 아니다.
+
+### GOV-052 — direct administrator work adoption
+ACT-001이 기존 R-ID 없이 `/업무결정 승인`과 구체적인 새 업무·담당을 함께 명시하면 실제 원문을 ACT-001 요청으로 보존하고 최신 검토→결정→W→명시된 담당 ASG/알림→업무현황 맵을 중복 없이 한 처리로 연결할 수 있다. 기존 요청이 대상이면 원 R-ID와 요청자를 보존한다.
+
+### GOV-053 — cross-repository implementation references
+회사 업무 원장과 구현 저장소는 별도 정본이다. W와 공용 맵에는 등록된 관련 저장소의 repo/branch/commit 또는 PR·실제 확인시점·근거만 연결하며, 커밋·PR을 배포·실행 승인·업무완료로 해석하지 않는다.
