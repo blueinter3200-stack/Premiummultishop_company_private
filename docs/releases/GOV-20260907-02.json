@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "object_type": "repository_execution_receipt",
+  "release_id": "GOV-20260907-02",
+  "repository": "jintonic1010/miracle_company_private",
+  "branch": "main",
+  "verified_at": "2026-09-07",
+  "basis_commit": "5646d6b7f532a32e0a150c4bc1eb2010d02643bb",
+  "semantic_commit": "d2ce278273b9913a11db12ab2ca5ec1302f62033",
+  "result": "succeeded",
+  "request_id": "R-20260907-003",
+  "work_id": "W-20260907-003",
+  "decision_ref": "approvals/D-20260907-003.json",
+  "verification": {
+    "main_ref_read_back": true,
+    "fast_forward": true,
+    "commands": 17,
+    "aliases": 0,
+    "status_map_exists": true,
+    "status_map_checksum": "aa555c22c8c688fa0b548ea63ef3a399d94543ec580d46f5f0770ea646d7abf8",
+    "concurrent_marketing_work_preserved": true,
+    "prepared_local_tests": {"passed": 26, "failed": 0}
+  },
+  "not_performed": ["actual ChatGPT project settings replacement", "live three-project behavior test", "real-time push/n8n/email delivery", "independent identity authentication/account ACL enforcement", "external deployment to miracle_n8n/miracle_erp"]
+}

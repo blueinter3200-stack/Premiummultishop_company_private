@@ -1,20 +1,18 @@
 {
   "release_id": "GOV-20260907-02",
   "basis_commit": "f94b3bbc7a85cf78425979f488d4b0661f4af43a",
-  "deployment_status": "semantic_commit_created_pending_main_fast_forward",
-  "semantic_commit": "1dc08ed858ee572314c127d7158a84b0cc248bcc",
+  "concurrent_main_base": "5646d6b7f532a32e0a150c4bc1eb2010d02643bb",
+  "deployment_status": "main_fast_forward_verified",
+  "semantic_commit": "d2ce278273b9913a11db12ab2ca5ec1302f62033",
   "files": [],
   "validation": {
     "prepared_tests": {"passed": 26, "failed": 0},
-    "semantic_tree_recomputed_from_basis": true,
-    "project_source_package_prepared": true,
-    "project_source_package_remote_match": "pending_main_deploy"
+    "commands": 17,
+    "aliases": 0,
+    "work_status_map_checksum": "aa555c22c8c688fa0b548ea63ef3a399d94543ec580d46f5f0770ea646d7abf8",
+    "main_ref_read_back": true,
+    "key_files_read_back": ["FILE_MAP.json", "llm-source/TRIGGER_REGISTRY.json", "working/WORK_STATUS_MAP.json", "work/items/W-20260907-002.json"]
   },
-  "not_performed": [
-    "actual ChatGPT project settings replacement",
-    "live LLM behavior test",
-    "real-time push/n8n/email delivery",
-    "independent identity authentication/account ACL enforcement",
-    "deployment to miracle_n8n or miracle_erp"
-  ]
+  "preserved": ["concurrent marketing R/D/W-20260907-002", "ASG-20260907-001", "existing requests/decisions/RC histories", "ideas/problems/materials", "unrelated work states"],
+  "not_performed": ["actual ChatGPT project settings replacement", "live three-project behavior test", "real-time push/n8n/email delivery", "independent identity authentication/account ACL enforcement", "deployment to miracle_n8n or miracle_erp"]
 }
