@@ -1,0 +1,69 @@
+{
+  "schema_version": 4,
+  "object_type": "request",
+  "request_id": "R-20260907-003",
+  "revision": 1,
+  "content_revision": 1,
+  "requester_actor_id": "ACT-001",
+  "recorded_by_actor_id": "ACT-001",
+  "record_owner_actor_id": "ACT-001",
+  "submitted_by_actor_id": null,
+  "requester_role_at_capture": "admin",
+  "source_type": "direct_conversation",
+  "source_verification": null,
+  "source_locator": "관리자방 GOV-20260907-02 원격 main 동기화 요청",
+  "original_text": "그렇게 적용해서 메인에다가 다시 올려놓고 다시 한번  프로젝트 지침이랑 LLM 소스들 다시 여기다 올려줘.",
+  "source_created_at": null,
+  "captured_at": "2026-09-07",
+  "classification": "policy_change",
+  "scope": [],
+  "conditions": [
+    "기존 원문·과거 결재·업무·materials 보존",
+    "force push 금지",
+    "실제 ChatGPT 설치·외부 배포를 main 저장과 혼동하지 않음"
+  ],
+  "request_status": "in_progress",
+  "submission_status": "submitted",
+  "primary_scope": "work_adoption",
+  "requested_scopes": ["work_adoption","policy_change"],
+  "review_snapshot": {
+    "result": "PASS",
+    "classification": "work",
+    "subject_hash": "7401eb9b7ba96242c8d1958751efb178a838d7d1eee15d4f79188e9fa3f2b3fa",
+    "basis_commit": "5646d6b7f532a32e0a150c4bc1eb2010d02643bb",
+    "reviewed_by_actor_id": "ACT-001",
+    "evidence_refs": ["FILE_MAP.json","llm-source/ACTOR_REGISTRY.json","llm-source/LLM_RUNTIME.md","llm-source/PRODUCT_REQUIREMENTS.md","working/CURRENT_WORK.md","GOV-20260907-02 prepared validation"],
+    "notes": "ACT-001의 명시적 원격 main 동기화·정책 반영 요청. 기존 기록과 concurrent marketing 업무는 보존."
+  },
+  "related_work_ids": ["W-20260907-003"],
+  "related_idea_ids": [],
+  "related_problem_ids": [],
+  "related_decision_ids": ["D-20260907-003"],
+  "submission_refs": [],
+  "supersedes": null,
+  "unknowns": [],
+  "request_change_refs": [],
+  "current_requirements": {
+    "title": "회사 전체 업무현황 맵·관리자 직접 지시·연관 저장소 흐름 메인 동기화",
+    "scope": [
+      "/업무진행현황을 세 역할 공통 회사 전체 맵 조회로 추가",
+      "요청·결정·배정·계획안·업데이트·완료 때 정본과 WORK_STATUS_MAP 동시 갱신",
+      "관리자 새 직접 지시를 R→검토→D→W→명시적 ASG/N→맵으로 일괄 연결",
+      "업무와 n8n/ERP 등 등록 구현 저장소를 repo/branch/commit/PR/확인시점으로 연결",
+      "세 프로젝트 고정 지침·LLM 소스를 GOV-20260907-02로 main과 동기화"
+    ],
+    "completion_criteria": [
+      "17개 정식 명령·별칭 0개가 main에서 일치",
+      "working/WORK_STATUS_MAP.json 존재 및 세 역할 공통 읽기 가능",
+      "main fast-forward 후 FILE_MAP/PROJECT_COMMON/ROLE/맵 재조회",
+      "프로젝트별 소스 패키지 바이트가 main 정본과 일치"
+    ]
+  },
+  "public_summary": {
+    "title": "회사 전체 업무현황 맵·관리자 직접 지시·연관 저장소 흐름 메인 동기화",
+    "latest_update": "GOV-20260907-02 동시 변경 보존 병합 후 main 반영 실행 중",
+    "next_action": "main fast-forward·재조회 및 프로젝트 소스 검증"
+  },
+  "original_source_path": "records/requests/ACT-001/R-20260907-003.source.md",
+  "original_source_sha256": "7031393d4e99041ace5ed5b771a301adce4d5b77a8a04b1753a92c545919b1a6"
+}

@@ -11,13 +11,14 @@ import json
 from pathlib import Path
 import re
 import work_plans as wp
+import work_status as status_map
 from typing import Any
 
 ADMIN = 'ACT-001'
 OUTCOMES = {'승인':'approved','수정요청':'revision_required','보류':'held','반려':'rejected'}
 SCOPES = {'work_start','research','production','deliverable','publication','expenditure','policy_change','work_adoption','planning','plan_execution'}
 RETIRED = {'/업무확정','/품의서승인','/업무공유','/업무접수','/대표업무점검','/대표업무검토','/품의상신','/품의승인','/품의서작성','/품의서결정','/품의서결의'}
-READ_ONLY = {'/아이디어출력','/문제출력','/업무검토','/업무점검','/반영미리보기'}
+READ_ONLY = {'/아이디어출력','/문제출력','/업무검토','/업무점검','/반영미리보기','/업무진행현황'}
 
 def need(ok: Any, message: str) -> None:
     if not ok: raise ValueError(message)
@@ -162,8 +163,6 @@ def work_effect(d: dict, request: dict, event: dict, existing: list[tuple[str,di
 
 
 def make_notifications(d: dict, target: dict, requester: str, assignee: str|None) -> list[tuple[str,dict]]:
-    # Representative requests are not sent straight to the assistant. Assignment
-    # events carry only the approved brief; proxy reporters may see their own record.
     recipients={requester,target.get('submitted_by_actor_id')} - {None,ADMIN}
     if assignee and ('submission_id' in target or not d.get('assignment')): recipients.add(assignee)
     recipients.discard(ADMIN)
@@ -231,9 +230,8 @@ def render(root: Path, overlay: dict[str,str], actors: list[dict]) -> dict[str,s
     for a in actors:
         aid=a['actor_id'];view=[x for x in summary if aid==ADMIN or aid in {x.get('author_actor_id'),x.get('requester_actor_id')}]
         files[f'records/decision-views/{aid}.json']=dump(dict(schema_version=1,actor_id=aid,authority='derived_view',items=view))
-        current_notes=[n for n in notes if (n['target_type'],n['target_id']) not in all_targets or n['target_revision']==all_targets[(n['target_type'],n['target_id'])][1]]
+        current_notes=[n for n in notes if (n.get('target_type'),n.get('target_id')) not in all_targets or n.get('target_revision')==all_targets[(n['target_type'],n['target_id'])][1]]
         current=inbox(aid,current_notes,receipts,ds,assignments=assignments)
-        # Page overflow is addressable, never dropped silently.
         full=inbox(aid,current_notes,receipts,ds,page_size=max(1,len(notes)+1),assignments=assignments)['items']
         pages=[full[i:i+20] for i in range(0,len(full),20)]
         if len(pages)>1:
@@ -259,18 +257,24 @@ def render(root: Path, overlay: dict[str,str], actors: list[dict]) -> dict[str,s
     prior=safe(root,dp).read_text(encoding='utf-8').split(marker)[0] if safe(root,dp).exists() else '# Decision Needed\n'
     files[dp]=prior.rstrip()+'\n\n'+marker+'\n'+''.join(f"- {x['target_id']} r{x['target_revision']} / {x['status']} / {x['path']}\n" for x in pending)
     files.update(wp.assignment_views(root,overlay,actors))
+    files['working/WORK_STATUS_MAP.json']=status_map.project_status(root,overlay)
     return files
 
 def plan(root: Path, event: dict) -> dict:
     need(re.fullmatch(r'[0-9a-f]{40}',str(event.get('base_commit',''))),'Fresh main commit required')
     command=event.get('command','').split(' ',1)[0]
     need(command not in RETIRED,'RETIRED_COMMAND; no alias execution')
+    if command=='/업무진행현황':
+        return status_map.query_bundle(root,event)
     if command in READ_ONLY or any(event.get(k) for k in ('read_only','save_prohibited','quoted')):
         return dict(status='no_write',files={},expected_blobs={},base_commit=event['base_commit'])
     need(event.get('write_requested') is True,'Explicit scoped operation required')
     actors=load(root,'llm-source/ACTOR_REGISTRY.json')['actors'];actor=next((a for a in actors if a['actor_id']==event.get('actor_id') and a['status']=='active'),None)
     need(actor is not None,'Unregistered actor')
     role=actor['role'];files={};operation=event.get('operation')
+    if operation=='direct_admin_request':
+        from direct_requests import plan_direct
+        return plan_direct(root,event)
     if operation=='decide':
         need(role=='admin' and actor['actor_id']==ADMIN,'Administrator only')
         obj=load(root,event['target_ref']);decisions=[d for _,d in records(root,'approvals','D-*.json')]
@@ -381,10 +385,13 @@ def plan(root: Path, event: dict) -> dict:
         need(role=='admin' or w.get('assigned_to_actor_id')==actor['actor_id'],'Only assigned assistant may update')
         wp.check_execution(root,w,event)
         need(event.get('expected_revision')==w['revision'],'Stale work revision')
-        allowed={'work_status','next_action','evidence_refs','artifact_refs','unknowns'}
+        allowed={'work_status','next_action','evidence_refs','artifact_refs','unknowns','public_progress_summary','related_repositories','implementation_snapshots'}
         patch=event.get('patch',{});need(set(patch)<=allowed,'Cannot expand scope or modify approval')
         need(patch.get('work_status')!='done' or event.get('completion_verified') is True,'Completion evidence required')
         need(event.get('progress_source') and event.get('performed_by_actor_id'),'Actual performer/source required')
+        if 'public_progress_summary' in patch: status_map.validate_public_summary(patch['public_progress_summary'])
+        if 'related_repositories' in patch or 'implementation_snapshots' in patch:
+            status_map.validate_implementation_patch(root,w,patch,event)
         w=copy.deepcopy(w);w.update(patch);w['revision']+=1;w['updated_at']=event['recorded_at']
         w.setdefault('progress_events',[]).append({k:event.get(k) for k in ('actor_id','performed_by_actor_id','progress_source','recorded_at')})
         files[path]=dump(w)
@@ -403,7 +410,6 @@ def plan(root: Path, event: dict) -> dict:
             files[rp]=dump(receipt)
     else: raise ValueError('Unsupported operation')
     files.update(render(root,files,actors))
-    # Preserve all prior rows: add request references without rewriting old content.
     if operation=='submit_request':
         p='records/REQUEST_INDEX.md';old=safe(root,p).read_text(encoding='utf-8') if safe(root,p).exists() else '# Request Index\n'
         files[p]=old+f"\n- {obj['request_id']} / {actor['actor_id']} / submitted r{revision(obj)} / {path}\n"
