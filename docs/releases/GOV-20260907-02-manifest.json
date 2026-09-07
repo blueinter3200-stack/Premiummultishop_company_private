@@ -1,0 +1,20 @@
+{
+  "release_id": "GOV-20260907-02",
+  "basis_commit": "f94b3bbc7a85cf78425979f488d4b0661f4af43a",
+  "deployment_status": "semantic_commit_created_pending_main_fast_forward",
+  "semantic_commit": "1dc08ed858ee572314c127d7158a84b0cc248bcc",
+  "files": [],
+  "validation": {
+    "prepared_tests": {"passed": 26, "failed": 0},
+    "semantic_tree_recomputed_from_basis": true,
+    "project_source_package_prepared": true,
+    "project_source_package_remote_match": "pending_main_deploy"
+  },
+  "not_performed": [
+    "actual ChatGPT project settings replacement",
+    "live LLM behavior test",
+    "real-time push/n8n/email delivery",
+    "independent identity authentication/account ACL enforcement",
+    "deployment to miracle_n8n or miracle_erp"
+  ]
+}
