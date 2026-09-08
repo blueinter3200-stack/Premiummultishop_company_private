@@ -1,8 +1,8 @@
 # Pending Idea / Problem Index
 
-- Updated: 2026-09-06
+- Updated: 2026-09-08
 - Release: GOV-20260906-02
-- 기준: main의 실제 status=saved 아이디어 6건 대조
+- 기준: main의 실제 status=saved 아이디어 6건·문제 1건 대조
 - 용도: 관련 기록을 선택하기 위한 경량 인덱스; 업무 배정·공식 반영 목록이 아님
 
 일반 검토에서는 관련 제목·요약·키워드로 필요한 원문과 정제본만 읽는다. 기록과 인덱스는 함께 저장하며 관리자 공식 채택 없이 항목을 제거하거나 reflected로 바꾸지 않는다.
@@ -26,9 +26,11 @@
 
 ## Problems
 
-현재 저장소의 problems 경로에 README 외 실제 문제 기록 없음. GitHub 밖에서 문제가 없다는 뜻은 아니다. 앞으로 새 문제는 `records/problems/<actor_id>/`에 저장한다.
+- P-20260908-001 | Meta 픽셀 외부 자산 연결·계정 침해 의심 보안 이슈 | ACT-002 | representative | 2026-09-08 | keywords: Meta, Meta Pixel, 광고계정, 보안, 외부 데이터 세트, 계정 침해 의심 | path: `records/problems/ACT-002/2026-09-08-meta-pixel-security-incident-suspected.md`
+  - summary: 대표님 제공 자료를 근거로 CĐ-HN/Z799 등 외부 자산 연결 및 권한 위험 정황을 문제로 저장. 계정 탈취·무단 광고비 사용은 독립 검증되지 않았으며, 회사 광고계정 식별·권한·지출·연결 경로 확인이 필요함.
 
 ## 정비 이력
 
 - 2026-09-06 GOV-20260906-01: 누락된 기존 아이디어 2건을 인덱스에 복원.
 - 2026-09-06 GOV-20260906-02: 기존 6개 아이디어에 안정적인 record_id/actor_id 매핑을 추가. 원문 경로는 이동하지 않음. 신규 기록부터 actor_id 경로 사용.
+- 2026-09-08: ACT-002 첫 문제 기록 P-20260908-001 추가. 문제 저장 자체는 업무 배정·차단·해결 확정이 아님.
