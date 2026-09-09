@@ -85,6 +85,20 @@
       "decision_id": null,
       "reason": null,
       "decision_ref": null
+    },
+    {
+      "target_type": "request",
+      "target_id": "R-20260909-002",
+      "target_revision": 1,
+      "path": "records/requests/ACT-002/R-20260909-002.json",
+      "scope_key": "work_adoption",
+      "author_actor_id": "ACT-002",
+      "requester_actor_id": "ACT-002",
+      "title": "프리미엄멀티샵 저비용·고회전 사업모델 전환 타당성 검증",
+      "status": "pending",
+      "decision_id": null,
+      "reason": null,
+      "decision_ref": null
     }
   ],
   "decision_events": [

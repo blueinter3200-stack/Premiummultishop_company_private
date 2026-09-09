@@ -4,20 +4,41 @@
   "audience": "all_registered_company_roles",
   "default_scope": "company_all",
   "freshness": "recorded_snapshot_not_live_external_verification",
-  "records_latest_at": "2026-09-09T09:46:27+09:00",
-  "projection_basis": "current main preserving 2026-09-08 corrections plus R-20260909-001 submitted Meta security/business portfolio/pixel request; recorded snapshot only",
+  "records_latest_at": "2026-09-09T11:05:10+09:00",
+  "projection_basis": "current main preserving 2026-09-08 corrections plus R-20260909-001 submitted Meta security/business portfolio/pixel request and R-20260909-002 submitted low-cost/high-turnover business-model validation request; recorded snapshot only",
   "counts": {
-    "total": 14,
+    "total": 15,
     "by_stage": {
       "planning": 2,
       "completed": 4,
       "verification_pending": 1,
       "follow_up_install": 1,
       "legacy_recheck": 5,
-      "approval_pending": 1
+      "approval_pending": 2
     }
   },
   "items": [
+    {
+      "entry_id": "R-20260909-002",
+      "request_id": "R-20260909-002",
+      "title": "프리미엄멀티샵 저비용·고회전 사업모델 전환 타당성 검증",
+      "requester_actor_id": "ACT-002",
+      "current_stage": "approval_pending",
+      "request_decision_status": "pending",
+      "assignment_status": "unassigned",
+      "latest_update": "대표님이 범위를 조정한 전환 타당성 검증 업무요청을 제출; 관리자 업무채택 결정 대기",
+      "next_action": "관리자 업무결정 후 담당·계획 범위 확정",
+      "blockers": [
+        "현재 관리자 업무채택 결정 전",
+        "매장별·SKU별 손익·가용현금 등 핵심 내부 데이터 미확인"
+      ],
+      "related_repositories": [],
+      "implementation_snapshots": [],
+      "updated_at": "2026-09-09T11:05:10+09:00",
+      "source_refs": [
+        "records/requests/ACT-002/R-20260909-002.json"
+      ]
+    },
     {
       "entry_id": "R-20260909-001",
       "request_id": "R-20260909-001",
@@ -246,6 +267,7 @@
     "records/requests/ACT-001/R-20260907-003.json",
     "records/requests/ACT-001/R-20260908-001.json",
     "records/requests/ACT-003/R-20260909-001.json",
+    "records/requests/ACT-002/R-20260909-002.json",
     "work/assignments/ASG-20260908-001.json",
     "work/assignments/ASG-20260908-002.json",
     "work/assignments/ASG-20260908-003.json",
@@ -253,5 +275,5 @@
     "work/items/W-20260907-003.json",
     "work/items/W-20260908-001.json"
   ],
-  "map_checksum": "cafc22eefb6b83270108d7800485bb4907a81aea4543fd666b504455fb4ea75a"
+  "map_checksum": "1b74532f9f77ed7f294069e961b2ca18fe7293c61c574830d32a9186bff61503"
 }
