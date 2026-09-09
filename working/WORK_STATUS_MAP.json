@@ -4,8 +4,8 @@
   "audience": "all_registered_company_roles",
   "default_scope": "company_all",
   "freshness": "recorded_snapshot_not_live_external_verification",
-  "records_latest_at": "2026-09-09T11:54:54+09:00",
-  "projection_basis": "current main preserving 2026-09-08 corrections plus R-20260909-001 submitted Meta security/business portfolio/pixel request and R-20260909-002 r2 submitted low-cost/high-turnover business-model validation with Suwon/Daegu/Gwangju Kakao customer-asset integration; recorded snapshot only",
+  "records_latest_at": "2026-09-09T16:01:00+09:00",
+  "projection_basis": "current main preserving 2026-09-08 corrections plus R-20260909-001 submitted Meta security/business portfolio/pixel request, R-20260909-002 r2 submitted low-cost/high-turnover business-model validation with Suwon/Daegu/Gwangju Kakao customer-asset integration, and SUB-R-20260907-002-001 r1 submitted for W-20260907-002; recorded snapshot only",
   "counts": {
     "total": 15,
     "by_stage": {
@@ -130,23 +130,25 @@
       "current_stage": "planning",
       "request_decision_status": "approved",
       "assignment_status": "assigned",
-      "plan_status": "not_submitted",
+      "plan_status": "submitted",
       "work_status": "queued",
-      "latest_update": "관리자 요청 범위·완료기준·마감 수정 반영, ACT-003 새 작업지시 발행, 계획안 미제출",
-      "next_action": "업무계획안 즉시 제출; 결의 승인 후 2026-09-09 13:00 KST까지 준비 패키지 완성",
+      "latest_update": "SUB-R-20260907-002-001 r1 계획안 제출; 본 조사·프롬프트 패키지 제작 미착수, 관리자 업무계획안 결의 대기",
+      "next_action": "관리자 계획안 결의 및 수정 실행 기한 확정; 승인 범위·현재 배정 확인 후 본 실행",
       "blockers": [
-        "정확한 재고 5개 SKU/상품명은 승인된 재고 원장 또는 관리자 제공 목록 확인 필요",
-        "본 조사·프롬프트 패키지 제작은 계획안 결의 승인 필요"
+        "계획안 결의 전 본 조사·프롬프트 패키지 제작 불가",
+        "정확한 재고 5개 SKU/상품명과 승인된 내부 데이터 위치 확인 필요",
+        "기존 2026-09-09 13:00 KST 마감 경과; 새 실행 기한 미확인"
       ],
       "related_repositories": [],
       "implementation_snapshots": [],
-      "updated_at": "2026-09-08T21:02:00+09:00",
+      "updated_at": "2026-09-09T16:01:00+09:00",
       "source_refs": [
         "records/requests/ACT-001/R-20260907-002.json",
         "records/request-changes/ACT-001/R-20260907-002/RC-20260908-001.json",
         "approvals/D-20260908-002.json",
         "work/items/W-20260907-002.json",
-        "work/assignments/ASG-20260908-003.json"
+        "work/assignments/ASG-20260908-003.json",
+        "records/submissions/SUB-R-20260907-002-001-r1.json"
       ]
     },
     {
@@ -269,6 +271,7 @@
     "records/requests/ACT-001/R-20260908-001.json",
     "records/requests/ACT-003/R-20260909-001.json",
     "records/requests/ACT-002/R-20260909-002.json",
+    "records/submissions/SUB-R-20260907-002-001-r1.json",
     "work/assignments/ASG-20260908-001.json",
     "work/assignments/ASG-20260908-002.json",
     "work/assignments/ASG-20260908-003.json",
@@ -276,5 +279,5 @@
     "work/items/W-20260907-003.json",
     "work/items/W-20260908-001.json"
   ],
-  "map_checksum": "2ce02cf1578e4045e7bec82669ee60da705acb5a82e3eeaa41529f74e0104f8d"
+  "map_checksum": "fba423f614ad9821cbfc06bcfa0bab56403a6ab9dd587fd91fcfa3a6437239c0"
 }
