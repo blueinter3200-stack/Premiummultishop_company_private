@@ -1,0 +1,77 @@
+{
+  "schema_version": 2,
+  "submission_id": "SUB-R-20260907-002-001",
+  "revision": 1,
+  "plan_type": "execution_plan",
+  "request_ref": "records/requests/ACT-001/R-20260907-002.json",
+  "requester_actor_id": "ACT-001",
+  "submitted_by_actor_id": "ACT-003",
+  "proposed_assignee_actor_id": "ACT-003",
+  "work_id": "W-20260907-002",
+  "assignment_ref": "work/assignments/ASG-20260908-003.json",
+  "title": "재고 5개 AI 광고 이미지 레퍼런스·프롬프트 워크플로우 업무계획안 r1",
+  "primary_scope": "plan_execution",
+  "requested_scopes": [
+    "plan_execution",
+    "research",
+    "production"
+  ],
+  "current_requirements": {
+    "objective": "실제 판매 예정 재고 5개별 타겟·광고 의도·레퍼런스·ChatGPT 이미지 생성 기본 프롬프트·상품 충실도/오류 방지·스타일 변형 워크플로우 패키지를 준비한다.",
+    "target_inventory_count": 5,
+    "target_inventory_resolution": "승인된 사입 리스트/재고 원장 또는 관리자 제공 목록에서 실제 판매 예정 5개 SKU를 확인하고 임의 생성하지 않는다.",
+    "user_proposed_internal_sources": [
+      "상무님 사입제품",
+      "위탁 사입 리스트",
+      "사입 리스트",
+      "업그레이드 예정 데이터 분석 시트"
+    ],
+    "source_location_status": "actual_file_id_sheet_range_unconfirmed",
+    "original_due_at": "2026-09-09T13:00:00+09:00",
+    "due_status_at_submission": "elapsed",
+    "revised_due_at": null,
+    "current_authorized_scopes": [
+      "planning"
+    ],
+    "excluded_scopes": [
+      "final_ad_image_generation",
+      "publication",
+      "advertising_spend",
+      "expenditure",
+      "policy_change"
+    ]
+  },
+  "review_snapshot": {
+    "result": "PASS",
+    "classification": "work_plan",
+    "subject_hash": "113ae54ff8d27066f1fd3be88cbd7e2d33ab0ddef8569b4627d16b35ef149bdf",
+    "basis_commit": "5f7717ba10a1bf8410749ceb2e60d546454c58de",
+    "reviewed_by_actor_id": "ACT-003",
+    "evidence_refs": [
+      "FILE_MAP.json",
+      "llm-source/ACTOR_REGISTRY.json",
+      "llm-source/actors/ACT-003/ROLE.md",
+      "llm-source/actors/ACT-003/RULES.md",
+      "llm-source/LLM_RUNTIME.md",
+      "llm-source/COMPANY_OS.md",
+      "llm-source/PRODUCT_REQUIREMENTS.md",
+      "llm-source/EVIDENCE_STANDARD.md",
+      "llm-source/APPROVAL_GOVERNANCE.md",
+      "llm-source/workflows/SUBMISSION_WORKFLOW.md",
+      "llm-source/workflows/COMMON_IO.md",
+      "working/CURRENT_WORK.md",
+      "work/items/W-20260907-002.json",
+      "work/assignments/ASG-20260908-003.json",
+      "approvals/D-20260908-002.json",
+      "records/assignment-views/ACT-003.json"
+    ],
+    "notes": "현재 작업지시와 사용자 작성안을 대조했다. 사용자가 작성한 6개 핵심 항목을 보존하고, 작업지시상 필수인 스타일 변형 모듈·상품별 최종 패키지 구조를 보완했다. 2026-09-09 13:00 KST 기존 마감은 제출 시점에 경과했으므로 새 기한은 임의 생성하지 않고 관리자 결정 요청으로 남겼다. 정품 인증/보증·사후서비스 관련 대외 문구는 실제 정책 확인 전 확정 카피로 사용하지 않도록 제한했다."
+  },
+  "artifact_path": "assistant/40-handoff/to-jin/SUB-R-20260907-002-001-r1.md",
+  "artifact_sha256": "113ae54ff8d27066f1fd3be88cbd7e2d33ab0ddef8569b4627d16b35ef149bdf",
+  "request_content_revision": 1,
+  "request_content_hash": "b54ec1b671164f9db0f42bd98a04b6dafd6f7433668dc36479cee3506778928f",
+  "submission_status": "submitted",
+  "supersedes_revision": null,
+  "submitted_at": "2026-09-09T16:01:00+09:00"
+}
