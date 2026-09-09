@@ -4,8 +4,8 @@
   "audience": "all_registered_company_roles",
   "default_scope": "company_all",
   "freshness": "recorded_snapshot_not_live_external_verification",
-  "records_latest_at": "2026-09-09T16:01:00+09:00",
-  "projection_basis": "current main preserving 2026-09-08 corrections plus R-20260909-001 submitted Meta security/business portfolio/pixel request, R-20260909-002 r2 submitted low-cost/high-turnover business-model validation with Suwon/Daegu/Gwangju Kakao customer-asset integration, and SUB-R-20260907-002-001 r1 submitted for W-20260907-002; recorded snapshot only",
+  "records_latest_at": "2026-09-09T16:05:00+09:00",
+  "projection_basis": "current main preserving 2026-09-08 corrections plus R-20260909-001 submitted Meta security/business portfolio/pixel request, R-20260909-002 r2 submitted low-cost/high-turnover business-model validation with Suwon/Daegu/Gwangju Kakao customer-asset integration, SUB-R-20260907-002-001 r1 submitted for W-20260907-002, and SUB-R-20260908-001-001 r1 submitted for W-20260908-001; recorded snapshot only",
   "counts": {
     "total": 15,
     "by_stage": {
@@ -71,16 +71,21 @@
       "current_stage": "planning",
       "request_decision_status": "approved",
       "assignment_status": "assigned",
-      "plan_status": "not_submitted",
+      "plan_status": "submitted",
       "work_status": "queued",
-      "latest_update": "용어 정정 반영: ‘순이 변경’이 아니라 ‘순위 변경’. ACT-003 정정 작업지시 발행, 계획안 미제출",
-      "next_action": "업무계획안 제출",
+      "latest_update": "SUB-R-20260908-001-001 r1 업무계획안 제출; Drive 본 조사·외부 소스 확인·지시문 본 작성은 미실행",
+      "next_action": "관리자 /업무계획안결의 SUB-R-20260908-001-001/r1 검토",
+      "blockers": [
+        "plan_execution/research/production 결의 전 본 조사·지시문 작성 불가",
+        "Drive 실제 대상과 외부 소스 가용 범위 미확인"
+      ],
       "related_repositories": [],
       "implementation_snapshots": [],
-      "updated_at": "2026-09-08T21:34:17+09:00",
+      "updated_at": "2026-09-09T16:05:00+09:00",
       "source_refs": [
         "records/requests/ACT-001/R-20260908-001.json",
-        "work/items/W-20260908-001.json"
+        "work/items/W-20260908-001.json",
+        "records/submissions/SUB-R-20260908-001-001-r1.json"
       ]
     },
     {
@@ -272,6 +277,7 @@
     "records/requests/ACT-003/R-20260909-001.json",
     "records/requests/ACT-002/R-20260909-002.json",
     "records/submissions/SUB-R-20260907-002-001-r1.json",
+    "records/submissions/SUB-R-20260908-001-001-r1.json",
     "work/assignments/ASG-20260908-001.json",
     "work/assignments/ASG-20260908-002.json",
     "work/assignments/ASG-20260908-003.json",
@@ -279,5 +285,5 @@
     "work/items/W-20260907-003.json",
     "work/items/W-20260908-001.json"
   ],
-  "map_checksum": "fba423f614ad9821cbfc06bcfa0bab56403a6ab9dd587fd91fcfa3a6437239c0"
+  "map_checksum": "88b5d7d5bc7e7b1a25fd577b86e645daeeacdeabdd61b554d9f58e4f585da0ef"
 }

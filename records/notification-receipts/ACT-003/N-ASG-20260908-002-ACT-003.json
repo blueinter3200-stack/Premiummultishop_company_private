@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "notification_id": "N-ASG-20260908-002-ACT-003",
+  "recipient_actor_id": "ACT-003",
+  "delivered_at": "2026-09-09T16:05:00+09:00",
+  "presentation_ref": "ChatGPT ACT-003 project current conversation / 2026-09-09 / plan submission pre-execution status notice / message_id 미제공",
+  "acknowledged_at": null,
+  "ack_source": null,
+  "authority": "delivery_evidence_not_approval"
+}

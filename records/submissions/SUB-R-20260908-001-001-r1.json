@@ -1,0 +1,80 @@
+{
+  "schema_version": 2,
+  "submission_id": "SUB-R-20260908-001-001",
+  "revision": 1,
+  "plan_type": "execution_plan",
+  "request_ref": "records/requests/ACT-001/R-20260908-001.json",
+  "requester_actor_id": "ACT-001",
+  "submitted_by_actor_id": "ACT-003",
+  "proposed_assignee_actor_id": "ACT-003",
+  "work_id": "W-20260908-001",
+  "assignment_ref": "work/assignments/ASG-20260908-002.json",
+  "title": "전세원 개발자용 데이터·이미지 요구사항 지시문 작성 업무계획안",
+  "primary_scope": "plan_execution",
+  "requested_scopes": [
+    "plan_execution",
+    "research",
+    "production"
+  ],
+  "current_requirements": {
+    "title": "전세원 개발자용 데이터·이미지 요구사항 지시문 작성",
+    "scope": [
+      "오케이몰·크림·필웨이 랭킹을 통합 조회하고 현재/1일 전/3일 전/7일 전 순위 변동을 비교할 수 있는 데이터·시트 구조를 설계한다.",
+      "랭킹 상품 이미지, 사이트별/카테고리별 보기, 3개 사이트 공통상품 매칭 구조를 설계한다.",
+      "성별·연령대 선호 데이터는 실제 출처가 있을 때만 연결하고 근거가 없으면 추정하지 않는 구조를 설계한다.",
+      "유튜브·인스타그램 명품 브랜드/상품 트렌드를 보조 신호로 수집·비교하는 구조를 설계한다.",
+      "프리미엄멀티샵 등록상품과 외부 랭킹 상품을 연결해 보유/미보유/부족 브랜드·카테고리와 사입 우선순위 후보를 설명 가능한 근거로 도출하는 구조를 설계한다.",
+      "확인된 Drive 근거와 데이터 계약을 바탕으로 전세원 개발자용 v0.1/v1.0 지시문을 작성한다."
+    ],
+    "completion_criteria": [
+      "v0.1은 2026-09-09 퇴근 전 목표로, 2026-09-07 기준의 기존 생각/요구와 확인 가능한 근거를 분리해 제출한다. 정확한 퇴근 시각은 미지정이다.",
+      "v0.1에는 실제 Drive 근거 위치, 데이터/이미지 요구, 순위 변경 구조, 시트 구조, 개발자 질문/미확인을 포함한다.",
+      "v1.0은 사용자 원문상 이번 주 내 목표로 추가 확인·피드백을 반영하고, 핵심 지시마다 근거 locator를 연결한다. 정확한 최종 날짜·시각은 임의 생성하지 않는다.",
+      "미확인 자료·접근불가 데이터·매칭 애매 항목을 확인 완료로 표현하지 않는다."
+    ],
+    "constraints": [
+      "현재 허용 범위는 planning이며 plan_execution 결의 전 Google Drive 원본 조사·외부 소스 확인·지시문 본 작성에 착수하지 않는다.",
+      "정확한 용어는 ‘순위 변경’이다.",
+      "전세원 개발자 실제 전송, Drive 수정, 코드 변경·배포, 게시·지출은 이번 계획 요청 범위에서 제외한다.",
+      "상품/인구통계/SNS/우선순위 관련 미검증 값을 임의 생성하지 않는다."
+    ]
+  },
+  "review_snapshot": {
+    "result": "PASS",
+    "classification": "execution_plan",
+    "basis_commit": "1d73cee8b1c753ea806c6ff8fbc921a5c92fc645",
+    "reviewed_by_actor_id": "ACT-003",
+    "reviewed_at": "2026-09-09T16:05:00+09:00",
+    "evidence_refs": [
+      "FILE_MAP.json",
+      "llm-source/ACTOR_REGISTRY.json",
+      "llm-source/actors/ACT-003/ROLE.md",
+      "llm-source/actors/ACT-003/RULES.md",
+      "llm-source/LLM_RUNTIME.md",
+      "llm-source/COMPANY_OS.md",
+      "llm-source/PRODUCT_REQUIREMENTS.md",
+      "llm-source/GOVERNANCE_RELEASE_GOV-20260907-02.md",
+      "llm-source/PROJECT_REPOSITORIES.md",
+      "llm-source/EVIDENCE_STANDARD.md",
+      "llm-source/APPROVAL_GOVERNANCE.md",
+      "llm-source/workflows/SUBMISSION_WORKFLOW.md",
+      "llm-source/workflows/COMMON_IO.md",
+      "llm-source/workflows/INBOX_WORKFLOW.md",
+      "llm-source/workflows/WORK_STATUS_WORKFLOW.md",
+      "working/CURRENT_WORK.md",
+      "work/items/W-20260908-001.json",
+      "work/assignments/ASG-20260908-002.json",
+      "approvals/D-20260908-001.json",
+      "records/requests/ACT-001/R-20260908-001.json",
+      "현재 대화의 ACT-003 업그레이드 요구사항 초안 (2026-09-09, message_id 미제공)"
+    ],
+    "notes": "기존 W 목적·배정·planning 제한과 현재 대화의 상세 요구사항이 직접 연결되어 계획안 제출에 적합하다. 오케이몰·크림·필웨이의 실제 접근 가능 필드, Google Drive 실제 파일/범위, 성별·연령대 근거, 유튜브·인스타그램 데이터 접근성, 급상승 임계값·사입 가중치는 아직 미확인이므로 본 조사 단계의 확인 항목으로 분리했다. 계획 승인 전 Drive 원본 조사·외부 데이터 조사·지시문 본 작성은 수행하지 않는다. 제출 저장 직전 main에 W-20260907-002 계획안 제출이 먼저 반영되어 해당 동시 변경을 보존한 새 main을 기준으로 파생 조회판과 업무현황 맵을 재병합한다."
+  },
+  "artifact_path": "assistant/40-handoff/to-jin/SUB-R-20260908-001-001-r1.md",
+  "artifact_sha256": "2ddc9e672fef5f92c7ab03554e08e05b95f8f757c511fbc12b3dcc1f4fdb6143",
+  "request_content_revision": 1,
+  "request_content_hash": "4d4255c4306b5d91a91f354e75458c65d9c2b17b8cb724df1f6775e50ea373fb",
+  "submission_status": "submitted",
+  "supersedes_revision": null,
+  "submitted_at": "2026-09-09T16:05:00+09:00"
+}
