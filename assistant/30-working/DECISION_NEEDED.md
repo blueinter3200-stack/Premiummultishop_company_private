@@ -23,4 +23,4 @@
 
 <!-- GOV05 DECISION VIEW -->
 - R-20260909-001 r1 / pending / records/requests/ACT-003/R-20260909-001.json
-- R-20260909-002 r1 / pending / records/requests/ACT-002/R-20260909-002.json
+- R-20260909-002 r2 / pending / records/requests/ACT-002/R-20260909-002.json

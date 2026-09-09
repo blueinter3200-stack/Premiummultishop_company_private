@@ -4,8 +4,8 @@
   "audience": "all_registered_company_roles",
   "default_scope": "company_all",
   "freshness": "recorded_snapshot_not_live_external_verification",
-  "records_latest_at": "2026-09-09T11:05:10+09:00",
-  "projection_basis": "current main preserving 2026-09-08 corrections plus R-20260909-001 submitted Meta security/business portfolio/pixel request and R-20260909-002 submitted low-cost/high-turnover business-model validation request; recorded snapshot only",
+  "records_latest_at": "2026-09-09T11:54:54+09:00",
+  "projection_basis": "current main preserving 2026-09-08 corrections plus R-20260909-001 submitted Meta security/business portfolio/pixel request and R-20260909-002 r2 submitted low-cost/high-turnover business-model validation with Suwon/Daegu/Gwangju Kakao customer-asset integration; recorded snapshot only",
   "counts": {
     "total": 15,
     "by_stage": {
@@ -26,15 +26,16 @@
       "current_stage": "approval_pending",
       "request_decision_status": "pending",
       "assignment_status": "unassigned",
-      "latest_update": "대표님이 범위를 조정한 전환 타당성 검증 업무요청을 제출; 관리자 업무채택 결정 대기",
+      "latest_update": "대표님이 수원·대구·광주 카카오 고객자산의 본사 통합관리·고객이동 혜택 요구를 r2에 추가 제출; 관리자 업무채택 결정 대기",
       "next_action": "관리자 업무결정 후 담당·계획 범위 확정",
       "blockers": [
         "현재 관리자 업무채택 결정 전",
-        "매장별·SKU별 손익·가용현금 등 핵심 내부 데이터 미확인"
+        "매장별·SKU별 손익·가용현금 등 핵심 내부 데이터 미확인",
+        "수원·대구·광주 카카오 채널의 소유·친구수·상담이력·수신동의·이관 가능 범위 미확인"
       ],
       "related_repositories": [],
       "implementation_snapshots": [],
-      "updated_at": "2026-09-09T11:05:10+09:00",
+      "updated_at": "2026-09-09T11:54:54+09:00",
       "source_refs": [
         "records/requests/ACT-002/R-20260909-002.json"
       ]
@@ -275,5 +276,5 @@
     "work/items/W-20260907-003.json",
     "work/items/W-20260908-001.json"
   ],
-  "map_checksum": "1b74532f9f77ed7f294069e961b2ca18fe7293c61c574830d32a9186bff61503"
+  "map_checksum": "2ce02cf1578e4045e7bec82669ee60da705acb5a82e3eeaa41529f74e0104f8d"
 }

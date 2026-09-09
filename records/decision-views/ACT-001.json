@@ -90,7 +90,7 @@
     {
       "target_type": "request",
       "target_id": "R-20260909-002",
-      "target_revision": 1,
+      "target_revision": 2,
       "path": "records/requests/ACT-002/R-20260909-002.json",
       "scope_key": "work_adoption",
       "author_actor_id": "ACT-002",
