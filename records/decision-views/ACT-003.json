@@ -2,5 +2,20 @@
   "schema_version": 1,
   "actor_id": "ACT-003",
   "authority": "derived_view",
-  "items": []
+  "items": [
+    {
+      "target_type": "request",
+      "target_id": "R-20260909-001",
+      "target_revision": 1,
+      "path": "records/requests/ACT-003/R-20260909-001.json",
+      "scope_key": "work_adoption",
+      "author_actor_id": "ACT-003",
+      "requester_actor_id": "ACT-002",
+      "title": "Meta 계정 보안 정비·신규 비즈니스 포트폴리오 및 픽셀 설치",
+      "status": "pending",
+      "decision_id": null,
+      "reason": null,
+      "decision_ref": null
+    }
+  ]
 }

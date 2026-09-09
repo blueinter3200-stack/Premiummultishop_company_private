@@ -1,0 +1,112 @@
+{
+  "schema_version": 4,
+  "object_type": "request",
+  "request_id": "R-20260909-001",
+  "revision": 1,
+  "content_revision": 1,
+  "requester_actor_id": "ACT-002",
+  "recorded_by_actor_id": "ACT-003",
+  "record_owner_actor_id": "ACT-003",
+  "submitted_by_actor_id": "ACT-003",
+  "requester_role_at_capture": "representative",
+  "source_type": "reported_oral_request",
+  "source_verification": "reported_not_independently_verified",
+  "source_locator": "ChatGPT 부사수방 현재 대화 / 2026-09-09 사용자 메시지 / message_id 미제공",
+  "original_text": "메타 관리자에서 우선 페이스북 비밀번호 바꾸고 비즈니스 포트폴리오 새로 만들어서 픽셀 설치를 진행해야함 /업무요청 지시자:대표님",
+  "source_created_at": null,
+  "captured_at": "2026-09-09T09:46:27+09:00",
+  "classification": "work",
+  "scope": [
+    "Facebook 계정 비밀번호를 우선 변경한다.",
+    "새 Meta 비즈니스 포트폴리오를 만든다.",
+    "새 포트폴리오 기준으로 Meta Pixel 설치를 진행한다."
+  ],
+  "conditions": [
+    "지시 출처는 대표님(ACT-002)으로 사용자가 전달했으며, ACT-003이 기록·제출한다. 대표님의 독립 검증된 직접 발언/승인으로 바꾸지 않는다.",
+    "새 비밀번호·2단계 인증 코드·토큰·복구코드·결제정보 등 인증·민감정보는 GitHub 업무 기록에 저장하지 않는다.",
+    "현재 단계는 업무요청 제출이며 Facebook 비밀번호 변경, Meta 비즈니스 포트폴리오 생성, 픽셀 설치·연결 등 실제 외부 계정 변경은 아직 수행하지 않는다.",
+    "실행 전 회사 정상 광고계정·페이지·도메인·픽셀/데이터 세트 대상과 필요한 계정 권한을 확인한다.",
+    "P-20260908-001의 계정 침해·무단 광고비 여부는 현재 미확인이며 이번 요청 제출만으로 문제 해결 완료로 표시하지 않는다."
+  ],
+  "request_status": "captured",
+  "submission_status": "submitted",
+  "primary_scope": "work_adoption",
+  "requested_scopes": [
+    "work_adoption",
+    "planning"
+  ],
+  "review_snapshot": {
+    "result": "PASS",
+    "classification": "work",
+    "subject_hash": "caea1af8bc5f6f43fc2ae95fee94aeac1290ec0b3c035f8c90d7ddd76882dc38",
+    "basis_commit": "3cace875d77333cbae1974c83699e532f5555e30",
+    "reviewed_by_actor_id": "ACT-003",
+    "evidence_refs": [
+      "FILE_MAP.json",
+      "llm-source/ACTOR_REGISTRY.json",
+      "llm-source/actors/ACT-003/ROLE.md",
+      "llm-source/LLM_RUNTIME.md",
+      "llm-source/COMPANY_OS.md",
+      "llm-source/PRODUCT_REQUIREMENTS.md",
+      "llm-source/PROJECT_REPOSITORIES.md",
+      "llm-source/WORK_GOVERNANCE.md",
+      "llm-source/WORK_LIFECYCLE.md",
+      "llm-source/workflows/REQUEST_CAPTURE.md",
+      "llm-source/workflows/WORK_WORKFLOW.md",
+      "llm-source/workflows/COMMON_IO.md",
+      "records/PENDING_INDEX.md",
+      "records/DECISION_INDEX.json",
+      "working/CURRENT_WORK.md",
+      "records/problems/ACT-002/2026-09-08-meta-pixel-security-incident-suspected.md",
+      "GitHub main code search: Meta/픽셀/Facebook direct duplicate request-work not found"
+    ],
+    "notes": "신규 work 후보로 PASS. 대표님 지시를 ACT-003이 대리 제출하는 reported oral request로 처리한다. P-20260908-001의 Meta 외부 자산 연결·계정 침해 의심 문제와 직접 관련된 후속 해결 요청이며, 현재 업무판·결정 인덱스·저장소 검색에서 동일 목적·범위의 기존 R/W는 확인되지 않았다. 계정 비밀번호 변경·비즈니스 포트폴리오 생성·픽셀 설치는 실제 외부 계정 변경이므로 업무요청 제출만으로 실행하지 않고 관리자 업무채택/담당/계획 결의 범위를 확인해야 한다. 비밀번호·인증정보는 GitHub에 저장하지 않는다."
+  },
+  "related_work_ids": [],
+  "related_idea_ids": [],
+  "related_problem_ids": [
+    "P-20260908-001"
+  ],
+  "related_decision_ids": [],
+  "submission_refs": [],
+  "supersedes": null,
+  "unknowns": [
+    "비밀번호를 변경할 정확한 Facebook 계정/프로필 식별",
+    "새 Meta 비즈니스 포트폴리오의 최종 이름·소유/관리자 구성",
+    "회사에서 계속 사용할 정상 광고계정·페이지·도메인의 정확한 ID",
+    "설치할 Meta Pixel/데이터 세트의 신규 생성 여부와 정확한 대상 사이트/판매채널",
+    "기존 외부 사람·파트너·비즈니스·데이터 세트 권한의 현재 상태",
+    "업무 담당자와 마감 시각은 현재 요청에 명시되지 않음"
+  ],
+  "request_change_refs": [],
+  "current_requirements": {
+    "title": "Meta 계정 보안 정비·신규 비즈니스 포트폴리오 및 픽셀 설치",
+    "objective": "대표님 지시에 따라 Meta 계정 보안을 우선 정비한 뒤 회사 소유의 새 비즈니스 포트폴리오를 구성하고 정상 회사 자산 기준으로 Meta Pixel 설치를 진행할 수 있는 상태를 만든다.",
+    "scope": [
+      "Meta 관리자에서 대표님이 사용하는 Facebook 계정의 비밀번호 변경을 우선 수행한다.",
+      "회사 소유로 관리할 새 Meta 비즈니스 포트폴리오를 생성한다.",
+      "새 포트폴리오 기준으로 회사 사이트/판매채널에 사용할 Meta Pixel을 설치·연결한다.",
+      "기존 P-20260908-001의 외부 자산 연결·권한 의심 이슈와 새 구조가 섞이지 않도록 실행 전 정상 회사 광고계정·페이지·도메인·픽셀/데이터 세트 연결 대상을 확인한다."
+    ],
+    "completion_criteria": [
+      "Facebook 계정 비밀번호가 변경되었음을 확인하되 새 비밀번호·인증정보 자체는 GitHub나 업무 기록에 저장하지 않는다.",
+      "새 Meta 비즈니스 포트폴리오가 회사 관리 구조로 생성되고 관리자/소유 관계를 확인한다.",
+      "회사에서 사용할 정상 광고계정·페이지·도메인과 연결할 픽셀/데이터 세트 대상이 확인된다.",
+      "확정된 회사 사이트/판매채널에 Meta Pixel 설치·연결을 완료하고 정상 이벤트 수신 여부를 확인한다.",
+      "기존 의심 외부 자산·권한은 독립 검증 없이 새 구조로 자동 이전하거나 문제 해결 완료로 표시하지 않는다."
+    ]
+  },
+  "public_summary": {
+    "title": "Meta 계정 보안 정비·신규 비즈니스 포트폴리오·픽셀 설치",
+    "latest_update": "대표님 지시를 ACT-003이 업무요청으로 제출; 관리자 업무채택 결정 대기",
+    "next_action": "관리자 업무결정 후 담당·계획 범위 확정",
+    "blockers": [
+      "현재 관리자 업무채택 결정 전",
+      "정상 회사 광고계정·페이지·도메인·픽셀/데이터 세트 대상 미확인"
+    ]
+  },
+  "source_event_id": "chatgpt-assistant-20260909-meta-security-business-pixel-001",
+  "source_fingerprint": "0d1498bd5f764f5b21250783707f77e27f490997312a0bbe2b499b5d7d84fb08",
+  "original_source_path": null,
+  "original_source_sha256": null
+}
