@@ -1,6 +1,6 @@
 # Miracle Company OS
 
-- Canonical repository: `https://github.com/jintonic1010/miracle_company_private`
+- Canonical repository: `https://github.com/blueinter3200-stack/Premiummultishop_company_private`
 - Branch: `main`
 - Updated: 2026-09-06
 - Authority: official company direction
