@@ -1,6 +1,6 @@
 # Product Requirements
 
-- Repository: `jintonic1010/miracle_company_private`
+- Repository: `blueinter3200-stack/Premiummultishop_company_private`
 - Branch: `main`
 - Updated: 2026-09-07
 - Authority: official confirmed requirements
