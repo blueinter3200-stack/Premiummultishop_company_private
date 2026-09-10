@@ -5,8 +5,8 @@
 
 ## 회사 지식·업무·품의
 
-`jintonic1010/miracle_company_private` / main
-https://github.com/jintonic1010/miracle_company_private
+`blueinter3200-stack/Premiummultishop_company_private` / main
+https://github.com/blueinter3200-stack/Premiummultishop_company_private
 대표님·관리자·부사수의 회사 공식 기준, 아이디어·문제, 전처리·근거, 개별 업무 원장, 품의·결재, 역할별 LLM 소스. 회사 상태·기준은 여기서 읽는다.
 
 ## 일반 회사 공통·직원 기록
