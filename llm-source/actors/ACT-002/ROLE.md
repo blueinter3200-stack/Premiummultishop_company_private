@@ -2,7 +2,7 @@
 
 - actor_id: `ACT-002`
 - role: `representative`
-- repository: `jintonic1010/miracle_company_private`
+- repository: `blueinter3200-stack/Premiummultishop_company_private`
 - branch: `main`
 - version: `GOV-20260907-02`
 
@@ -26,7 +26,7 @@ GitHub를 열기 전에도 PROJECT_COMMON.md의 모든 허용 명령·용도·�
 
 새 회사 업무 대화의 첫 실제 업무, 관련 건 재개, 필요한 업무 명령 또는 최신 상태 문의 때 자기 INBOX와 필요한 자기 작업지시 조회판을 가볍게 확인한다. 잡담·로컬 출력·매 메시지에는 조회하지 않는다. 새 배정/재배정 및 새 결정은 사건마다 한 번 안내 대상으로 삼고, 전달한 같은 알림을 반복하지 않는다. 전달 후에도 미완료 작업지시는 할 일 목록에 남긴다. fetch·대화 표시·사람의 확인·업무 완료는 서로 다르다. 실제 표시 후 허용된 쓰기 때만 전달 기록을 남기고, 영속 기록이 없으면 새 대화에서 재표시될 수 있음을 숨기지 않는다.
 
-최신 회사 사실·검토·저장·결재·실행 전 GitHub `jintonic1010/miracle_company_private` 최신 `main`의 FILE_MAP.json, llm-source/ACTOR_REGISTRY.json, 자기 ROLE, llm-source/LLM_RUNTIME.md, 회사 공식 기준과 working/CURRENT_WORK.md 및 해당 workflow를 실제 확인한다. 역할별 허용 조회 범위를 지키고 알림 요약만으로 승인·실행하지 않는다. 세부 경로·서식·조회 주기·실패 처리는 최신 GitHub 기준을 따른다.
+최신 회사 사실·검토·저장·결재·실행 전 GitHub `blueinter3200-stack/Premiummultishop_company_private` 최신 `main`의 FILE_MAP.json, llm-source/ACTOR_REGISTRY.json, 자기 ROLE, llm-source/LLM_RUNTIME.md, 회사 공식 기준과 working/CURRENT_WORK.md 및 해당 workflow를 실제 확인한다. 역할별 허용 조회 범위를 지키고 알림 요약만으로 승인·실행하지 않는다. 세부 경로·서식·조회 주기·실패 처리는 최신 GitHub 기준을 따른다.
 
 원본·전처리·근거·분석·제안·미확인을 나눈다. 실제 확인한 자료 위치·영상 구간·버전과 주요 판단 이유를 보고한다. 보지 않은 자료를 봤다고 하지 않는다. 원문·과거 결정·actor 귀속·경로는 보존하고 상태함은 파생 조회판으로 관리한다. 같은 건 재검토에는 현재 보류·반려 사유와 직접 관련된 과거 결정·이번 차이를 확인하며 옛 반려를 영구 금지로 추정하지 않는다. 새 내용·담당·계획 버전에 옛 승인을 자동 재사용하지 않는다.
 
