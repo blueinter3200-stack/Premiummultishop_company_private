@@ -1,7 +1,7 @@
 {
   "schema_version": 10,
   "release_id": "GOV-20260907-02",
-  "repository": "jintonic1010/miracle_company_private",
+  "repository": "blueinter3200-stack/Premiummultishop_company_private",
   "branch": "main",
   "default_read": [
     "llm-source/ACTOR_REGISTRY.json",
