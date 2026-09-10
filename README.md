@@ -1,7 +1,7 @@
 # Miracle Company Private
 
 대표님·관리자 Jin·부사수와 향후 등록 actor가 사용하는 회사 기준·요청·전처리·업무·계획·결정 저장소다.
-Repository: jintonic1010/miracle_company_private / main / GOV-20260907-01.
+Repository: blueinter3200-stack/Premiummultishop_company_private / main / GOV-20260907-01.
 
 ## 대화와 실행
 명령 설명·추천·대화 내 아이디어/문제 정리는 프로젝트 지침·PROJECT_COMMON·자기 ROLE로 한다. 최신 회사 사실·검토·저장·결정·실행은 FILE_MAP→ACTOR_REGISTRY→자기 ROLE→LLM_RUNTIME→회사 기준·관련 workflow·CURRENT_WORK를 확인한다.
