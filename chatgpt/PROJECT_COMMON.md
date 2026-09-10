@@ -1,6 +1,6 @@
 # 프로젝트 공통 소스 — GOV-20260907-02
 
-정본: `jintonic1010/miracle_company_private` 최신 `main`. 이 파일은 로컬 안내·추천을 위한 고정 소스이며 회사 현황 복사본이 아니다.
+정본: `blueinter3200-stack/Premiummultishop_company_private` 최신 `main`. 이 파일은 로컬 안내·추천을 위한 고정 소스이며 회사 현황 복사본이 아니다.
 
 ## 로컬에서 알아야 할 기능
 
