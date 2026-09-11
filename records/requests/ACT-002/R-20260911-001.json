@@ -1,0 +1,120 @@
+{
+  "schema_version": 4,
+  "object_type": "request",
+  "request_id": "R-20260911-001",
+  "revision": 1,
+  "content_revision": 1,
+  "requester_actor_id": "ACT-002",
+  "recorded_by_actor_id": "ACT-002",
+  "record_owner_actor_id": "ACT-002",
+  "submitted_by_actor_id": "ACT-002",
+  "requester_role_at_capture": "representative",
+  "source_type": "direct_conversation",
+  "source_verification": "direct_user_message",
+  "source_locator": "ChatGPT 대표님 프로젝트 현재 대화 / 2026-09-11 사용자 메시지 및 후속 '/업무검토 후 /업무요청' / message_id 미제공",
+  "original_text": "클로드 챗지피 업무 기록에 내용 남겨 놓으세요. 인수인계 내용 정리하는 내용도 모두 기록에 남겨 두면 다음 사람이 이어 갈수 있도록 부탁합니다.",
+  "source_created_at": null,
+  "captured_at": "2026-09-11T15:49:00+09:00",
+  "classification": "work",
+  "scope": [
+    "Claude·ChatGPT에서 다루는 회사 업무가 다음 담당자에게 이어질 수 있도록 요청 원문, 관련 R/W/SUB/D/ASG ID, 현재 단계, 확인 근거, 미확인 사항, 다음 행동을 한눈에 인수인계할 수 있는 기록 형식을 정리한다.",
+    "진행·변경·완료 시 결과만 남기지 않고 현재 담당/배정 여부, 승인 범위, 실제 수행 근거, 산출물 위치와 남은 후속을 연결한다.",
+    "기존 GitHub 회사 정본을 대체하지 않고 대화 기록·인수인계 요약이 정본의 ID·경로·버전을 참조하도록 한다.",
+    "담당 교체 또는 새 사람이 이어받을 때 최근 상태·결정·미완료·차단 요인을 재구성할 수 있는 최소 인수인계 체크리스트를 만든다.",
+    "Claude·ChatGPT 각각의 실제 지속 기록·연결 가능 범위를 확인해 수동 기록과 자동화 가능 영역을 구분한다."
+  ],
+  "conditions": [
+    "현재 회사의 원문·ID·결정·배정·계획 분리 원칙과 GitHub 정본 구조를 유지하며, 이번 요청 자체로 회사 공통 정책을 확정하지 않는다.",
+    "단순 질문·탐색·읽기 전용 명령·저장 금지 발언까지 모두 자동 기록하는 방식으로 확대하지 않는다.",
+    "개인정보·비밀번호·토큰·계정 인증정보·민감 자료 원문은 GitHub 업무기록에 저장하지 않는다.",
+    "확인한 사실·미확인·제안·다음 행동을 구분하고 없는 담당·마감·승인·성과를 만들지 않는다.",
+    "최지은씨 언급은 담당 확정이나 작업 시작 승인으로 보지 않으며 실제 담당은 관리자 결정 후 별도로 정한다."
+  ],
+  "request_status": "captured",
+  "submission_status": "submitted",
+  "primary_scope": "work_adoption",
+  "requested_scopes": ["work_adoption"],
+  "review_snapshot": {
+    "result": "PASS",
+    "classification": "work",
+    "subject_hash": "a1920a57a34cdc67223fbf27b2cbab761840131c5990d890d4becef6a0e70d7d",
+    "basis_commit": "b48ccaf74332dcaea3c7387b349511b19313ab8f",
+    "reviewed_at": "2026-09-11",
+    "reviewed_by_actor_id": "ACT-002",
+    "evidence_refs": [
+      "FILE_MAP.json",
+      "llm-source/ACTOR_REGISTRY.json",
+      "llm-source/actors/ACT-002/ROLE.md",
+      "llm-source/LLM_RUNTIME.md",
+      "llm-source/TRIGGER_REGISTRY.json",
+      "llm-source/COMPANY_OS.md",
+      "llm-source/PRODUCT_REQUIREMENTS.md",
+      "llm-source/GOVERNANCE_RELEASE_GOV-20260907-02.md",
+      "llm-source/PROJECT_REPOSITORIES.md",
+      "llm-source/WORK_GOVERNANCE.md",
+      "llm-source/WORK_LIFECYCLE.md",
+      "llm-source/workflows/WORK_WORKFLOW.md",
+      "llm-source/workflows/REQUEST_CAPTURE.md",
+      "llm-source/workflows/COMMON_IO.md",
+      "working/CURRENT_WORK.md",
+      "records/PENDING_INDEX.md",
+      "records/REQUEST_INDEX.md",
+      "records/DECISION_INDEX.json",
+      "records/decision-views/ACT-002.json",
+      "records/inbox/ACT-002.json",
+      "records/assignment-views/ACT-002.json",
+      "working/WORK_STATUS_MAP.json",
+      "GitHub main code/request review: direct duplicate handoff-continuity request not identified",
+      "current conversation 2026-09-11: 업무 기록·인수인계 연속성 요구 및 '/업무검토 후 /업무요청'",
+      "latest main recheck after concurrent update: b48ccaf74332dcaea3c7387b349511b19313ab8f"
+    ],
+    "notes": "기존 회사 거버넌스가 원문·ID·결정·배정·계획 이력 보존 원칙을 이미 갖고 있으므로 이를 대체하는 새 정책이 아니라, 다음 담당자가 이어받을 수 있는 기록·인수인계 적용 체계를 만드는 업무 후보로 PASS 검토했다. 실제 회사 공통 기준 변경, 도구 자동동기화 구현, 담당 배정은 이번 업무요청만으로 실행하지 않는다. 최종 제출 직전 main에 별도 R-20260909-002 r3 변경이 반영되어 최신 main을 재확인했고, 이 요청과 직접 중복·충돌하지 않아 PASS를 유지한다."
+  },
+  "related_work_ids": [],
+  "related_idea_ids": [],
+  "related_problem_ids": [],
+  "related_decision_ids": [],
+  "submission_refs": [],
+  "supersedes": null,
+  "unknowns": [
+    "Claude·ChatGPT 각각의 실제 영속 업무기록 위치와 회사 GitHub 정본 연결 방식",
+    "두 도구 사이 자동 또는 반자동 동기화 기능이 현재 실제 설치·운영 중인지 여부",
+    "향후 인수인계 기록 유지 담당과 점검 시점·주기",
+    "담당 변경을 감지하거나 인수인계 요약을 생성하는 자동화 범위"
+  ],
+  "request_change_refs": [],
+  "current_requirements": {
+    "title": "업무 기록·인수인계 연속성 정리 체계 구축",
+    "objective": "Claude·ChatGPT에서 다루는 회사 업무가 담당자 변경 뒤에도 이어질 수 있도록, 기존 회사 정본의 요청·업무·결정·배정·계획·근거를 연결한 인수인계용 기록 체계를 정리하고 실제 적용 가능한 최소 형식과 점검 절차를 만든다.",
+    "work_packages": [
+      "요청 원문, 관련 R/W/SUB/D/ASG ID, 현재 단계, 확인 근거, 미확인 사항, 다음 행동을 한눈에 이어받을 수 있는 인수인계 기록 항목을 정의한다.",
+      "진행·변경·완료 시 결과만 남기지 않고 담당/배정 여부, 승인 범위, 실제 수행 근거, 산출물 위치와 남은 후속을 연결하는 방법을 정리한다.",
+      "대화 기록이나 인수인계 요약이 GitHub 회사 정본을 대체하지 않고 정본의 ID·경로·버전을 참조하도록 연결 원칙을 정리한다.",
+      "담당 교체 또는 새 담당자 인계 시 최근 상태·결정·미완료·차단 요인을 재구성할 수 있는 최소 인수인계 체크리스트를 만든다.",
+      "Claude·ChatGPT 각각에서 실제로 지속 가능한 기록·연결 방식과 수동/자동화 경계를 확인해 검증 가능한 운영안을 제시한다."
+    ],
+    "excluded_from_current_request": [
+      "관리자 승인 없는 회사 공통 정책·권한 규칙 변경",
+      "확인되지 않은 Claude·ChatGPT 간 자동 동기화 또는 영속 저장 기능을 이미 구현됐다고 간주하는 것",
+      "개인정보·비밀번호·토큰·계정 인증정보·민감 법률자료 원문을 GitHub 인수인계 기록에 복사하는 것",
+      "최지은씨 또는 다른 사람을 관리자 결정 없이 담당자로 확정하거나 작업을 시작시키는 것"
+    ],
+    "completion_criteria": [
+      "다음 담당자가 확인해야 할 최소 인수인계 항목과 작성 예시가 정의된다.",
+      "각 항목이 기존 R/W/SUB/D/ASG 및 근거 경로와 어떻게 연결되는지 정리된다.",
+      "확인됨·미확인·제안·다음 행동이 구분되는 기록 원칙이 포함된다.",
+      "Claude·ChatGPT의 실제 기록/연결 가능 범위와 미지원·수동 처리 영역이 구분된다.",
+      "기존 회사 정본과 충돌하거나 중복 원장을 만들지 않는 적용안이 관리자 검토용으로 준비된다."
+    ]
+  },
+  "public_summary": {
+    "title": "업무 기록·인수인계 연속성 정리 체계 구축",
+    "latest_update": "대표님이 Claude·ChatGPT 업무 기록을 인수인계 가능한 형식으로 남기는 체계 구축을 요청; 관리자 업무채택 결정 대기",
+    "next_action": "관리자 업무결정 후 담당·계획 범위 확정",
+    "blockers": ["현재 관리자 업무채택 결정 전", "Claude·ChatGPT 실제 영속 저장/연동 방식과 담당·유지 절차 미확인"]
+  },
+  "source_event_id": "chatgpt-representative-20260911-handoff-recording-request-001",
+  "source_fingerprint": "350f13389fe231b44780aeb37e49e982bb55fb9b5d6359850971a43f7eb40d0b",
+  "original_source_path": null,
+  "original_source_sha256": null
+}

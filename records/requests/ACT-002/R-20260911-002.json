@@ -1,0 +1,123 @@
+{
+  "schema_version": 4,
+  "object_type": "request",
+  "request_id": "R-20260911-002",
+  "revision": 1,
+  "content_revision": 1,
+  "requester_actor_id": "ACT-002",
+  "recorded_by_actor_id": "ACT-002",
+  "record_owner_actor_id": "ACT-002",
+  "submitted_by_actor_id": "ACT-002",
+  "requester_role_at_capture": "representative",
+  "source_type": "direct_conversation",
+  "source_verification": "direct_user_message",
+  "source_locator": "ChatGPT 대표님 프로젝트 현재 대화 / 2026-09-11 사용자 메시지 및 후속 '/업무검토 후 /업무요청' / message_id 미제공",
+  "original_text": "인스타 프리미엄 오피셜 계정. 내용증명 발송 여부·변호사 진행 상황 확인 (8월 12일 초안 이후 기록 없음)",
+  "source_created_at": null,
+  "captured_at": "2026-09-11T15:49:00+09:00",
+  "classification": "work",
+  "scope": [
+    "2026년 8월 12일 내용증명 초안의 실제 파일·버전·보관 위치를 확인한다.",
+    "내용증명이 실제 발송되었는지 발송일·수신처·발송수단·접수/배달 증빙 등 실제 근거로 확인한다.",
+    "변호사 선임·의뢰·검토·발송 지시·후속 대응 등 실제 진행 단계와 마지막 확인일을 회사 자료에서 확인한다.",
+    "인스타그램 프리미엄 오피셜 계정의 정확한 계정 식별자와 소유·관리 상태 중 법률 진행 확인에 필요한 범위를 확인한다.",
+    "확인 결과를 완료·진행·미확인·다음 후속으로 나누어 인수인계 가능한 상태 요약으로 정리한다."
+  ],
+  "conditions": [
+    "대표님이 말한 '2026년 8월 12일 초안 이후 기록 없음'은 조사 출발점이며 실제 저장소·문서·연락 근거를 확인하기 전 발송 여부나 변호사 진행 여부를 단정하지 않는다.",
+    "이번 업무요청 자체로 내용증명 발송·변호사 지시·계약·비용 지출·인스타그램 계정 변경을 실행하지 않는다.",
+    "법률 판단이나 다음 법적 조치는 실제 변호사 의견·문서와 관리자 승인 범위를 확인한 뒤 별도로 결정한다.",
+    "민감 법률자료·개인정보·계정 비밀번호·토큰 등 인증정보는 GitHub에 저장하지 않고 필요한 경우 보안 위치를 참조한다.",
+    "최지은씨 언급은 담당 확정이나 실행 승인으로 보지 않으며 실제 담당은 관리자 결정 후 별도로 정한다."
+  ],
+  "request_status": "captured",
+  "submission_status": "submitted",
+  "primary_scope": "work_adoption",
+  "requested_scopes": ["work_adoption"],
+  "review_snapshot": {
+    "result": "PASS",
+    "classification": "work",
+    "subject_hash": "d8cfe37bbb52470849683e614c150f94c9da5d840f79213b5f3d801f4999712f",
+    "basis_commit": "b48ccaf74332dcaea3c7387b349511b19313ab8f",
+    "reviewed_at": "2026-09-11",
+    "reviewed_by_actor_id": "ACT-002",
+    "evidence_refs": [
+      "FILE_MAP.json",
+      "llm-source/ACTOR_REGISTRY.json",
+      "llm-source/actors/ACT-002/ROLE.md",
+      "llm-source/LLM_RUNTIME.md",
+      "llm-source/TRIGGER_REGISTRY.json",
+      "llm-source/COMPANY_OS.md",
+      "llm-source/PRODUCT_REQUIREMENTS.md",
+      "llm-source/GOVERNANCE_RELEASE_GOV-20260907-02.md",
+      "llm-source/PROJECT_REPOSITORIES.md",
+      "llm-source/WORK_GOVERNANCE.md",
+      "llm-source/WORK_LIFECYCLE.md",
+      "llm-source/workflows/WORK_WORKFLOW.md",
+      "llm-source/workflows/REQUEST_CAPTURE.md",
+      "llm-source/workflows/COMMON_IO.md",
+      "working/CURRENT_WORK.md",
+      "records/PENDING_INDEX.md",
+      "records/REQUEST_INDEX.md",
+      "records/DECISION_INDEX.json",
+      "records/decision-views/ACT-002.json",
+      "records/inbox/ACT-002.json",
+      "records/assignment-views/ACT-002.json",
+      "working/WORK_STATUS_MAP.json",
+      "GitHub main code search: '내용증명', '변호사', '오피셜 계정', '8월 12일' direct match not returned",
+      "records/REQUEST_INDEX.md: same-purpose active request not identified",
+      "current conversation 2026-09-11: 인스타 프리미엄 오피셜 계정 내용증명·변호사 진행 확인 요구 및 '/업무검토 후 /업무요청'",
+      "latest main recheck after concurrent update: b48ccaf74332dcaea3c7387b349511b19313ab8f"
+    ],
+    "notes": "현재 허용된 요청·업무 인덱스와 직접 키워드 검색에서 같은 목적의 활성 요청을 확인하지 못했고, 대표님이 구체적으로 확인해야 할 대상(8월 12일 초안 이후 발송 여부·변호사 진행)을 지정했으므로 사실 확인 업무 후보로 PASS 검토했다. 발송·법률지시·계정변경·지출은 이번 요청 범위가 아니다. 최종 제출 직전 main에 별도 R-20260909-002 r3 변경이 반영되어 최신 main을 재확인했고, 이 법률 진행 확인 요청과 직접 중복·충돌하지 않아 PASS를 유지한다."
+  },
+  "related_work_ids": [],
+  "related_idea_ids": [],
+  "related_problem_ids": [],
+  "related_decision_ids": [],
+  "submission_refs": [],
+  "supersedes": null,
+  "unknowns": [
+    "인스타그램 프리미엄 오피셜 계정의 정확한 계정명/식별자와 현재 소유·관리 상태",
+    "2026년 8월 12일 내용증명 초안의 실제 파일 위치·버전",
+    "내용증명의 실제 발송 여부와 발송·배달 증빙",
+    "변호사 선임/의뢰 여부, 담당 변호사, 지시 내용, 최근 진행 단계와 마지막 확인일",
+    "현재 필요한 법률 후속과 기한"
+  ],
+  "request_change_refs": [],
+  "current_requirements": {
+    "title": "인스타그램 프리미엄 오피셜 계정 내용증명·변호사 진행상황 확인",
+    "objective": "인스타그램 프리미엄 오피셜 계정 관련 2026년 8월 12일 내용증명 초안 이후 실제 발송 여부와 변호사 진행상황을 근거자료로 확인하고, 확인된 상태·미확인 공백·다음 후속을 인수인계 가능한 형태로 정리한다.",
+    "work_packages": [
+      "2026년 8월 12일 내용증명 초안의 실제 파일·버전·보관 위치를 확인한다.",
+      "내용증명이 실제 발송되었는지 발송일·수신처·발송수단·접수/배달 증빙 등 확보 가능한 근거로 확인한다.",
+      "변호사 선임·의뢰·검토·발송 지시·후속 대응 등 실제 진행 단계와 마지막 확인일을 회사 자료에서 확인한다.",
+      "인스타그램 프리미엄 오피셜 계정의 정확한 계정 식별자·소유/관리 상태 중 이번 법률 건에 필요한 범위를 확인한다.",
+      "확인 결과를 완료·진행·미확인·다음 후속으로 나눠 인수인계용 상태 요약으로 만든다."
+    ],
+    "excluded_from_current_request": [
+      "이번 요청만으로 내용증명을 새로 발송하거나 재발송하는 것",
+      "변호사에게 신규 지시·위임·계약을 하거나 비용을 지출하는 것",
+      "인스타그램 계정의 소유권·관리자·비밀번호·설정을 변경하는 것",
+      "법률 판단이나 소송 전략을 실제 변호사·근거자료 확인 없이 확정하는 것",
+      "민감 법률자료·개인정보·계정 인증정보 원문을 GitHub에 불필요하게 복사하는 것"
+    ],
+    "completion_criteria": [
+      "2026년 8월 12일 초안의 실제 위치·버전 또는 미확보 상태가 구분된다.",
+      "내용증명 발송 여부가 발송 증빙과 함께 확인되거나 증빙 미확보로 명확히 표시된다.",
+      "변호사 진행상황과 마지막 확인 가능한 조치·일자가 실제 근거에 연결된다.",
+      "인스타그램 프리미엄 오피셜 계정 식별과 법률 건 관련 상태가 필요한 범위에서 확인된다.",
+      "미확인 공백과 다음 확인 대상이 인수인계 가능한 상태 요약으로 정리된다."
+    ]
+  },
+  "public_summary": {
+    "title": "인스타그램 프리미엄 오피셜 계정 내용증명·변호사 진행상황 확인",
+    "latest_update": "대표님이 2026-08-12 초안 이후 내용증명 발송 여부와 변호사 진행상황 확인을 요청; 관리자 업무채택 결정 대기",
+    "next_action": "관리자 업무결정 후 담당·계획 범위 확정",
+    "blockers": ["현재 관리자 업무채택 결정 전", "2026-08-12 초안·발송 증빙·변호사 진행 근거의 실제 위치와 최신 상태 미확인"]
+  },
+  "source_event_id": "chatgpt-representative-20260911-instagram-legal-status-request-001",
+  "source_fingerprint": "56fefc37f78244629c80a3faec048fa06b3b3b8941e517468b245a64e2f74af2",
+  "original_source_path": null,
+  "original_source_sha256": null
+}

@@ -4,20 +4,58 @@
   "audience": "all_registered_company_roles",
   "default_scope": "company_all",
   "freshness": "recorded_snapshot_not_live_external_verification",
-  "records_latest_at": "2026-09-11T15:48:00+09:00",
-  "projection_basis": "current main preserving existing recorded work plus R-20260909-001 pending Meta security/business portfolio/pixel request, R-20260909-002 r3 submitted low-cost/high-turnover business-model validation with purchase-conversion diagnostic priority and Suwon/Daegu/Gwangju Kakao customer-asset integration, SUB-R-20260907-002-001 r1 and SUB-R-20260908-001-001 r1 plan submissions; recorded snapshot only",
+  "records_latest_at": "2026-09-11T15:49:00+09:00",
+  "projection_basis": "current main preserving existing recorded work plus R-20260909-001 pending Meta security/business portfolio/pixel request, R-20260909-002 r3 submitted low-cost/high-turnover business-model validation with purchase-conversion diagnostic priority and Suwon/Daegu/Gwangju Kakao customer-asset integration, R-20260911-001 handoff-record continuity request, R-20260911-002 Instagram official-account legal-status verification request, and existing plan submissions; recorded snapshot only",
   "counts": {
-    "total": 15,
+    "total": 17,
     "by_stage": {
       "planning": 2,
       "completed": 4,
       "verification_pending": 1,
       "follow_up_install": 1,
       "legacy_recheck": 5,
-      "approval_pending": 2
+      "approval_pending": 4
     }
   },
   "items": [
+    {
+      "entry_id": "R-20260911-002",
+      "request_id": "R-20260911-002",
+      "title": "인스타그램 프리미엄 오피셜 계정 내용증명·변호사 진행상황 확인",
+      "requester_actor_id": "ACT-002",
+      "current_stage": "approval_pending",
+      "request_decision_status": "pending",
+      "assignment_status": "unassigned",
+      "latest_update": "대표님이 2026-08-12 초안 이후 내용증명 발송 여부와 변호사 진행상황 확인을 요청; 관리자 업무채택 결정 대기",
+      "next_action": "관리자 업무결정 후 담당·계획 범위 확정",
+      "blockers": [
+        "현재 관리자 업무채택 결정 전",
+        "2026-08-12 초안·발송 증빙·변호사 진행 근거의 실제 위치와 최신 상태 미확인"
+      ],
+      "related_repositories": [],
+      "implementation_snapshots": [],
+      "updated_at": "2026-09-11T15:49:00+09:00",
+      "source_refs": ["records/requests/ACT-002/R-20260911-002.json"]
+    },
+    {
+      "entry_id": "R-20260911-001",
+      "request_id": "R-20260911-001",
+      "title": "업무 기록·인수인계 연속성 정리 체계 구축",
+      "requester_actor_id": "ACT-002",
+      "current_stage": "approval_pending",
+      "request_decision_status": "pending",
+      "assignment_status": "unassigned",
+      "latest_update": "대표님이 Claude·ChatGPT 업무 기록을 인수인계 가능한 형식으로 남기는 체계 구축을 요청; 관리자 업무채택 결정 대기",
+      "next_action": "관리자 업무결정 후 담당·계획 범위 확정",
+      "blockers": [
+        "현재 관리자 업무채택 결정 전",
+        "Claude·ChatGPT 실제 영속 저장/연동 방식과 담당·유지 절차 미확인"
+      ],
+      "related_repositories": [],
+      "implementation_snapshots": [],
+      "updated_at": "2026-09-11T15:49:00+09:00",
+      "source_refs": ["records/requests/ACT-002/R-20260911-001.json"]
+    },
     {
       "entry_id": "R-20260909-002",
       "request_id": "R-20260909-002",
@@ -38,9 +76,7 @@
       "related_repositories": [],
       "implementation_snapshots": [],
       "updated_at": "2026-09-11T15:48:00+09:00",
-      "source_refs": [
-        "records/requests/ACT-002/R-20260909-002.json"
-      ]
+      "source_refs": ["records/requests/ACT-002/R-20260909-002.json"]
     },
     {
       "entry_id": "R-20260909-001",
@@ -59,9 +95,7 @@
       "related_repositories": [],
       "implementation_snapshots": [],
       "updated_at": "2026-09-09T09:46:27+09:00",
-      "source_refs": [
-        "records/requests/ACT-003/R-20260909-001.json"
-      ]
+      "source_refs": ["records/requests/ACT-003/R-20260909-001.json"]
     },
     {
       "entry_id": "W-20260908-001",
@@ -278,6 +312,8 @@
     "records/requests/ACT-001/R-20260908-001.json",
     "records/requests/ACT-003/R-20260909-001.json",
     "records/requests/ACT-002/R-20260909-002.json",
+    "records/requests/ACT-002/R-20260911-001.json",
+    "records/requests/ACT-002/R-20260911-002.json",
     "records/submissions/SUB-R-20260907-002-001-r1.json",
     "records/submissions/SUB-R-20260908-001-001-r1.json",
     "work/assignments/ASG-20260908-001.json",
@@ -287,5 +323,5 @@
     "work/items/W-20260907-003.json",
     "work/items/W-20260908-001.json"
   ],
-  "map_checksum": "14e949da38466859073e56f5106ce14c27d4a09478c0b9367c7e82457398a522"
+  "map_checksum": "6e1b1b99a85b453b3b6eb999d1a4f7bb240b55146a538ef740c17dff2bf9c444"
 }

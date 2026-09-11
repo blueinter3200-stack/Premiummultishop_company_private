@@ -99,6 +99,34 @@
       "decision_id": null,
       "reason": null,
       "decision_ref": null
+    },
+    {
+      "target_type": "request",
+      "target_id": "R-20260911-001",
+      "target_revision": 1,
+      "path": "records/requests/ACT-002/R-20260911-001.json",
+      "scope_key": "work_adoption",
+      "author_actor_id": "ACT-002",
+      "requester_actor_id": "ACT-002",
+      "title": "업무 기록·인수인계 연속성 정리 체계 구축",
+      "status": "pending",
+      "decision_id": null,
+      "reason": null,
+      "decision_ref": null
+    },
+    {
+      "target_type": "request",
+      "target_id": "R-20260911-002",
+      "target_revision": 1,
+      "path": "records/requests/ACT-002/R-20260911-002.json",
+      "scope_key": "work_adoption",
+      "author_actor_id": "ACT-002",
+      "requester_actor_id": "ACT-002",
+      "title": "인스타그램 프리미엄 오피셜 계정 내용증명·변호사 진행상황 확인",
+      "status": "pending",
+      "decision_id": null,
+      "reason": null,
+      "decision_ref": null
     }
   ],
   "decision_events": [
