@@ -1,6 +1,6 @@
 # 관리자 결정·확인 필요
 
-- Updated: 2026-09-09
+- Updated: 2026-09-11
 - 원장: work/items/*.json의 pending 품의 및 unknowns
 - 승인 대기 품의와 기존 업무의 미정 사항을 구분한다.
 
@@ -36,4 +36,4 @@
 
 <!-- GOV05 DECISION VIEW -->
 - R-20260909-001 r1 / pending / records/requests/ACT-003/R-20260909-001.json
-- R-20260909-002 r2 / pending / records/requests/ACT-002/R-20260909-002.json
+- R-20260909-002 r3 / pending / records/requests/ACT-002/R-20260909-002.json

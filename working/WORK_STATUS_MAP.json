@@ -4,8 +4,8 @@
   "audience": "all_registered_company_roles",
   "default_scope": "company_all",
   "freshness": "recorded_snapshot_not_live_external_verification",
-  "records_latest_at": "2026-09-09T16:05:00+09:00",
-  "projection_basis": "current main preserving 2026-09-08 corrections plus R-20260909-001 submitted Meta security/business portfolio/pixel request, R-20260909-002 r2 submitted low-cost/high-turnover business-model validation with Suwon/Daegu/Gwangju Kakao customer-asset integration, SUB-R-20260907-002-001 r1 submitted for W-20260907-002, and SUB-R-20260908-001-001 r1 submitted for W-20260908-001; recorded snapshot only",
+  "records_latest_at": "2026-09-11T15:48:00+09:00",
+  "projection_basis": "current main preserving existing recorded work plus R-20260909-001 pending Meta security/business portfolio/pixel request, R-20260909-002 r3 submitted low-cost/high-turnover business-model validation with purchase-conversion diagnostic priority and Suwon/Daegu/Gwangju Kakao customer-asset integration, SUB-R-20260907-002-001 r1 and SUB-R-20260908-001-001 r1 plan submissions; recorded snapshot only",
   "counts": {
     "total": 15,
     "by_stage": {
@@ -26,16 +26,18 @@
       "current_stage": "approval_pending",
       "request_decision_status": "pending",
       "assignment_status": "unassigned",
-      "latest_update": "대표님이 수원·대구·광주 카카오 고객자산의 본사 통합관리·고객이동 혜택 요구를 r2에 추가 제출; 관리자 업무채택 결정 대기",
+      "latest_update": "대표님이 자사몰 구매전환 장애를 결제→구매측정→광고유입→광고/상세 일치→상세 신뢰→주문과정→가격·재고 순으로 진단하는 우선 범위를 r3에 추가 제출; Cafe24 결제완료·PG 기록을 1차 기준으로 삼고 Meta/GA4는 대조; 관리자 업무채택 결정 대기",
       "next_action": "관리자 업무결정 후 담당·계획 범위 확정",
       "blockers": [
         "현재 관리자 업무채택 결정 전",
+        "Cafe24 실제 결제완료·PG 승인/실패·단계별 전환 데이터 미확인",
+        "Meta 측정 무결성·외부 자산 혼입 의심 및 보안/신규 픽셀 요청의 관리자 결정 미확인",
         "매장별·SKU별 손익·가용현금 등 핵심 내부 데이터 미확인",
         "수원·대구·광주 카카오 채널의 소유·친구수·상담이력·수신동의·이관 가능 범위 미확인"
       ],
       "related_repositories": [],
       "implementation_snapshots": [],
-      "updated_at": "2026-09-09T11:54:54+09:00",
+      "updated_at": "2026-09-11T15:48:00+09:00",
       "source_refs": [
         "records/requests/ACT-002/R-20260909-002.json"
       ]
@@ -285,5 +287,5 @@
     "work/items/W-20260907-003.json",
     "work/items/W-20260908-001.json"
   ],
-  "map_checksum": "88b5d7d5bc7e7b1a25fd577b86e645daeeacdeabdd61b554d9f58e4f585da0ef"
+  "map_checksum": "14e949da38466859073e56f5106ce14c27d4a09478c0b9367c7e82457398a522"
 }
