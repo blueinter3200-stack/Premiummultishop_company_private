@@ -4,20 +4,42 @@
   "audience": "all_registered_company_roles",
   "default_scope": "company_all",
   "freshness": "recorded_snapshot_not_live_external_verification",
-  "records_latest_at": "2026-09-15T11:39:00+09:00",
-  "projection_basis": "current main preserving existing recorded work plus R-20260909-001 pending Meta security/business portfolio/pixel request, R-20260909-002 r3 submitted low-cost/high-turnover business-model validation with purchase-conversion diagnostic priority and Suwon/Daegu/Gwangju Kakao customer-asset integration, R-20260911-001 handoff-record continuity request, R-20260911-002 Instagram official-account legal-status verification request, and existing plan submissions; recorded snapshot only, plus R-20260915-001 pending urgent inventory cash-recovery request covering consignment returns, owned-stock physical verification, Sabanet/Bizem reconciliation and sell-through linkage, plus R-20260915-002 pending Lee Han-in store/inventory operations participant onboarding and ChatGPT workspace request",
+  "records_latest_at": "2026-09-15T17:32:42+09:00",
+  "projection_basis": "current main preserving existing recorded work plus R-20260909-001 pending Meta security/business portfolio/pixel request, R-20260909-002 r3 submitted low-cost/high-turnover business-model validation with purchase-conversion diagnostic priority and Suwon/Daegu/Gwangju Kakao customer-asset integration, R-20260911-001 handoff-record continuity request, R-20260911-002 Instagram official-account legal-status verification request, and existing plan submissions; recorded snapshot only, plus R-20260915-001 pending urgent inventory cash-recovery request covering consignment returns, owned-stock physical verification, Sabanet/Bizem reconciliation and sell-through linkage, plus R-20260915-002 pending Lee Han-in store/inventory operations participant onboarding and ChatGPT workspace request, plus R-20260915-003 pending Sabanet-recommended ERP consultation/comparison and final ERP selection evidence request linked to legacy W-20260827-002",
   "counts": {
-    "total": 19,
+    "total": 20,
     "by_stage": {
       "planning": 2,
       "completed": 4,
       "verification_pending": 1,
       "follow_up_install": 1,
       "legacy_recheck": 5,
-      "approval_pending": 6
+      "approval_pending": 7
     }
   },
   "items": [
+    {
+      "entry_id": "R-20260915-003",
+      "request_id": "R-20260915-003",
+      "title": "사방넷 추천 ERP 상담·비교 검증 및 최종 ERP 선정 근거 마련",
+      "requester_actor_id": "ACT-002",
+      "current_stage": "approval_pending",
+      "request_decision_status": "pending",
+      "assignment_status": "unassigned",
+      "latest_update": "대표님이 사방넷 담당자 통화 결과를 근거로 사방넷 추천 ERP 업체 상담, 기존 ERP 후보 비교, 사방넷 연동·데이터 흐름 검증 및 최종 ERP 선정 근거 마련을 요청; 관리자 결정 대기",
+      "next_action": "관리자 업무결정 후 기존 W-20260827-002에 연결하여 상담·비교 검증 범위와 담당을 확정",
+      "blockers": [
+        "현재 관리자 업무채택 결정 전",
+        "사방넷 추천 ERP 업체명·제품·비용·연동 범위 미확인",
+        "ERPNext·InvenTree 대비 기능·API·데이터 이전/소유권·유지관리 비교 미완료"
+      ],
+      "related_repositories": [],
+      "implementation_snapshots": [],
+      "updated_at": "2026-09-15T17:32:42+09:00",
+      "source_refs": [
+        "records/requests/ACT-002/R-20260915-003.json"
+      ]
+    },
     {
       "entry_id": "R-20260915-002",
       "request_id": "R-20260915-002",
@@ -367,6 +389,7 @@
     "records/requests/ACT-002/R-20260911-002.json",
     "records/requests/ACT-002/R-20260915-001.json",
     "records/requests/ACT-002/R-20260915-002.json",
+    "records/requests/ACT-002/R-20260915-003.json",
     "records/requests/ACT-003/R-20260909-001.json",
     "records/submissions/SUB-R-20260907-002-001-r1.json",
     "records/submissions/SUB-R-20260908-001-001-r1.json",
@@ -377,5 +400,5 @@
     "work/items/W-20260907-003.json",
     "work/items/W-20260908-001.json"
   ],
-  "map_checksum": "a277a8a4b70cc78c88ed32b7669d57ee72df603a5121fb177c3bea9b4f0b2ebd"
+  "map_checksum": "7e5cb2d808916645338156d0ad39cea751fe3aff3d9d9510382023ce522d4df2"
 }

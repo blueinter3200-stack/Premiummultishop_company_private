@@ -1,0 +1,160 @@
+{
+  "schema_version": 4,
+  "object_type": "request",
+  "request_id": "R-20260915-003",
+  "revision": 1,
+  "content_revision": 1,
+  "requester_actor_id": "ACT-002",
+  "recorded_by_actor_id": "ACT-002",
+  "record_owner_actor_id": "ACT-002",
+  "submitted_by_actor_id": "ACT-002",
+  "requester_role_at_capture": "representative",
+  "source_type": "direct_conversation",
+  "source_verification": "direct_user_message_with_followup_submission_command",
+  "source_locator": "ChatGPT 대표님 프로젝트 현재 대화 / 2026-09-15 사방넷 담당자 통화 결과 공유 / 후속 '/업무검토' 및 '/업무요청'",
+  "original_text": "사방넷 담당자 통화 완료\n사방넷은 erp 회사가 아닌 상품 연동하여 송신하는 기능 역활 \n사방넷 연동이 잘 갖춰진 erp 회사와 소개 해준다하여 추후 상담후 erp 연동후 추후 여러 채널 판매시 사방넷 활용.\n\n후속 명령: /업무검토\n후속 명령: /업무요청",
+  "source_created_at": null,
+  "captured_at": "2026-09-15T17:32:42+09:00",
+  "classification": "work",
+  "scope": [
+    "사방넷 담당자가 소개하기로 한 ERP 업체와 상담하여 프리미엄멀티샵의 상품·SKU/옵션·실재고·매장/창고·입출고·주문·반품·원가·고객·물류 등 운영 요구를 수용할 수 있는지 확인한다.",
+    "사방넷과 해당 ERP 사이의 실제 연동 범위를 확인한다. 상품·재고·주문 등 데이터별 송신/수신 방향, 동기화 방식·주기, 오류·재시도, API/Webhook/인증 제공 범위와 지원 판매채널을 구분한다.",
+    "추천 ERP의 구축비·월비용·추가 연동비·커스터마이징·유지보수·데이터 이전/반출·데이터 소유권·벤더 종속 위험 등 실제 계약·운영 조건을 상담 근거로 확인한다.",
+    "현재 공식 후보인 ERPNext와 InvenTree를 포함하여 기능 적합성, 사방넷 연동성, 총비용, 운영 난이도, 확장성, API/자동화 연계, 데이터 통제, 유지관리 관점의 비교표와 판단 근거를 만든다.",
+    "상담·비교 결과를 기존 W-20260827-002 ERP/API 연동의 'ERP 선택·API 범위·공통 데이터 계약' 결정 근거로 연결하고 동일 목적의 새 ERP/API 업무를 중복 생성하지 않는다.",
+    "여러 판매채널 확장 시 사방넷을 채널 연동 계층으로 활용하는 구조가 적합한지 검증하되, ERP를 회사 운영 원장으로 두는 현재 회사 기준을 유지한다.",
+    "비교 결과 제3의 상용 ERP가 더 적합하더라도 이번 요청만으로 ERP-001 공식 기준을 변경하거나 최종 ERP를 확정하지 않고 관리자에게 별도 결정 필요사항으로 제시한다."
+  ],
+  "conditions": [
+    "이번 업무요청 제출은 특정 ERP 업체 선정·계약·비용지출·구축·데이터 이전·사방넷 실제 연동·개발·배포를 승인하지 않는다.",
+    "사방넷 담당자 통화 내용은 대표님이 전달한 1차 근거로 보존하되, 사방넷의 정확한 기능·지원 범위와 소개 ERP의 실제 기능은 상담자료·공식 문서·데모 등으로 별도 확인한다.",
+    "현재 공식 요구사항 ERP-001은 ERPNext 또는 InvenTree 비교 후 확정으로 유지된다. 제3 ERP를 최종 채택하려면 관리자에 의한 별도 공식 기준 변경이 필요하다.",
+    "기존 W-20260827-002는 과거 이관 상태로 최신 실제 개발 진척이 재검증되지 않았으므로 이번 요청에서 구현 완료·진행률을 추정하지 않는다.",
+    "사방넷·비젬 대조를 포함한 R-20260915-001 재고 현금화 요청의 관리자 결정과 실제 재고 업무는 이번 ERP 상담 요청과 구분한다.",
+    "계정 비밀번호·API 키·토큰·고객 개인정보 등 민감정보를 GitHub에 저장하지 않는다.",
+    "담당자·마감·예산·구축비·성과수치는 실제 근거 또는 관리자 결정 전 임의로 만들지 않는다."
+  ],
+  "request_status": "captured",
+  "submission_status": "submitted",
+  "primary_scope": "work_adoption",
+  "requested_scopes": [
+    "work_adoption"
+  ],
+  "review_snapshot": {
+    "result": "PASS",
+    "classification": "work",
+    "subject_hash": "7a96c1082b52ca5b1a74f3668e7fce48107ebd117552a80d317571ce310c2bab",
+    "basis_commit": "21898ebf4cd92d07dbc280e4af7d3690d24b5cc3",
+    "reviewed_at": "2026-09-15T17:32:42+09:00",
+    "reviewed_by_actor_id": "ACT-002",
+    "evidence_refs": [
+      "FILE_MAP.json",
+      "llm-source/ACTOR_REGISTRY.json",
+      "llm-source/actors/ACT-002/ROLE.md",
+      "llm-source/LLM_RUNTIME.md",
+      "llm-source/COMPANY_OS.md",
+      "llm-source/PRODUCT_REQUIREMENTS.md",
+      "llm-source/PROJECT_REPOSITORIES.md",
+      "working/CURRENT_WORK.md",
+      "llm-source/workflows/WORK_WORKFLOW.md",
+      "llm-source/WORK_GOVERNANCE.md",
+      "llm-source/WORK_LIFECYCLE.md",
+      "llm-source/workflows/REQUEST_CAPTURE.md",
+      "llm-source/workflows/COMMON_IO.md",
+      "llm-source/workflows/WORK_STATUS_WORKFLOW.md",
+      "records/REQUEST_INDEX.md",
+      "records/decision-views/ACT-002.json",
+      "records/inbox/ACT-002.json",
+      "work/items/W-20260827-002.json",
+      "records/requests/ACT-002/R-20260915-001.json",
+      "current conversation 2026-09-15: Sabanet call result + /업무검토 + /업무요청"
+    ],
+    "notes": "회사 공식 기준에서 ERP는 상품·SKU·재고·주문·판매·고객·구매·물류 운영 원장이고 ERP-001은 ERPNext 또는 InvenTree 비교 후 확정 상태다. 기존 W-20260827-002의 다음 행동도 ERP 선택·채널별 API 범위·공통 데이터 계약 확인으로 남아 있어 이번 사방넷 통화 결과는 새 ERP 개발 업무가 아니라 기존 ERP/API 연동 업무의 후보 검증·의사결정 근거로 연결하는 것이 타당하다. R-20260915-001도 ERP를 운영 원장으로 유지하고 사방넷·비젬을 재고 대조 대상으로 두고 있어 충돌하지 않는다. 따라서 상담·비교 검증 범위는 PASS하되 특정 상용 ERP 최종 채택과 ERP-001 변경은 이번 요청 범위에서 제외한다."
+  },
+  "related_work_ids": [
+    "W-20260827-002"
+  ],
+  "related_idea_ids": [],
+  "related_problem_ids": [],
+  "related_decision_ids": [],
+  "submission_refs": [],
+  "supersedes": null,
+  "unknowns": [
+    "사방넷이 소개할 ERP 업체명·제품명과 상담 일정",
+    "추천 ERP와 사방넷의 실제 상품·재고·주문 데이터 연동 범위 및 지원 판매채널",
+    "API/Webhook/인증·읽기/쓰기 권한·동기화 주기·오류처리 방식",
+    "추천 ERP의 구축비·월비용·추가 연동비·커스터마이징·유지보수 비용",
+    "다매장·창고·실재고·위탁/자체재고·반품·재고이동·원가·고객·정산 지원 수준",
+    "데이터 이전·백업·반출 가능성, 데이터 소유권, 계약 종료 시 데이터 회수 조건",
+    "ERPNext·InvenTree 대비 운영 난이도·확장성·사방넷 연동 편의성의 실제 차이",
+    "최종 ERP 선정과 ERP-001 공식 기준 변경 여부는 관리자 결정 전 미정",
+    "실제 담당자·마감·예산은 관리자 결정 전 미정"
+  ],
+  "request_change_refs": [],
+  "current_requirements": {
+    "title": "사방넷 추천 ERP 상담·비교 검증 및 최종 ERP 선정 근거 마련",
+    "objective": "사방넷이 소개하는 연동형 ERP 업체를 상담하고 현재 후보 ERPNext·InvenTree와 실제 운영·연동·비용·데이터 통제 조건을 비교하여, 프리미엄멀티샵 최종 ERP 선정을 위한 검증 근거를 만든다.",
+    "source_facts": [
+      "대표님 보고 기준 사방넷 담당자와 통화를 완료했다.",
+      "대표님 보고 기준 사방넷은 ERP 자체가 아니라 상품 등을 판매채널과 연동·송신하는 기능 역할이라고 안내받았다.",
+      "대표님 보고 기준 사방넷 측이 사방넷 연동이 잘 갖춰진 ERP 회사를 소개하기로 했다.",
+      "대표님 방향은 ERP 연동 후 향후 여러 판매채널 운영 시 사방넷을 활용하는 것이다."
+    ],
+    "comparison_dimensions": [
+      "상품·SKU/옵션·실재고·다매장·창고",
+      "입고·출고·재고이동·반품·위탁/자체재고",
+      "주문·판매·고객·배송·원가·정산",
+      "사방넷 상품/재고/주문 연동 범위와 지원 채널",
+      "API/Webhook/인증·읽기/쓰기·동기화·오류복구",
+      "카페24·네이버 등 향후 판매채널 확장성",
+      "n8n 자동화 연계 가능성",
+      "구축/월/연동/커스터마이징/유지보수 총비용",
+      "데이터 이전·백업·반출·소유권·벤더 종속",
+      "운영 난이도·교육·지원·유지관리"
+    ],
+    "candidate_set": {
+      "official_current_candidates": [
+        "ERPNext",
+        "InvenTree"
+      ],
+      "additional_candidate": "사방넷 소개 ERP — 업체/제품명 상담 전 미확인",
+      "selection_rule": "상담·근거 비교 후 관리자 결정. 제3 ERP 최종 채택은 필요 시 ERP-001 공식 기준 변경을 별도 결의."
+    },
+    "relationship_to_existing_work": {
+      "work_id": "W-20260827-002",
+      "work_title": "ERP/API 연동",
+      "connection": "기존 다음 행동인 ERP 선택·API 범위·공통 데이터 계약의 검증 자료로 연결",
+      "duplicate_work_rule": "동일 목적 신규 ERP/API W를 만들지 않고 기존 W 연결을 우선 검토"
+    },
+    "deliverables_if_adopted": [
+      "사방넷 추천 ERP 상담 확인사항 및 근거",
+      "추천 ERP 기능·연동·비용·데이터 통제 조건표",
+      "ERPNext·InvenTree·추천 ERP 비교표",
+      "프리미엄멀티샵 적합/부적합 판단과 이유",
+      "최종 ERP 선정 전 미확인 사항·리스크·추가 질문 목록",
+      "관리자 결정이 필요한 최종 후보/기준 변경 여부"
+    ],
+    "excluded_from_current_request": [
+      "특정 ERP 최종 선정·계약",
+      "ERP-001 공식 기준 자동 변경",
+      "비용 지출",
+      "실제 사방넷/ERP 계정 연결·데이터 이전·개발·배포",
+      "기존 miracle_erp/miracle_n8n 구현 변경",
+      "R-20260915-001 재고 실사·반품 업무의 자동 실행"
+    ]
+  },
+  "public_summary": {
+    "title": "사방넷 추천 ERP 상담·비교 검증 및 최종 ERP 선정 근거 마련",
+    "latest_update": "대표님이 사방넷 담당자 통화 결과를 근거로 사방넷 추천 ERP 업체 상담, 기존 ERP 후보 비교, 사방넷 연동·데이터 흐름 검증 및 최종 ERP 선정 근거 마련을 요청; 관리자 결정 대기",
+    "next_action": "관리자 업무결정 후 기존 W-20260827-002에 연결하여 상담·비교 검증 범위와 담당을 확정",
+    "blockers": [
+      "현재 관리자 업무채택 결정 전",
+      "사방넷 추천 ERP 업체명·제품·비용·연동 범위 미확인",
+      "ERPNext·InvenTree 대비 기능·API·데이터 이전/소유권·유지관리 비교 미완료"
+    ]
+  },
+  "source_event_id": null,
+  "source_fingerprint": "9b26f0b1b1cfdcdba0d41ccfac5397c867f15fdb70d6fb8d549b8f5b4071fae8",
+  "original_source_path": null,
+  "original_source_sha256": null
+}
