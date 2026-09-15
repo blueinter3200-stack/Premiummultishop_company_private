@@ -4,20 +4,42 @@
   "audience": "all_registered_company_roles",
   "default_scope": "company_all",
   "freshness": "recorded_snapshot_not_live_external_verification",
-  "records_latest_at": "2026-09-11T15:49:00+09:00",
-  "projection_basis": "current main preserving existing recorded work plus R-20260909-001 pending Meta security/business portfolio/pixel request, R-20260909-002 r3 submitted low-cost/high-turnover business-model validation with purchase-conversion diagnostic priority and Suwon/Daegu/Gwangju Kakao customer-asset integration, R-20260911-001 handoff-record continuity request, R-20260911-002 Instagram official-account legal-status verification request, and existing plan submissions; recorded snapshot only",
+  "records_latest_at": "2026-09-15T09:03:00+09:00",
+  "projection_basis": "current main preserving existing recorded work plus R-20260909-001 pending Meta security/business portfolio/pixel request, R-20260909-002 r3 submitted low-cost/high-turnover business-model validation with purchase-conversion diagnostic priority and Suwon/Daegu/Gwangju Kakao customer-asset integration, R-20260911-001 handoff-record continuity request, R-20260911-002 Instagram official-account legal-status verification request, and existing plan submissions; recorded snapshot only, plus R-20260915-001 pending urgent inventory cash-recovery request covering consignment returns, owned-stock physical verification, Sabanet/Bizem reconciliation and sell-through linkage",
   "counts": {
-    "total": 17,
+    "total": 18,
     "by_stage": {
       "planning": 2,
       "completed": 4,
       "verification_pending": 1,
       "follow_up_install": 1,
       "legacy_recheck": 5,
-      "approval_pending": 4
+      "approval_pending": 5
     }
   },
   "items": [
+    {
+      "entry_id": "R-20260915-001",
+      "request_id": "R-20260915-001",
+      "title": "재고 현금화 긴급 정비 — 위탁재고 반품·자체 실재고 확정·사방넷/비젬 대조·판매소진 연계",
+      "requester_actor_id": "ACT-002",
+      "current_stage": "approval_pending",
+      "request_decision_status": "pending",
+      "assignment_status": "unassigned",
+      "latest_update": "대표님이 매출·현금회수 우선으로 위탁재고 반품, 자체 실재고 확정, 사방넷·비젬 대조, 판매소진 연계를 업무요청으로 제출; 관리자 업무채택 결정 대기",
+      "next_action": "관리자 업무결정 후 담당·계획 범위 확정",
+      "blockers": [
+        "현재 관리자 업무채택 결정 전",
+        "위탁업체별 소유·수량·반품/정산 조건과 자체 실재고의 실제 수량 미확인",
+        "사방넷·비젬의 최신 재고 데이터 기준·접근 범위·SKU 매핑 상태 미확인"
+      ],
+      "related_repositories": [],
+      "implementation_snapshots": [],
+      "updated_at": "2026-09-15T09:03:00+09:00",
+      "source_refs": [
+        "records/requests/ACT-002/R-20260915-001.json"
+      ]
+    },
     {
       "entry_id": "R-20260911-002",
       "request_id": "R-20260911-002",
@@ -35,7 +57,9 @@
       "related_repositories": [],
       "implementation_snapshots": [],
       "updated_at": "2026-09-11T15:49:00+09:00",
-      "source_refs": ["records/requests/ACT-002/R-20260911-002.json"]
+      "source_refs": [
+        "records/requests/ACT-002/R-20260911-002.json"
+      ]
     },
     {
       "entry_id": "R-20260911-001",
@@ -54,7 +78,9 @@
       "related_repositories": [],
       "implementation_snapshots": [],
       "updated_at": "2026-09-11T15:49:00+09:00",
-      "source_refs": ["records/requests/ACT-002/R-20260911-001.json"]
+      "source_refs": [
+        "records/requests/ACT-002/R-20260911-001.json"
+      ]
     },
     {
       "entry_id": "R-20260909-002",
@@ -76,7 +102,9 @@
       "related_repositories": [],
       "implementation_snapshots": [],
       "updated_at": "2026-09-11T15:48:00+09:00",
-      "source_refs": ["records/requests/ACT-002/R-20260909-002.json"]
+      "source_refs": [
+        "records/requests/ACT-002/R-20260909-002.json"
+      ]
     },
     {
       "entry_id": "R-20260909-001",
@@ -95,7 +123,9 @@
       "related_repositories": [],
       "implementation_snapshots": [],
       "updated_at": "2026-09-09T09:46:27+09:00",
-      "source_refs": ["records/requests/ACT-003/R-20260909-001.json"]
+      "source_refs": [
+        "records/requests/ACT-003/R-20260909-001.json"
+      ]
     },
     {
       "entry_id": "W-20260908-001",
@@ -310,10 +340,11 @@
     "records/requests/ACT-001/R-20260907-002.json",
     "records/requests/ACT-001/R-20260907-003.json",
     "records/requests/ACT-001/R-20260908-001.json",
-    "records/requests/ACT-003/R-20260909-001.json",
     "records/requests/ACT-002/R-20260909-002.json",
     "records/requests/ACT-002/R-20260911-001.json",
     "records/requests/ACT-002/R-20260911-002.json",
+    "records/requests/ACT-002/R-20260915-001.json",
+    "records/requests/ACT-003/R-20260909-001.json",
     "records/submissions/SUB-R-20260907-002-001-r1.json",
     "records/submissions/SUB-R-20260908-001-001-r1.json",
     "work/assignments/ASG-20260908-001.json",
@@ -323,5 +354,5 @@
     "work/items/W-20260907-003.json",
     "work/items/W-20260908-001.json"
   ],
-  "map_checksum": "6e1b1b99a85b453b3b6eb999d1a4f7bb240b55146a538ef740c17dff2bf9c444"
+  "map_checksum": "d977befefb74727a3ab92f2376b63ffcb690a7708eaf2e5e56b9b392fa14e8e7"
 }

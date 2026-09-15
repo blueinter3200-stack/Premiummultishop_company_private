@@ -58,6 +58,20 @@
       "decision_id": null,
       "reason": null,
       "decision_ref": null
+    },
+    {
+      "target_type": "request",
+      "target_id": "R-20260915-001",
+      "target_revision": 1,
+      "path": "records/requests/ACT-002/R-20260915-001.json",
+      "scope_key": "work_adoption",
+      "author_actor_id": "ACT-002",
+      "requester_actor_id": "ACT-002",
+      "title": "재고 현금화 긴급 정비 — 위탁재고 반품·자체 실재고 확정·사방넷/비젬 대조·판매소진 연계",
+      "status": "pending",
+      "decision_id": null,
+      "reason": null,
+      "decision_ref": null
     }
   ]
 }
