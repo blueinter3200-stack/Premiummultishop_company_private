@@ -72,6 +72,20 @@
       "decision_id": null,
       "reason": null,
       "decision_ref": null
+    },
+    {
+      "target_type": "request",
+      "target_id": "R-20260915-002",
+      "target_revision": 1,
+      "path": "records/requests/ACT-002/R-20260915-002.json",
+      "scope_key": "work_adoption",
+      "author_actor_id": "ACT-002",
+      "requester_actor_id": "ACT-002",
+      "title": "이한인 상무 매장·재고 운영 책임 참여자 등록 및 ChatGPT 업무공간 구축",
+      "status": "pending",
+      "decision_id": null,
+      "reason": null,
+      "decision_ref": null
     }
   ]
 }

@@ -4,20 +4,42 @@
   "audience": "all_registered_company_roles",
   "default_scope": "company_all",
   "freshness": "recorded_snapshot_not_live_external_verification",
-  "records_latest_at": "2026-09-15T09:03:00+09:00",
-  "projection_basis": "current main preserving existing recorded work plus R-20260909-001 pending Meta security/business portfolio/pixel request, R-20260909-002 r3 submitted low-cost/high-turnover business-model validation with purchase-conversion diagnostic priority and Suwon/Daegu/Gwangju Kakao customer-asset integration, R-20260911-001 handoff-record continuity request, R-20260911-002 Instagram official-account legal-status verification request, and existing plan submissions; recorded snapshot only, plus R-20260915-001 pending urgent inventory cash-recovery request covering consignment returns, owned-stock physical verification, Sabanet/Bizem reconciliation and sell-through linkage",
+  "records_latest_at": "2026-09-15T11:39:00+09:00",
+  "projection_basis": "current main preserving existing recorded work plus R-20260909-001 pending Meta security/business portfolio/pixel request, R-20260909-002 r3 submitted low-cost/high-turnover business-model validation with purchase-conversion diagnostic priority and Suwon/Daegu/Gwangju Kakao customer-asset integration, R-20260911-001 handoff-record continuity request, R-20260911-002 Instagram official-account legal-status verification request, and existing plan submissions; recorded snapshot only, plus R-20260915-001 pending urgent inventory cash-recovery request covering consignment returns, owned-stock physical verification, Sabanet/Bizem reconciliation and sell-through linkage, plus R-20260915-002 pending Lee Han-in store/inventory operations participant onboarding and ChatGPT workspace request",
   "counts": {
-    "total": 18,
+    "total": 19,
     "by_stage": {
       "planning": 2,
       "completed": 4,
       "verification_pending": 1,
       "follow_up_install": 1,
       "legacy_recheck": 5,
-      "approval_pending": 5
+      "approval_pending": 6
     }
   },
   "items": [
+    {
+      "entry_id": "R-20260915-002",
+      "request_id": "R-20260915-002",
+      "title": "이한인 상무 매장·재고 운영 책임 참여자 등록 및 ChatGPT 업무공간 구축",
+      "requester_actor_id": "ACT-002",
+      "current_stage": "approval_pending",
+      "request_decision_status": "pending",
+      "assignment_status": "unassigned",
+      "latest_update": "대표님이 이한인 상무를 매장·재고 운영 책임 참여자로 회사 업무에 참여시키고 전용 ChatGPT 업무공간에서 진행·현장확인·컨펌 상태를 확인할 수 있게 하는 요청을 제출; 관리자 결정 대기",
+      "next_action": "관리자 업무결정 후 참여자 등록 방식·권한 범위·업무공간·관련 재고업무 참여 여부 확정",
+      "blockers": [
+        "현재 관리자 업무채택 결정 전",
+        "신규 ACT-ID 발급 또는 일반 직원 체계 연결 방식과 공식 role/명령 권한 미확정",
+        "실제 ChatGPT 프로젝트/계정 초대·접근제어 구현 가능 범위 미확인"
+      ],
+      "related_repositories": [],
+      "implementation_snapshots": [],
+      "updated_at": "2026-09-15T11:39:00+09:00",
+      "source_refs": [
+        "records/requests/ACT-002/R-20260915-002.json"
+      ]
+    },
     {
       "entry_id": "R-20260915-001",
       "request_id": "R-20260915-001",
@@ -344,6 +366,7 @@
     "records/requests/ACT-002/R-20260911-001.json",
     "records/requests/ACT-002/R-20260911-002.json",
     "records/requests/ACT-002/R-20260915-001.json",
+    "records/requests/ACT-002/R-20260915-002.json",
     "records/requests/ACT-003/R-20260909-001.json",
     "records/submissions/SUB-R-20260907-002-001-r1.json",
     "records/submissions/SUB-R-20260908-001-001-r1.json",
@@ -354,5 +377,5 @@
     "work/items/W-20260907-003.json",
     "work/items/W-20260908-001.json"
   ],
-  "map_checksum": "d977befefb74727a3ab92f2376b63ffcb690a7708eaf2e5e56b9b392fa14e8e7"
+  "map_checksum": "a277a8a4b70cc78c88ed32b7669d57ee72df603a5121fb177c3bea9b4f0b2ebd"
 }
