@@ -100,6 +100,20 @@
       "decision_id": null,
       "reason": null,
       "decision_ref": null
+    },
+    {
+      "target_type": "request",
+      "target_id": "R-20260929-001",
+      "target_revision": 1,
+      "path": "records/requests/ACT-002/R-20260929-001.json",
+      "scope_key": "work_adoption",
+      "author_actor_id": "ACT-002",
+      "requester_actor_id": "ACT-002",
+      "title": "Google Merchant Center YouTube 제휴 캠페인 크리에이터 직접 초대 판매 채널 검증",
+      "status": "pending",
+      "decision_id": null,
+      "reason": null,
+      "decision_ref": null
     }
   ]
 }
