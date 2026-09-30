@@ -114,6 +114,20 @@
       "decision_id": null,
       "reason": null,
       "decision_ref": null
+    },
+    {
+      "target_type": "request",
+      "target_id": "R-20260930-001",
+      "target_revision": 1,
+      "path": "records/requests/ACT-002/R-20260930-001.json",
+      "scope_key": "work_adoption",
+      "author_actor_id": "ACT-002",
+      "requester_actor_id": "ACT-002",
+      "title": "크리에이터·셀러 성과형 판매 통합 운영체계 및 신규 직원 업무 적용",
+      "status": "pending",
+      "decision_id": null,
+      "reason": null,
+      "decision_ref": null
     }
   ]
 }
