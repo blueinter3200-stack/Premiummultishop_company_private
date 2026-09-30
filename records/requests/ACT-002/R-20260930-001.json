@@ -1,0 +1,74 @@
+{
+  "schema_version": 4,
+  "object_type": "request",
+  "request_id": "R-20260930-001",
+  "revision": 1,
+  "content_revision": 1,
+  "requester_actor_id": "ACT-002",
+  "recorded_by_actor_id": "ACT-002",
+  "record_owner_actor_id": "ACT-002",
+  "submitted_by_actor_id": "ACT-002",
+  "requester_role_at_capture": "representative",
+  "source_type": "direct_conversation",
+  "source_verification": "representative-reported current setup; external account state not independently verified",
+  "source_locator": "ChatGPT project conversation 2026-09-30",
+  "original_text": "YouTube·네이버·자사몰 연동 기반으로 크리에이터/셀러 모집, 상품 매칭, 판매링크 제공, 판매 추적, 취소·반품 반영, 수익 정산, 실제 기여이익 분석, 성과 좋은 파트너 확대까지 신규 직원이 반복 운영할 수 있는 체계를 회사 업무에 적용 요청. /업무요청",
+  "source_created_at": "2026-09-30T16:32:00+09:00",
+  "captured_at": "2026-09-30T16:32:00+09:00",
+  "classification": "work",
+  "scope": [
+    "신규 직원용 크리에이터·셀러 성과형 판매 운영체계 구축",
+    "판매 가능 재고와 상품 수익성 확인 후 상품별 적합 파트너 발굴·모집 절차 수립",
+    "승인된 판매조건과 추적 가능한 링크를 이용한 YouTube·네이버·자사몰 판매 운영 절차 수립",
+    "상품-파트너-판매링크-콘텐츠-주문-취소/반품-확정매출-정산-기여이익 추적 기준 수립",
+    "파트너별 실제 판매성과와 기여이익에 따른 테스트·유지·확대 운영체계 수립",
+    "신규 직원 교육 가이드·일일 체크리스트·모집/제안 방식·상품/파트너 관리·판매/정산 관리·주간 성과보고 체계를 업무계획 후보에 포함",
+    "기존 Google/YouTube 제휴 및 재고 현금화·구매전환 관련 요청과 연결하되 기존 승인·배정·범위를 자동 변경하지 않음"
+  ],
+  "conditions": [
+    "대표님은 YouTube와 네이버 연동 및 관련 설정을 완료했다고 보고했으나 외부 계정 상태는 독립 검증하지 않음",
+    "담당·마감·예산·수수료율·할인율·매출 목표는 관리자 결정과 수익성 확인 전 임의 확정하지 않음",
+    "직원이 임의로 수수료·할인·비용성 혜택을 약속하지 않도록 승인 경계를 포함",
+    "판매건수뿐 아니라 취소·반품·원가·플랫폼/결제/배송/정산 비용을 반영한 기여이익을 성과 판단에 포함",
+    "이번 제출은 실제 채용·배정·파트너 계약/모집 실행·상품/가격 변경·게시·지출 승인이 아님"
+  ],
+  "request_status": "submitted",
+  "submission_status": "submitted",
+  "primary_scope": "work_adoption",
+  "requested_scopes": [
+    "work_adoption"
+  ],
+  "review_snapshot": {
+    "result": "PASS",
+    "reviewed_at": "2026-09-30T16:32:00+09:00",
+    "basis": "latest main company standards and current ACT-002 request/decision/status views",
+    "evidence_refs": [
+      "R-20260929-001",
+      "R-20260915-001",
+      "R-20260909-002"
+    ],
+    "notes": "기존 채널별 검증보다 범위가 넓은 통합 운영체계 및 신규 직원 업무적용 요청. 외부 연동 완료는 대표 보고 사실로 보존."
+  },
+  "related_work_ids": [],
+  "related_idea_ids": [],
+  "related_problem_ids": [],
+  "related_decision_ids": [],
+  "submission_refs": [],
+  "supersedes": null,
+  "unknowns": [
+    "YouTube·네이버 계정 연동/활성 상태와 운영 권한의 독립 검증",
+    "자사몰 판매링크별 추적 및 주문 귀속 기준",
+    "상품별 허용 수수료·할인 범위와 기여이익 기준",
+    "취소·반품 후 확정매출 및 파트너 정산 규칙",
+    "신규 직원의 실제 담당 범위·권한·업무배정"
+  ],
+  "request_change_refs": [],
+  "current_requirements": {
+    "objective": "크리에이터·셀러를 외부 판매 파트너로 모집해 상품·판매링크·주문·정산·기여이익을 연결하고 신규 직원이 반복 운영할 수 있는 성과형 판매 시스템을 회사 업무에 적용"
+  },
+  "public_summary": "YouTube·네이버·자사몰 연계 크리에이터/셀러 성과형 판매 운영체계 및 신규 직원 실행 가이드 업무 적용 요청",
+  "source_event_id": null,
+  "source_fingerprint": null,
+  "original_source_path": null,
+  "original_source_sha256": null
+}
